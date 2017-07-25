@@ -5,8 +5,9 @@
   <meta charset="utf-8">
 
   <title>30 Days of Malayalam Letters</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
+  <meta name="description" content="">
+  <meta name="author" content="Kerala Designers Collaborative">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/grid12.css">
@@ -24,33 +25,92 @@
   		<a class="logo-container">
   			<img src="img/kdco-logo.png">
   		</a>
+  		<div class="navbar-links-container">
+  			<a href="" class="navbar-link-item"><img src="img/instagram-icon.png"></a>
+  			<a href="" class="navbar-link-item"><img src="img/facebook-icon.png"></a>
+  			<a href="" class="navbar-link-item"><img src="img/twitter-icon.png"></a>
+  		</div>
   	</div>
   	<div class="center">
   		<h1 class="main-header">#30DaysOfMalayalamLetters</h1>
   		<h3 class="sub-header">1st to 31st August 2017</h4>
   	</div>
   </div>
-  <div id="instagram-feed">
+  <div id="instagram">
   	
   </div>
   <div class="container container-960">
   	<div class="row">
   		<div class="col-md-6">
   			<div class="info-section">
-  				<h4 class="info-section-header">About</h5>
+  				<h4 class="info-section-header">About</h4>
   				<p class="info-section-desc">Welcome to #30DaysOfMalayalamLetters. This project invites Designers, Illustrators and Graphic Artists to unleash their creative potential by expressing their particular view on Malayalam alphabets. The primary goal is to challenge the design community to recreate entire alphabet from a new perspective.</p>
+  				<a class="info-section-link">Rules and Resources<img src="img/ic_arrow_forward_black_24px.svg"></a>
   			</div>
   		</div>
   		<div class="col-md-1"></div>
   		<div class="col-md-5">
   			<div class="info-section">
-  				<h4 class="info-section-header">KD.Co</h5>
-  				<p class="info-section-desc">Kerala Designers Collaborative (or KDCo, as we like to call it) is a collective of Malayali designers, illustrators, graphic artists and other creative professionals. More than a discussion forum, this provides a platform for designers to gain constructive feedback on their work, and be up-to-date with industry standards and trends. #30DaysOfMalayalamLettering is the very first undertaking by KDCo inviting a crowdsourced participation.</p>
+  				<h4 class="info-section-header">KD.Co</h4>
+  				<p class="info-section-desc">Kerala Designers Collaborative (or KDCo, as we like to call it) is a collective of Malayali designers, illustrators, graphic artists and other creative professionals. More than a discussion forum, this provides a platform for designers to gain constructive feedback on their work, and be up-to-date with industry standards and trends. #30DaysOfMalayalamLetters is the very first undertaking by KDCo inviting a crowdsourced participation.</p>
+  			</div>
+  		</div>
+  	</div>
+  	<div class="footer">
+  		<div class="row">
+  			<div class="col-md-12 center">
+  				<img src="img/kdco-logo.png">
+  				<p class="footer-desc">An initiative by Kerala Designers Collaborative</p>
   			</div>
   		</div>
   	</div>
   </div>
   
-  <script src="js/scripts.js"></script>
+  <script src="js/instafeed.min.js"></script>
+  <script type="text/javascript">
+
+  var num = 2*(Math.trunc(window.innerWidth/210));
+
+  console.log(num);
+
+  	var feed_desktop = new Instafeed({
+			get: 'user',
+			userId: 94764,
+			accessToken: '94764.1677ed0.c6256a27eddf41709ddf29af3469a4e5',
+			target: 'instagram',
+			resolution: 'thumbnail',
+			limit: num,
+			after: function() {
+				var el = document.getElementById('instagram');
+				if (el.classList)
+					el.classList.add('show');
+				else
+					el.className += ' ' + 'show';
+			}
+	});
+
+	var feed_mobile = new Instafeed({
+			get: 'user',
+			userId: 94764,
+			accessToken: '94764.1677ed0.c6256a27eddf41709ddf29af3469a4e5',
+			target: 'instagram',
+			resolution: 'thumbnail',
+			limit: 10,
+			after: function() {
+				var el = document.getElementById('instagram');
+				if (el.classList)
+					el.classList.add('show');
+				else
+					el.className += ' ' + 'show';
+			}
+	});
+	
+	if(window.innerWidth > 1024){
+		feed_desktop.run();
+	} else {
+		feed_mobile.run();
+	}
+
+  </script>
 </body>
 </html>
