@@ -1,6 +1,7 @@
 body{
 	font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
 	background: #fff;
+	font-size: 16px;
 }
 
 .logo-container{
@@ -19,7 +20,7 @@ body{
 	fill:rgba(0,0,0,.8);
 }
 .main-logo .b{
-	fill:rgba(0,0,0,.6);
+	fill:rgba(0,0,0,.4);
 }
 
 
@@ -55,13 +56,16 @@ a{
 	margin: 0 auto;
 }
 .main-header{
-	font-size: 48px;
+	font-size: 4rem;
 	color: #333;
 	margin: 40px 0px 20px 0px;
-	letter-spacing: 1px;
+	letter-spacing: -.03em;
+}
+.main-header .hash{
+	opacity: .3;
 }
 .sub-header{
-	font-size: 24px;
+	font-size: 2.2rem;
 	color: #333;
 	font-weight: 300;
 	margin: 0px 0px 20px 0px;
@@ -74,30 +78,39 @@ a{
 	margin: 50px 0px;
 }
 .info-section-header{
-	font-size: 24px;
+	font-size: 1.6rem;
 	color: #333;
 	margin: 20px 0px 25px 0px;
-	letter-spacing: 2px;
 }
 .info-section-desc{
-	font-size: 18px;
+	font-size: 1rem;
+	-webkit-font-smoothing: antialiased;
 	color: #666;
 	line-height: 1.6;
 	margin: 0px 0px 0px 0px;
-	font-weight: 300;
+	font-weight: normal;
 }
 #instagram{
 	width: 100%;
 	text-align: center;
-	margin: 80px auto 50px auto;
+	margin: 100px auto 50px auto;
+}
+#instagram a{
+	display: inline-block;
+	overflow: hidden;
+	margin: 7px;
 }
 #instagram a img{
-	margin: 7px;
-	width: 200px;
-	border-radius: 4px;
+	width: 300px;
+	-ms-transform: scale(1);
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	transition: all 0.2s ease-in;
 }
 #instagram a img:hover{
-	opacity: 0.75;
+	-ms-transform: scale(1.05); /* IE 9 */
+    -webkit-transform: scale(1.05); /* Chrome, Safari, Opera */
+    transform: scale(1.05);
 }
 .footer{
 	padding: 60px 0px 80px 0px;
@@ -121,10 +134,17 @@ a{
 	padding: 0px 10px;
 }
 .info-section-link{
-	display: block;
+	display: inline-block;
 	margin: 25px 0px;
-	color: #FF923F;
-	font-size: 18px;
+	color: #000;
+	font-size: 1.1rem;
+	line-height: 1.4;
+	font-weight: bold;
+	border-bottom: 2px solid #ddd;
+}
+
+.info-section-link:hover{
+	border-bottom-color: #999;
 }
 .info-section-link img{
 	position: relative;
@@ -154,7 +174,7 @@ a{
 		margin: 30px 0px;
 	}
 	.main-header{
-		font-size: 24px;
+		font-size: 1.3rem;
 		letter-spacing: 0px;
 	}
 	.sub-header{
@@ -180,7 +200,7 @@ a{
 		font-size: 16px;
 	}
 	.info-section-header {
-    	font-size: 21px;
+    	font-size: 1.2rem;
     	letter-spacing: 0px;
 	}
 	.info-section-link {
