@@ -5,11 +5,11 @@ html, body{
 }
 
 .logo-container{
-	opacity: 1;
+	opacity: .5;
 }
 
 .logo-container:hover{
-	opacity: .7;
+	opacity: 1;
 }
 .logo-container .main-logo{
 	width:110px;
@@ -20,7 +20,7 @@ html, body{
 	fill:rgba(0,0,0,.8);
 }
 .main-logo .b{
-	fill:rgba(0,0,0,.4);
+	fill:rgba(0,0,0,.5);
 }
 
 
@@ -52,8 +52,8 @@ a{
 }
 
 .site-header{
-	max-width: 95%;
 	margin: 0 auto;
+	padding: 0 15px;
 }
 .main-header{
 	font-size: 4rem;
@@ -122,6 +122,7 @@ a{
 	left: 0px;
 }
 #instagram{
+	line-height: 0;
 	width: 100%;
 	text-align: center;
 	margin: 100px auto 50px auto;
@@ -145,14 +146,22 @@ a{
     -webkit-transform: scale(1.05); /* Chrome, Safari, Opera */
     transform: scale(1.05);
 }
+
+
 .footer{
-	padding: 60px 0px 80px 0px;
+	padding: 30px 0px 80px 0px;
+}
+
+.footer .kdco-logomark{
+	width: 50px;
+	height: auto;
+	opacity: .16;
 }
 .footer-desc{
-	font-size: 16px;
+	font-size: 14px;
 	color: #999;
 	font-weight: 300;
-	margin: 20px 0px 0px 0px;
+	margin: 10px 0px 0px 0px;
 	line-height: 1.6;
 }
 .navbar-links-container{
