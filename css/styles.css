@@ -1,10 +1,13 @@
 body{
-	font: 'Helvetica', sans-serif;
+	font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
 	background: #fff;
 }
 .nav{
 	background: #fff;
-	height: 100px;
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 .center{
 	text-align: center;
@@ -12,4 +15,36 @@ body{
 .container-960{
 	width: 960px;
 	margin: 0 auto;
+}
+.main-header{
+	font-size: 48px;
+	color: #333;
+	margin: 40px 0px 20px 0px;
+	letter-spacing: 1px;
+}
+.sub-header{
+	font-size: 24px;
+	color: #333;
+	font-weight: 300;
+	margin: 0px 0px 20px 0px;
+}
+.logo-container img{
+
+}
+.info-section{
+	text-align: left;
+	margin: 50px 0px;
+}
+.info-section-header{
+	font-size: 24px;
+	color: #333;
+	margin: 20px 0px 25px 0px;
+	letter-spacing: 2px;
+}
+.info-section-desc{
+	font-size: 18px;
+	color: #666;
+	line-height: 1.6;
+	margin: 0px 0px 0px 0px;
+	font-weight: 300;
 }
