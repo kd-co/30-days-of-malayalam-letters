@@ -11,6 +11,7 @@
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/grid12.css">
   <link rel="stylesheet" href="css/styles.css">
 
@@ -30,11 +31,20 @@
   			<a href="" class="navbar-link-item"><img src="img/instagram-icon.png"></a>
   			<a href="" class="navbar-link-item"><img src="img/facebook-icon.png"></a>
   			<a href="" class="navbar-link-item"><img src="img/twitter-icon.png"></a>
+  			<span class="dropdown">
+                <a href="#" class="dropdown-toggle navbar-link-item lang-switch-btn" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">English<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="switch-lang" data-target="en">English</a></li>
+                    <li><a class="switch-lang" data-target="ml">മലയാളം</a></li>
+                </ul>
+            </span>
   		</div>
   	</div>
   	<div class="center">
   		<h1 class="main-header">#30DaysOfMalayalamLetters</h1>
-  		<h3 class="sub-header">1st to 31st August 2017</h4>
+  		<h3 class="sub-header" data-lang="en">1st to 31st August 2017</h3>
+  		<h3 class="sub-header" data-lang="ml">2017 ആഗസ്ററ് 1 മുതൽ 31 വരെ</h3>
   	</div>
   </div>
   <div id="instagram">
@@ -44,16 +54,22 @@
   	<div class="row">
   		<div class="col-md-6">
   			<div class="info-section">
-  				<h4 class="info-section-header">About</h4>
-  				<p class="info-section-desc">Welcome to #30DaysOfMalayalamLetters. This project invites Designers, Illustrators and Graphic Artists to unleash their creative potential by expressing their particular view on Malayalam alphabets. The primary goal is to challenge the design community to recreate entire alphabet from a new perspective.</p>
-  				<a class="info-section-link">Rules and Resources<img src="img/ic_arrow_forward_black_24px.svg"></a>
+  				<h4 class="info-section-header" data-lang="en">About</h4>
+  				<h4 class="info-section-header" data-lang="ml">എന്താണീ പ്രോജക്ട്?</h4>
+  				<p class="info-section-desc" data-lang="en">Welcome to #30DaysOfMalayalamLetters. This project invites Designers, Illustrators and Graphic Artists to unleash their creative potential by expressing their particular view on Malayalam alphabets. The primary goal is to challenge the design community to recreate entire alphabet from a new perspective.</p>
+  				<p class="info-section-desc" data-lang="ml">#30DaysOfMalayalamLetters എന്ന പ്രൊജക്റ്റിലേക്ക് സ്വാഗതം. മലയാള അക്ഷരങ്ങളെ പല രീതിയിൽ വരക്കാനും സൃഷ്ടിക്കാനും ശ്രമിക്കുന്നതാണ് പ്രൊജക്റ്റ്.</p>
+  				<a class="info-section-link" data-lang="en" href="#details-modal" rel="leanModal">Rules and Resources<img src="img/ic_arrow_forward_black_24px.svg"></a>
+  				<a class="info-section-link" data-lang="ml" href="#details-modal" rel="leanModal">നിർദേശങ്ങൾ വായിക്കാം<img src="img/ic_arrow_forward_black_24px.svg"></a>
+
   			</div>
   		</div>
   		<div class="col-md-1"></div>
   		<div class="col-md-5">
   			<div class="info-section">
-  				<h4 class="info-section-header">KD.Co</h4>
-  				<p class="info-section-desc">Kerala Designers Collaborative (or KDCo, as we like to call it) is a collective of Malayali designers, illustrators, graphic artists and other creative professionals. More than a discussion forum, this provides a platform for designers to gain constructive feedback on their work, and be up-to-date with industry standards and trends. #30DaysOfMalayalamLetters is the very first undertaking by KDCo inviting a crowdsourced participation.</p>
+  				<h4 class="info-section-header" data-lang="en">KD.Co</h4>
+  				<h4 class="info-section-header" data-lang="ml">കെഡി.കോ-യെ കുറിച്ച്</h4>
+  				<p class="info-section-desc" data-lang="en">Kerala Designers Collaborative (or KDCo, as we like to call it) is a collective of Malayali designers, illustrators, graphic artists and other creative professionals. More than a discussion forum, this provides a platform for designers to gain constructive feedback on their work, and be up-to-date with industry standards and trends. #30DaysOfMalayalamLetters is the very first undertaking by KDCo inviting a crowdsourced participation.</p>
+  				<p class="info-section-desc" data-lang="ml">കെഡി.കോ അഥവാ കേരള ഡിസൈനേഴ്സ് കൊളാബറേറ്റീവ് മലയാളികളായ ഡിസൈനർമാർക്ക് സംവേദിക്കാനും, പരിചയപ്പെടാനും, ആശയങ്ങൾ ഷെയർ ചെയ്യാനുമുള്ള ഒരു ഫേസ്ബുക് കൂട്ടായ്മയാണ്.</p>
   			</div>
   		</div>
   	</div>
@@ -61,25 +77,103 @@
   		<div class="row">
   			<div class="col-md-12 center">
   				<img src="img/kdco-logo.png">
-  				<p class="footer-desc">An initiative by Kerala Designers Collaborative</p>
+  				<p class="footer-desc" data-lang="en">An initiative by Kerala Designers Collaborative</p>
+  				<p class="footer-desc" data-lang="ml">ഒരു കെഡി.കോ സംരംഭം</p>
   			</div>
   		</div>
   	</div>
   </div>
+
+
+<div id="generic-modal-window" class="modal fade" role="dialog">
+	<div class="modal-dialog generic-modal">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	        <div class="modal-header modal-header-grey">
+	            <button type="button" class="close" data-dismiss="modal">&times;</button>
+	            <h4 class="modal-title">Message</h4>
+	        </div>
+	        <div class="modal-body">
+	            <span class="tick-icon generic-modal-icon"><span class="exclamation-sign"
+	                                                             style="font-size:32px;font-weight: bold;">!</span></span>
+	            <p id="modal-message">Text here.</p>
+	            <a class="btn btn-login btn-main" data-dismiss="modal" style="padding:15px;">OK</a>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+
+<div id="details-modal" class="kdco-modal">
+	<div data-lang="en">
+		<h4 class="info-section-header" style="margin-top: 0px;"><img src="img/ic_arrow_back_black_24px.svg" class="modal-back-btn">Rules and Resources</h4>
+		<p class="info-section-list-item">
+			You are free to upload your work on any social media platform. Make sure you add the hashtag #30DaysOfMalayalamType.
+		</p>
+		<p class="info-section-list-item">
+			You are expected to work with individual Malayalam alphabets, not words.
+		</p>
+		<p class="info-section-list-item">
+			Try to follow square dimensions while preparing your works  (preferably 1000px * 1000px)
+		</p>
+		<p class="info-section-list-item">
+			Watermark KDCo logo on your work (you can get the logo here)
+		</p>
+		<p class="info-section-list-item">
+			Selected works would be uploaded and shared on the KDCo official social media handles.
+		</p>
+		<p class="info-section-list-item">
+			There is no specific order to be followed while choosing characters. You are the master here.
+		</p>
+		<p class="info-section-list-item">
+			Try not to create more than one work in following similar patters.
+		</p>
+		<a class="info-section-link" href="#details-modal" rel="leanModal">Download logo and sample template<img src="img/ic_arrow_forward_black_24px.svg"></a>
+	</div>
+	<div data-lang="ml">
+		<h4 class="info-section-header" style="margin-top: 0px;"><img src="img/ic_arrow_back_black_24px.svg" class="modal-back-btn">നിർദേശങ്ങൾ</h4>
+		<p class="info-section-list-item">
+			ചിത്രങ്ങൾ ഏത് സോഷ്യൽ മീഡിയയിൽ അപ്ലോഡ് ചെയ്യുമ്പോഴും #30DaysOfMalayalamLetters എന്ന ഹാഷ്ടാഗ് ഉപയോഗിക്കുക. 
+		</p>
+		<p class="info-section-list-item">
+			അക്ഷരങ്ങളാണ് സൃഷ്ടിക്കേണ്ടത്. വാക്കുകൾ അല്ല. വാക്കുകളും ആവാം, ഉദാ : ആ എന്ന് വരച്ച് അത് ആനയായി തോന്നിച്ചാൽ അത് കഴിവ്. പക്ഷെ ‘ആന’ എന്ന് എഴുതരുത്. 
+		</p>
+		<p class="info-section-list-item">
+			ചിത്രങ്ങൾ കഴിവതും ചതുരാകൃതിയിൽ അപ്ലൊഡ് ചെയ്യുക. 1000x1000
+		</p>
+		<p class="info-section-list-item">
+			ഡിസൈനിൽ KDCo ലോഗോ വാട്ടർമാർക്ക് ആയി ചേർക്കുക.
+		</p>
+		<p class="info-section-list-item">
+			അപ്ലോഡ് ചെയ്തവയിലെ മികച്ച വർക്കുകൾ ഇൻസ്റ്റാഗ്രാമിൽ ഒരു പുതിയ അകൗണ്ടിലേക്കും, ഫേസ്ബുക്കിൽ മഗ്രയുടെ പേജിലേക്കും അപ്ലോഡ് ചെയ്യും. 
+		</p>
+		<p class="info-section-list-item">
+			എല്ലാവരും ഒരേ അക്ഷരം തന്നെ ഒരു ദിവസം വരക്കണമെന്നില്ല. നിങ്ങൾക്ക് തോന്നുന്നവ വരക്കുക. 
+		</p>
+		<p class="info-section-list-item">
+			ഒരേ പാറ്റേർണിൽ ഒരുപാടെണ്ണം വരക്കാതെ ഇരിക്കാൻ ശ്രമിക്കുക
+		</p>
+		<a class="info-section-link" href="#details-modal" rel="leanModal">ലോഗോയും ടെംപ്ലേറ്റും ഡൌൺലോഡ് ചെയ്യാം<img src="img/ic_arrow_forward_black_24px.svg"></a>
+	</div>
+</div>
   
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
+  <script src="js/bootstrap.min.js"></script>
   <script src="js/instafeed.min.js"></script>
+  <script src="js/jquery.leanModal.min.js"></script>
   <script type="text/javascript">
 
-  var num = 2*(Math.trunc(window.innerWidth/210));
-
-  console.log(num);
+  	var num = 2*(Math.trunc(window.innerWidth/310));
 
   	var feed_desktop = new Instafeed({
 			get: 'user',
 			userId: 94764,
 			accessToken: '94764.1677ed0.c6256a27eddf41709ddf29af3469a4e5',
 			target: 'instagram',
-			resolution: 'thumbnail',
+			resolution: 'standard_resolution',
 			limit: num,
 			after: function() {
 				var el = document.getElementById('instagram');
@@ -95,7 +189,7 @@
 			userId: 94764,
 			accessToken: '94764.1677ed0.c6256a27eddf41709ddf29af3469a4e5',
 			target: 'instagram',
-			resolution: 'thumbnail',
+			resolution: 'low_resolution',
 			limit: 10,
 			after: function() {
 				var el = document.getElementById('instagram');
@@ -105,12 +199,38 @@
 					el.className += ' ' + 'show';
 			}
 	});
-	
-	if(window.innerWidth > 1024){
-		feed_desktop.run();
-	} else {
-		feed_mobile.run();
+
+	$(function() {
+		changeLanguage("en");
+		$('a[rel*=leanModal]').leanModal({ top : 50});	
+		if(window.innerWidth > 1024){
+			feed_desktop.run();
+		} else {
+			feed_mobile.run();
+		}	
+	});
+
+	function changeLanguage(lang){
+		if(lang === "en"){
+			console.log("English");
+			$('*[data-lang="ml"]').addClass("hide");
+			$('*[data-lang="en"]').removeClass("hide");
+			$(".lang-switch-btn").html("English<span class='caret'></span>");
+		} else {
+			console.log("മലയാളം");
+			$('*[data-lang="en"]').addClass("hide");
+			$('*[data-lang="ml"]').removeClass("hide");
+			$(".lang-switch-btn").html("മലയാളം<span class='caret'></span>");
+		}
 	}
+
+	$(".switch-lang").click(function(){
+		changeLanguage($(this).data("target"));
+	});
+
+	$(".modal-back-btn").click(function(){
+		$("#lean_overlay").trigger("click");
+	});
 
   </script>
 </body>
