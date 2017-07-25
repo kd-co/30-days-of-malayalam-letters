@@ -201,8 +201,9 @@ a{
 	display: none;
 }
 .dropdown-menu{
-	margin: 15px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 	right: 0px;
+	top: 0%;
 	left: auto;
 	border: 1px solid #ddd;
 	border: 1px solid rgba(0, 0, 0, .07);
@@ -255,6 +256,11 @@ a{
 	position: relative;
 	left: -8px;
 	cursor: pointer;
+}
+.follow-toolbox{
+	display: inline-block;
+	position: relative;
+	top: -14px;
 }
 
 @media(max-width: 800px){
