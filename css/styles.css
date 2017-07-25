@@ -23,8 +23,6 @@ html, body{
 	fill:rgba(0,0,0,.5);
 }
 
-
-
 a{
 	cursor: pointer;
 	text-decoration: none;
@@ -58,7 +56,7 @@ a{
 .main-header{
 	font-size: 4rem;
 	color: #333;
-	font-weight: 700;
+	font-weight: 500;
 	margin: 40px 0px 20px 0px;
 	letter-spacing: -.03em;
 }
@@ -66,7 +64,7 @@ a{
 	opacity: .3;
 }
 .sub-header{
-	font-size: 2.2rem;
+	font-size: 2rem;
 	color: #333;
 	font-weight: 300;
 	margin: 0px 0px 20px 0px;
@@ -79,10 +77,10 @@ a{
 	margin: 50px 0px;
 }
 .info-section-header{
-	font-size: 1.6rem;
+	font-size: 2rem;
 	color: #333;
-	margin: 20px 0px 25px 0px;
-	font-weight: 600;
+	margin: 20px 0px 20px 0px;
+	font-weight: 300;
 }
 .info-section-desc{
 	font-size: 1rem;
@@ -90,21 +88,23 @@ a{
 	color: #666;
 	line-height: 1.6;
 	margin: 0px 0px 0px 0px;
-	font-weight: normal;
+	font-weight: 400;
 }
+
 .info-section-list-item{
 	font-size: 16px;
 	color: #666;
 	line-height: 1.6;
-	margin: 0px 0px 20px 0px;
+	margin: 0px 0px 15px 0px;
 	font-weight: 300;
 	position: relative;
 	padding-left: 35px;
 }
+
 .info-section-list-item::before{
-	background: #FF923F;
-	height: 10px;
-	width: 10px;
+	background: #666;
+	height: 6px;
+	width: 6px;
 	border-radius: 1000px;
 	position: absolute;
 	top: 10px;
@@ -182,17 +182,36 @@ a{
 }
 .info-section-link{
 	display: inline-block;
-	margin: 25px 0px;
+	margin: 15px 0px;
 	color: #000;
 	font-size: 1.1rem;
 	line-height: 1.4;
-	font-weight: bold;
-	border-bottom: 2px solid #ddd;
+	font-weight: 500;
+	border-bottom: 1px solid #ccc;
 }
 
 .info-section-link:hover{
-	border-bottom-color: #999;
+	color: #666;
+	border-bottom-color: #000;
 }
+
+a.info-section-button-dark{
+		margin-top: 20px;
+		display: inline-block;
+		width: 100%;
+		font-size: 1.2rem;
+		text-align: center;
+		padding: 15px 30px;
+		color:rgba(255,255,255,.8);
+		font-weight: bold;
+		background: #333;
+		border-radius: 4px;
+}
+
+a.info-section-button-dark:hover{
+	background: #666;
+}
+
 .info-section-link img{
 	position: relative;
 	max-height: 18px;
@@ -251,15 +270,9 @@ a{
 	margin-left: auto;margin-right: auto;
 	top: 200px;
 	width: 600px;
-	padding: 30px;
+	padding: 50px 30px 30px 30px;
 	display: none;
 	background: #FFF;
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	box-shadow: 0px 10px 40px rgba(0,0,0,0.5);
-	-webkit-box-shadow: 0 10 40px rgba(0,0,0,0.5);
-	-moz-box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 .modal-back-btn{
 	margin-right: 10px;
@@ -280,22 +293,26 @@ a{
 		text-align: center;
 		margin: 30px auto;
 	}
+	#instagram a{
+		width: 45%;
+		margin: 1%;
+	}
 	#instagram a img{
-		margin: 5px;
-		width: 100px;
+		width: 100%;
+		max-width: 100%;
 	}
 	.info-section{
 		margin: 30px 0px;
 	}
 	.main-header{
-		font-size: 1.3rem;
-		letter-spacing: 0px;
+		font-size: 1.45rem;
+		letter-spacing: -.02em;
 	}
 	.sub-header{
-		font-size: 20px;
+		font-size: 1.4rem;
 	}
 	.nav{
-		padding: 25px 0px;
+		padding: 15px 0px;
 	}
 	.logo-container{
 		width: 50px;
@@ -314,13 +331,14 @@ a{
 		font-size: 16px;
 	}
 	.info-section-header {
-    	font-size: 1.2rem;
+    	font-size: 2rem;
     	letter-spacing: 0px;
 	}
 	.info-section-link {
 		font-size: 16px;
 		margin: 20px 0px;
 	}
+
 	.footer-desc{
 		font-size: 14px;
 	}
