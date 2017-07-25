@@ -125,6 +125,7 @@ a:hover{
 	}
 	.main-header{
 		font-size: 24px;
+		letter-spacing: 0px;
 	}
 	.sub-header{
 		font-size: 20px;
@@ -150,6 +151,7 @@ a:hover{
 	}
 	.info-section-header {
     	font-size: 21px;
+    	letter-spacing: 0px;
 	}
 	.info-section-link {
 		font-size: 16px;
