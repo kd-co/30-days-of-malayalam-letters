@@ -194,12 +194,18 @@ button:hover{
 	float: right;
 	padding: 20px 0px;
 	position: relative;
+	font-weight: 400;
+	font-size: 14px;
+	color: #999;
+}
+
+.right-tools{
+	display: inline-block;
+	margin-right: 10px;
 }
 .navbar-link-item{
 	display: inline-block;
-	font-size: 14px;
-	font-weight: 300px;
-	color: #666;
+	color: #999;
 	padding: 0px 10px;
 }
 .navbar-link-item img{
@@ -209,7 +215,7 @@ button:hover{
 .info-section-link{
 	display: inline-block;
 	margin: 15px 0px;
-	color: #000;
+	color: #333;
 	font-size: 1.1rem;
 	line-height: 1.4;
 	font-weight: 500;
@@ -217,7 +223,7 @@ button:hover{
 }
 
 .info-section-link:hover{
-	color: #666;
+	color: #333;
 	border-bottom-color: #000;
 }
 
@@ -237,8 +243,8 @@ a.info-section-button-dark{
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
-	top: 0px;
-	border: 1px solid #333;
+	top: -3px;
+	border: 1px solid #666;
 }
 
 a.info-section-button-dark:hover{
@@ -255,17 +261,19 @@ a.info-section-button-dark:hover{
 }
 .lang-switch-btn{
 	vertical-align: top;
-	font-size: 16px;
 }
 .switch-lang{
+	color: #666;
 	padding: 10px;
-	height: 28px;
-	width: 28px;
+	height: 26px;
+	width: 26px;
+	text-align: center;
+	line-height: 1.4;
 	display: inline-block;
 	padding-top: 3px;
 }
 .lang-active{
-	background: #111;
+	background: #666;
 	color: #fff;
 }
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
@@ -280,6 +288,7 @@ a.info-section-button-dark:hover{
 	right: 0px;
 	top: 0%;
 	left: auto;
+	font-size: 16px;
 	border: 1px solid #ddd;
 	border: 1px solid rgba(0, 0, 0, .07);
 	border-radius: 4px;
