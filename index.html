@@ -251,7 +251,7 @@
 	function changeLanguage(lang){
 		if(lang === "en"){
 			console.log("English");
-			$(".info-section-link").css("display", "inline-block");
+			$('.info-section-link[data-lang="en"]').css("display", "inline-block");
 			$('*[data-lang="ml"]').fadeOut("fast", function(){
 				$('*[data-lang="en"]').fadeIn("fast");
 			});
@@ -259,7 +259,7 @@
 			$('*[data-target="en"]').addClass("lang-active");
 		} else {
 			console.log("മലയാളം");
-			$(".info-section-link").css("display", "inline-block");
+			$('.info-section-link[data-lang="ml"]').css("display", "inline-block");
 			$('*[data-lang="en"]').fadeOut("fast", function(){
 				$('*[data-lang="ml"]').fadeIn("fast");
 			});
