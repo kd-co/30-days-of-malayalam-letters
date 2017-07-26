@@ -351,6 +351,17 @@ a.info-section-button-dark:hover{
 .instagram-gallery-loader{
 	margin: 150px 0px 100px 0px;
 }
+.at-icon{
+	width: 24px !important;
+    height: 24px !important;
+}
+.share-now-header{
+	display: inline-block;
+	position: relative;
+	top: 3px;
+	margin-right: 15px;
+	vertical-align: top;
+}
 
 
 /* Styles for gallery load spinner elements */
