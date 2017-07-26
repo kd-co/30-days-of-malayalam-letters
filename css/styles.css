@@ -499,13 +499,41 @@ a.info-section-button-dark:hover{
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
-	padding: 17px;
 	box-shadow: 0px -5px 20px rgba(0,0,0,0.1);
 	background: #fff;
 	text-align: center;
 	height: 60px;
 }
+.sticky-footer-mob .info-section-link{
+	margin: 0px;
+	font-size: 15px;
+	border: 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-right: 1px solid #e2e2e2;
+	height:60px;
+}
+.no-margin{
+	margin: 0px;
+}
+.sticky-footer-share-container{
+	padding-top: 18px;
+}
+.mob-only{
+	display: none;
+}
+.web-only{
+	display: block;
+}
 @media(max-width: 800px){
+	.mob-only{
+		display: block;
+	}
+	.web-only{
+		display: none;
+	}
 	body{
 		padding-bottom: 60px;
 	}
