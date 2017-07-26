@@ -45,7 +45,9 @@ a{
 .at-style-responsive .at-share-btn{
 	padding: 5px 0;
 }
-
+.at-icon-wrapper{
+	width: 24px !important;
+}
 .nav{
 	background: #fff;
 	padding: 20px 0px;
@@ -452,7 +454,7 @@ a.info-section-button-dark:hover{
 	padding-top: 16px;
 }
 .sticky-header .navbar-links-container{
-	padding: 32px 0px;
+	padding: 32px 0px 0px 0px;
 }
 .sticky-header-hash-container{
 	position: absolute;
