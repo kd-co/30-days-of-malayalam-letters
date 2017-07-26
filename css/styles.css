@@ -18,14 +18,14 @@ html, body{
 }
 
 .logo-container{
-	opacity: .8;
+	opacity: .5;
 }
 
 .logo-container:hover{
 	opacity: 1;
 }
 .logo-container .main-logo{
-	width:120px;
+	width:150px;
 	height: auto;
 }
 
@@ -54,6 +54,9 @@ a{
 }
 .logo-container{
 	width: 60px;
+	display: inline-block;
+    z-index: 10;
+    position: relative;
 }
 .center{
 	text-align: center;
@@ -220,14 +223,15 @@ button:hover{
 }
 .navbar-links-container{
 	float: right;
-	padding: 20px 0px;
+	padding: 46px 0px 0;
 	position: relative;
 	font-weight: 400;
 	font-size: 14px;
-	color: #666;
+	color: #999;
 }
 .right-tools{
 	display: inline-block;
+	margin-right: 10px;
 }
 .navbar-link-item{
 	display: inline-block;
@@ -460,7 +464,8 @@ a.info-section-button-dark:hover{
 	position: relative;
 }
 .sticky-header .main-logo	{
-	width: 80px;
+	width: 60px;
+	opacity: .8;
 	padding-top: 16px;
 }
 .sticky-header .navbar-links-container{
@@ -470,12 +475,18 @@ a.info-section-button-dark:hover{
 	position: absolute;
 	left: 0px;
 	right: 0px;
-	padding-top: 32px;
+	padding-top: 28px;
 	display: inline-block;
 	text-align: center;
 }
 .sticky-header-hash-container{
-	font-size: 1.1rem;
+	font-size: 1.2rem;
+	font-weight: 500;
+	color:#333;
+}
+
+.sticky-header-hash-container a:hover{
+	color:#999;
 }
 
 @media(max-width: 800px){
@@ -491,6 +502,7 @@ a.info-section-button-dark:hover{
 	}
 	.right-tools{
 		display: none;
+
 	}
 	#instagram{
 		width: 100%;
