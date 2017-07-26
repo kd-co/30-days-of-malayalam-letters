@@ -214,7 +214,6 @@ button:hover{
 
 .right-tools{
 	display: inline-block;
-	margin-right: 10px;
 }
 .navbar-link-item{
 	display: inline-block;
@@ -434,6 +433,9 @@ a.info-section-button-dark:hover{
 	.container-960{
 		width: 100%;
 	}
+	.right-tools{
+		display: none;
+	}
 	#instagram{
 		width: 100%;
 		text-align: center;
@@ -452,8 +454,9 @@ a.info-section-button-dark:hover{
 		margin: 30px 0px;
 	}
 	.main-header{
-		font-size: 1.7rem;
+		font-size: 1.45rem;
 		letter-spacing: -.02em;
+		margin: 30px 0px 10px 0px;
 	}
 	.sub-header{
 		font-size: 1.4rem;
@@ -509,5 +512,9 @@ a.info-section-button-dark:hover{
 		width: 100%;
 		border-radius: 0px;
 		padding: 20px;
+	}
+
+	.inner-modal{
+		padding: 30px 15px 20px;
 	}
 }
