@@ -161,7 +161,11 @@ button{
 	font-size: 1.0rem;
 	text-align: center;
 	display: inline-block;
+<<<<<<< HEAD
 	border-radius: 4px;
+=======
+	min-width: 300px;
+>>>>>>> 6774eeccdcf359e4b3937eacefb28b6756ea198d
 	transform: translateY(0px);
 }
 button:hover{
@@ -218,21 +222,20 @@ button:hover{
 }
 
 a.info-section-button-dark{
-	margin-top: 20px;
-	display: inline-block;
-	width: 100%;
-	font-size: 1.1rem;
-	text-align: center;
-	padding: 15px 30px;
-	color:rgba(255,255,255,.8);
-	font-weight:500;
-	background: #666;
-	border-radius: 4px;
-	transform: translateY(0px);
+		margin-top: 20px;
+		display: inline-block;
+		width: 100%;
+		font-size: 1.2rem;
+		text-align: center;
+		padding: 15px 30px;
+		color:rgba(255,255,255,.8);
+		font-weight:500;
+		background: #333;
+		transform: translateY(0px);
 }
 
 a.info-section-button-dark:hover{
-	background: #333;
+	background: #555;
 	transform: translateY(3px);
 }
 
@@ -294,20 +297,24 @@ a.info-section-button-dark:hover{
     height:100%;
     width:100%;
     background: #000;
-
     display: none;
 }
 .kdco-modal{
 	display: block; 
 	position: fixed; 
 	opacity: 1; 
+	width: 600px;
 	z-index: 11000; 
 	left: 50%; 
 	margin-left: auto;margin-right: auto;
 	top: 200px;
-	width: 600px;
-	padding: 50px 30px 30px 30px;
+	padding:2px;
 	display: none;
+	border:6px solid #fff;
+}
+
+.inner-modal{
+	padding: 50px 30px 30px 30px;
 	background: #FFF;
 }
 .modal-back-btn{
@@ -398,6 +405,8 @@ a.info-section-button-dark:hover{
 		bottom: 0px;
 		overflow-y: auto;
 		margin: 0px;
+		padding:0;
+		border:none;
 		width: 100%;
 		border-radius: 0px;
 		padding: 40px 20px 20px;
