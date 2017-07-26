@@ -80,12 +80,17 @@ a{
 .main-header .hash{
 	opacity: .3;
 }
-.sub-header{
+.sub-header {
 	font-size: 2rem;
 	color: #333;
 	font-weight: 300;
 	margin: 0px 0px 20px 0px;
 }
+
+.sub-header[data-lang="ml"]{
+	font-family:"Manjari Thin";	
+}
+
 .logo-container img{
 
 }
@@ -99,6 +104,11 @@ a{
 	margin: 20px 0px 20px 0px;
 	font-weight: 300;
 }
+
+.info-section-header[data-lang="ml"] {
+    font-family: "Manjari Thin";
+}
+
 .info-section-desc{
 	font-size: 1rem;
 	-webkit-font-smoothing: antialiased;
@@ -394,7 +404,7 @@ a.info-section-button-dark:hover{
 .spinner > div {
   width: 18px;
   height: 18px;
-  background-color: #333;
+  background-color: #ccc;
 
   border-radius: 100%;
   display: inline-block;
