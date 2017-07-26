@@ -53,7 +53,7 @@
 	  <div class="bounce3"></div>
 	</div>
   </div>
-  <div class="instagram-gallery-container hide">
+  <div class="instagram-gallery-container">
 	  <div id="instagram">
 	  	
 	  </div>
@@ -155,14 +155,23 @@
   <script type="text/javascript">
 
    function hideGallery(){
-  	 $(".instagram-gallery-container").addClass("hide");
-  	 $(".instagram-gallery-loader").removeClass("hide");
+  	 showGalleryLoader();
+  	 $(".instagram-gallery-loader").fadeIn("fast");
    }
 
    function showGallery(){
-  	 $(".instagram-gallery-loader").addClass("hide");
-  	 $(".instagram-gallery-container").removeClass("hide");
+  	 hideGalleryLoader();
+  	 $(".instagram-gallery-container").fadeIn("fast");
    }
+
+   function showGalleryLoader(){
+  	 $(".instagram-gallery-loader").fadeIn("fast");
+   }
+
+   function hideGalleryLoader(){
+  	 $(".instagram-gallery-loader").fadeOut("fast");
+   }
+
   	var num = 2*(Math.trunc(window.innerWidth/310));
 
   	var feed_desktop = new Instafeed({
@@ -174,6 +183,9 @@
 			limit: num,
 			after: function() {
 				showGallery();
+				if (!this.hasNext()) {
+                	$(".load-more-button").addClass("disabled-btn");
+            	}
 				var el = document.getElementById('instagram');
 				if (el.classList)
 					el.classList.add('show');
@@ -191,6 +203,9 @@
 			limit: 10,
 			after: function() {
 				showGallery();
+				if (!this.hasNext()) {
+                	$(".load-more-button").addClass("disabled-btn");
+            	}
 				var el = document.getElementById('instagram');
 				if (el.classList)
 					el.classList.add('show');
@@ -203,49 +218,53 @@
 		changeLanguage("en");
 		$('a[rel*=leanModal]').leanModal({ top : 50});	
 		if(window.innerWidth > 1024){
+			// bind the load more button
 			feed_desktop.run();
 		} else {
+			// bind the load more button
 			feed_mobile.run();
 		}	
 	});
 
 	$(".load-more-button").click(function(){
-		$("#instagram").html("");
-		hideGallery();
-		feed_desktop = new Instafeed({
-			get: 'user',
-			userId: 94764,
-			accessToken: '94764.1677ed0.c6256a27eddf41709ddf29af3469a4e5',
-			target: 'instagram',
-			resolution: 'standard_resolution',
-			limit: 10000,
-			after: function() {
-				showGallery();
-				var el = document.getElementById('instagram');
-				if (el.classList)
-					el.classList.add('show');
-				else
-					el.className += ' ' + 'show';
-			}
-		});
-		feed_desktop.run();
-		$(this).addClass("hide");
+		if(window.innerWidth > 1024){
+			$("#instagram").append(`<div class='instagram-gallery-loader'>
+			  	<div class='spinner'>
+				  <div class='bounce1'></div>
+				  <div class='bounce2'></div>
+				  <div class='bounce3'></div>
+				</div>
+			  </div>`);
+	        feed_desktop.next();
+    	} else {
+    		$("#instagram").append(`<div class='instagram-gallery-loader'>
+			  	<div class='spinner'>
+				  <div class='bounce1'></div>
+				  <div class='bounce2'></div>
+				  <div class='bounce3'></div>
+				</div>
+			  </div>`);
+	        feed_mobile.next();
+    	}
 	});
 
 	function changeLanguage(lang){
 		if(lang === "en"){
 			console.log("English");
-			$('*[data-lang="ml"]').addClass("hide");
-			$('*[data-lang="en"]').removeClass("hide");
+			$(".info-section-link").css("display", "inline-block");
+			$('*[data-lang="ml"]').fadeOut("fast", function(){
+				$('*[data-lang="en"]').fadeIn("fast");
+			});
 			$(".switch-lang").removeClass("lang-active");
 			$('*[data-target="en"]').addClass("lang-active");
 		} else {
 			console.log("മലയാളം");
-			$('*[data-lang="en"]').addClass("hide");
-			$('*[data-lang="ml"]').removeClass("hide");
+			$(".info-section-link").css("display", "inline-block");
+			$('*[data-lang="en"]').fadeOut("fast", function(){
+				$('*[data-lang="ml"]').fadeIn("fast");
+			});
 			$(".switch-lang").removeClass("lang-active");
 			$('*[data-target="ml"]').addClass("lang-active");
-			
 		}
 	}
 	$(".switch-lang").click(function(){
