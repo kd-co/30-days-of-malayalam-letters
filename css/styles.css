@@ -45,7 +45,9 @@ a{
 .at-style-responsive .at-share-btn{
 	padding: 5px 0;
 }
-
+.at-icon-wrapper{
+	width: 28px !important;
+}
 .nav{
 	background: #fff;
 	padding: 20px 0px;
@@ -205,9 +207,9 @@ button:hover{
 }
 
 .footer .kdco-logomark{
-	width: 50px;
+	width: 52px;
 	height: auto;
-	opacity: .16;
+	opacity: .21;
 }
 .footer-desc{
 	font-size: 14px;
@@ -224,7 +226,6 @@ button:hover{
 	font-size: 14px;
 	color: #666;
 }
-
 .right-tools{
 	display: inline-block;
 }
@@ -246,12 +247,10 @@ button:hover{
 	font-weight: 500;
 	border-bottom: 1px solid #ccc;
 }
-
 .info-section-link:hover{
 	color: #333;
 	border-bottom-color: #000;
 }
-
 a.info-section-button-dark{
 		margin-top: 20px;
 		display: inline-block;
@@ -271,12 +270,10 @@ a.info-section-button-dark{
 	top: -3px;
 	border: 1px solid #666;
 }
-
 a.info-section-button-dark:hover{
 	background: #555;
 	transform: translateY(3px);
 }
-
 .info-section-link img{
 	position: relative;
 	max-height: 18px;
@@ -358,7 +355,6 @@ a.info-section-button-dark:hover{
 	display: none;
 	border:6px solid #fff;
 }
-
 .inner-modal{
 	padding: 50px 30px 30px 30px;
 	background: #FFF;
@@ -392,8 +388,6 @@ a.info-section-button-dark:hover{
 	margin-right: 3px;
 	vertical-align: top;
 }
-
-
 /* Styles for gallery load spinner elements */
 .spinner {
   margin: 100px auto 0;
@@ -411,12 +405,10 @@ a.info-section-button-dark:hover{
   -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
   animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
-
 .spinner .bounce1 {
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
-
 .spinner .bounce2 {
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
@@ -426,7 +418,6 @@ a.info-section-button-dark:hover{
   0%, 80%, 100% { -webkit-transform: scale(0) }
   40% { -webkit-transform: scale(1.0) }
 }
-
 @keyframes sk-bouncedelay {
   0%, 80%, 100% { 
     -webkit-transform: scale(0);
@@ -436,8 +427,56 @@ a.info-section-button-dark:hover{
     transform: scale(1.0);
   }
 } 
-
 /* EOB */
+
+.site-header {
+    height: 120px;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    z-index: 999;
+    background: #fff;
+}
+.site-header-hidden{
+	top: -120px;
+}
+.sticky-header{
+	position: fixed;
+	padding: 0 15px;
+    width: 100%;
+    z-index: 999;
+    background: #fff;
+	opacity: 0;
+	top: -90px;
+	height: 90px;
+	box-shadow: 0px 5px 30px rgba(0,0,0,0.07);
+    transition: all 0.2s ease-in-out;
+}
+.sticky-header-shown{
+	top: 0px;
+	opacity: 1;
+}
+.sticky-header nav{
+	padding: 0px;
+	position: relative;
+}
+.sticky-header .main-logo	{
+	width: 80px;
+	padding-top: 16px;
+}
+.sticky-header .navbar-links-container{
+	padding: 32px 0px 0px 0px;
+}
+.sticky-header-hash-container{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	padding-top: 32px;
+	display: inline-block;
+	text-align: center;
+}
+.sticky-header-hash-container{
+	font-size: 1.1rem;
+}
 
 @media(max-width: 800px){
 	body{
@@ -530,7 +569,6 @@ a.info-section-button-dark:hover{
 		border-radius: 0px;
 		padding: 20px;
 	}
-
 	.inner-modal{
 		padding: 30px 15px 20px;
 	}
