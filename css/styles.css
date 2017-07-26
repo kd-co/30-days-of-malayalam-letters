@@ -357,7 +357,7 @@ a.info-section-button-dark:hover{
 	top: 200px;
 	padding:2px;
 	display: none;
-	border:6px solid #fff;
+	border:12px solid #fff;
 }
 .inner-modal{
 	padding: 50px 30px 30px 30px;
@@ -600,7 +600,7 @@ a.info-section-button-dark:hover{
 		border:none;
 		width: 100%;
 		border-radius: 0px;
-		padding: 20px;
+		padding: 0px;
 	}
 	.inner-modal{
 		padding: 30px 15px 20px;
