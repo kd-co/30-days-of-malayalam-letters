@@ -18,14 +18,14 @@ html, body{
 }
 
 .logo-container{
-	opacity: .5;
+	opacity: .3;
 }
 
 .logo-container:hover{
 	opacity: 1;
 }
 .logo-container .main-logo{
-	width:150px;
+	width:140px;
 	height: auto;
 }
 
