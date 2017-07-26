@@ -42,6 +42,10 @@ a{
 	transition: all 0.2s ease-in;
 }
 
+.at-style-responsive .at-share-btn{
+	padding: 5px 0;
+}
+
 .nav{
 	background: #fff;
 	padding: 20px 0px;
@@ -358,7 +362,8 @@ a.info-section-button-dark:hover{
 .follow-toolbox{
 	display: inline-block;
 	position: relative;
-	top: -5px;
+	top: -6px;
+	left: -6px;
 	margin-right: 15px;
 }
 .instagram-gallery-container{
