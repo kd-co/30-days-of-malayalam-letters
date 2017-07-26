@@ -528,6 +528,7 @@ a.info-section-button-dark:hover{
 }
 .sticky-footer-share-container{
 	padding-top: 18px;
+	text-align: right;
 }
 .mob-only{
 	display: none;
