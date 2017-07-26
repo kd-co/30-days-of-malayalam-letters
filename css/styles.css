@@ -628,4 +628,8 @@ a.info-section-button-dark:hover{
 	.inner-modal{
 		padding: 30px 15px 20px;
 	}
+	.at-icon{
+		width: 28px !important;
+		height: 28px !important;
+	}
 }
