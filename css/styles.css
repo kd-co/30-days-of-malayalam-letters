@@ -25,7 +25,7 @@ html, body{
 	opacity: 1;
 }
 .logo-container .main-logo{
-	width:110px;
+	width:120px;
 	height: auto;
 }
 
@@ -33,13 +33,17 @@ html, body{
 	fill:rgba(0,0,0,.8);
 }
 .main-logo .b{
-	fill:rgba(0,0,0,.8);
+	fill:rgba(0,0,0,.5);
 }
 
 a{
 	cursor: pointer;
 	text-decoration: none;
 	transition: all 0.2s ease-in;
+}
+
+.at-style-responsive .at-share-btn{
+	padding: 5px 0;
 }
 
 .nav{
@@ -178,7 +182,6 @@ button{
 	font-size: 1.0rem;
 	text-align: center;
 	display: inline-block;
-	border-radius: 4px;
 	transform: translateY(0px);
 }
 button:hover{
@@ -209,7 +212,7 @@ button:hover{
 	position: relative;
 	font-weight: 400;
 	font-size: 14px;
-	color: #999;
+	color: #666;
 }
 .right-tools{
 	display: inline-block;
@@ -353,8 +356,8 @@ a.info-section-button-dark:hover{
 .follow-toolbox{
 	display: inline-block;
 	position: relative;
-	top: -5px;
-	margin-right: 15px;
+	top: -6px;
+	left: -6px;
 }
 .instagram-gallery-container{
 
@@ -467,6 +470,10 @@ a.info-section-button-dark:hover{
 	body{
 		overflow-x: hidden;
 	}
+
+	.logo-container .main-logo{
+		width:90px;
+	}
 	.container-960{
 		width: 100%;
 	}
@@ -509,7 +516,7 @@ a.info-section-button-dark:hover{
 		height: auto;
 	}
 	.navbar-links-container {
-    	padding: 10px 0px;
+    	padding: 20px 0px 0;
 	}
 	.navbar-link-item {
 		padding: 0px 5px;
