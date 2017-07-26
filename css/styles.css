@@ -19,7 +19,8 @@ html, body{
 
 .logo-container{
 	opacity: .6;
-	top: -10px;
+	top: -8px;
+	left: -4px;
 	position: relative;
 }
 
@@ -69,6 +70,7 @@ a{
     top:0;
     margin-top: 0;
     position: relative;
+    opacity: .7;
 }
 .center{
 	text-align: center;
@@ -628,7 +630,7 @@ a.info-section-button-dark:hover{
 		height: auto;
 	}
 	.navbar-links-container {
-    	padding: 17px 0px 0;
+    	padding: 10px 0px 0;
 	}
 	.navbar-link-item {
 		padding: 0px 5px;
