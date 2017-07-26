@@ -173,79 +173,72 @@
    }
 
   	var num = 2*(Math.trunc(window.innerWidth/310));
+  	var feed;
 
-  	var feed_desktop = new Instafeed({
-			get: 'user',
-			userId: 94764,
-			accessToken: '94764.1677ed0.c6256a27eddf41709ddf29af3469a4e5',
-			target: 'instagram',
-			resolution: 'standard_resolution',
-			limit: num,
-			after: function() {
-				showGallery();
-				if (!this.hasNext()) {
-                	$(".load-more-button").addClass("disabled-btn");
-            	}
-				var el = document.getElementById('instagram');
-				if (el.classList)
-					el.classList.add('show');
-				else
-					el.className += ' ' + 'show';
-			}
-	});
-
-	var feed_mobile = new Instafeed({
-			get: 'user',
-			userId: 94764,
-			accessToken: '94764.1677ed0.c6256a27eddf41709ddf29af3469a4e5',
-			target: 'instagram',
-			resolution: 'low_resolution',
-			limit: 10,
-			after: function() {
-				showGallery();
-				if (!this.hasNext()) {
-                	$(".load-more-button").addClass("disabled-btn");
-            	}
-				var el = document.getElementById('instagram');
-				if (el.classList)
-					el.classList.add('show');
-				else
-					el.className += ' ' + 'show';
-			}
-	});
+  	if(window.innerWidth > 1024){
+	  	feed = new Instafeed({
+				get: 'user',
+				userId: 94764,
+				accessToken: '94764.1677ed0.c6256a27eddf41709ddf29af3469a4e5',
+				target: 'instagram',
+				resolution: 'standard_resolution',
+				limit: num,
+				after: function() {
+					showGallery();
+					if (!this.hasNext()) {
+	                	$(".load-more-button").addClass("disabled-btn");
+	            	} else {
+	            		$(".load-more-button").fadeIn();
+	            	}
+					var el = document.getElementById('instagram');
+					if (el.classList)
+						el.classList.add('show');
+					else
+						el.className += ' ' + 'show';
+				}
+		});
+	} else {
+		feed = new Instafeed({
+				get: 'user',
+				userId: 94764,
+				accessToken: '94764.1677ed0.c6256a27eddf41709ddf29af3469a4e5',
+				target: 'instagram',
+				resolution: 'low_resolution',
+				limit: 10,
+				after: function() {
+					showGallery();
+					if (!this.hasNext()) {
+	                	$(".load-more-button").addClass("disabled-btn");
+	            	} else {
+	            		$(".load-more-button").fadeIn();
+	            	}
+					var el = document.getElementById('instagram');
+					if (el.classList)
+						el.classList.add('show');
+					else
+						el.className += ' ' + 'show';
+				}
+		});
+	}
 
 	$(function() {
 		changeLanguage("en");
-		$('a[rel*=leanModal]').leanModal({ top : 50});	
-		if(window.innerWidth > 1024){
-			// bind the load more button
-			feed_desktop.run();
-		} else {
-			// bind the load more button
-			feed_mobile.run();
-		}	
+		$('a[rel*=leanModal]').leanModal({ top : 50});		
+		feed.run();
 	});
 
 	$(".load-more-button").click(function(){
-		if(window.innerWidth > 1024){
-			$("#instagram").append(`<div class='instagram-gallery-loader'>
-			  	<div class='spinner'>
-				  <div class='bounce1'></div>
-				  <div class='bounce2'></div>
-				  <div class='bounce3'></div>
-				</div>
-			  </div>`);
-	        feed_desktop.next();
-    	} else {
-    		$("#instagram").append(`<div class='instagram-gallery-loader'>
-			  	<div class='spinner'>
-				  <div class='bounce1'></div>
-				  <div class='bounce2'></div>
-				  <div class='bounce3'></div>
-				</div>
-			  </div>`);
-	        feed_mobile.next();
-    	}
+
+			$(this).fadeOut("fast", function(){
+				$("#instagram").append(`<div class='instagram-gallery-loader'>
+				  	<div class='spinner'>
+					  <div class='bounce1'></div>
+					  <div class='bounce2'></div>
+					  <div class='bounce3'></div>
+					</div>
+				  </div>`);
+	        	feed.next();
+			});
 	});
 
 	function changeLanguage(lang){
