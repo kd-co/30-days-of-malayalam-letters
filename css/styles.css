@@ -18,26 +18,32 @@ html, body{
 }
 
 .logo-container{
-	opacity: .3;
+	opacity: .6;
+	top: -10px;
+	position: relative;
 }
 
 .logo-container:hover{
 	opacity: 1;
+	transition: all 0.2s ease-in;
 }
 .logo-container .main-logo{
-	width:120px;
+	width:125px;
 	height: auto;
+	transition: all 0.2s ease-in;
 }
 
-.logo-container:hover .main-logo .d{
-	fill:rgba(0,0,0,.8);
+.logo-container:hover .main-logo #logotype{
+	opacity: .5;
+	transition: all 0.2s ease-in;
 }
 
  .logo-container .main-logo .a{
 	fill:rgba(0,0,0,.8);
 }
- .logo-container .main-logo .b{
-	fill:rgba(0,0,0,0);
+.logo-container .main-logo #logotype{
+	opacity: .5;
+	transition: all 0.2s ease-in;
 }
 
 a{
@@ -56,10 +62,12 @@ a{
 	background: #fff;
 	padding: 20px 0px;
 }
-.logo-container{
+.sticky-header .logo-container{
 	width: 60px;
 	display: inline-block;
     z-index: 10;
+    top:0;
+    margin-top: 0;
     position: relative;
 }
 .center{
@@ -520,6 +528,7 @@ a.info-section-button-dark:hover{
 }
 .sticky-footer-share-container{
 	padding-top: 18px;
+	text-align: right;
 }
 .mob-only{
 	display: none;
@@ -571,7 +580,11 @@ a.info-section-button-dark:hover{
 		overflow-x: hidden;
 	}
 	.logo-container .main-logo{
-		width:90px;
+		width:100px;
+	}
+	.logo-container .main-logo #logotype{
+		opacity: .7;
+		transition: all 0.2s ease-in;
 	}
 	.container-960{
 		width: 100%;
