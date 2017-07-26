@@ -174,7 +174,6 @@ button{
 	font-size: 1.0rem;
 	text-align: center;
 	display: inline-block;
-	border-radius: 4px;
 	transform: translateY(0px);
 }
 button:hover{
