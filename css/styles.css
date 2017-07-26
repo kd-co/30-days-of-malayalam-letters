@@ -19,7 +19,8 @@ html, body{
 
 .logo-container{
 	opacity: .6;
-	top: -10px;
+	top: -8px;
+	left: -4px;
 	position: relative;
 }
 
