@@ -1,3 +1,16 @@
+@font-face {
+  font-family:"Manjari Thin";
+  src: url("../fonts/manjari/Manjari-Thin.woff") format('woff');
+}
+@font-face {
+  font-family:"Manjari Regular";
+  src: url("../fonts/manjari/Manjari-Regular.woff") format('woff');
+}
+@font-face {
+  font-family:"Manjari Bold";
+  src: url("../fonts/manjari/Manjari-Bold.woff") format('woff');
+}
+
 html, body{
 	font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
 	background: #fff;
@@ -161,11 +174,7 @@ button{
 	font-size: 1.0rem;
 	text-align: center;
 	display: inline-block;
-<<<<<<< HEAD
 	border-radius: 4px;
-=======
-	min-width: 300px;
->>>>>>> 6774eeccdcf359e4b3937eacefb28b6756ea198d
 	transform: translateY(0px);
 }
 button:hover{
@@ -300,7 +309,7 @@ a.info-section-button-dark:hover{
 	padding: 10px 15px;
 }
 [data-lang="ml"] {
-    /* TODO: Find a suiting MAlayalam type */
+    font-family: "Manjari Regular";
 }
 .caret{
 	margin-left: 7px;
@@ -433,7 +442,7 @@ a.info-section-button-dark:hover{
 		margin: 30px 0px;
 	}
 	.main-header{
-		font-size: 1.45rem;
+		font-size: 1.7rem;
 		letter-spacing: -.02em;
 	}
 	.sub-header{
