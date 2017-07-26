@@ -442,8 +442,9 @@ a.info-section-button-dark:hover{
 		margin: 30px 0px;
 	}
 	.main-header{
-		font-size: 1.7rem;
+		font-size: 1.45rem;
 		letter-spacing: -.02em;
+		margin: 30px 0px 10px 0px;
 	}
 	.sub-header{
 		font-size: 1.4rem;
