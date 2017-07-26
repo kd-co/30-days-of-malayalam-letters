@@ -572,7 +572,7 @@ a.info-section-button-dark:hover{
 	.sticky-header-hash-container{padding-top: 15px;}
 	.sticky-header .logo-container .main-logo{
 		width:50px;
-		margin-left: -5px;
+		margin-left: 0px;
 		margin-top: -5px;
 	}
 	.sticky-header .navbar-links-container{
@@ -582,7 +582,8 @@ a.info-section-button-dark:hover{
 		overflow-x: hidden;
 	}
 	.logo-container .main-logo{
-		width:100px;
+		width: 88px;
+		margin-top: 5px;
 	}
 	.logo-container .main-logo #logotype{
 		opacity: .7;
