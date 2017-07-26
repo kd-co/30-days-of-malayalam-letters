@@ -223,7 +223,7 @@ button:hover{
 }
 .navbar-links-container{
 	float: right;
-	padding: 46px 0px 0;
+	padding: 35px 0px 0;
 	position: relative;
 	font-weight: 400;
 	font-size: 14px;
@@ -543,11 +543,7 @@ a.info-section-button-dark:hover{
 		margin: 30px 0px;
 	}
 	.main-header{
-<<<<<<< HEAD
 		font-size: 1.6rem;
-=======
-		font-size: 1.45rem;
->>>>>>> c163f123a85dd058f3b1255a683a23d9da6cf43d
 		letter-spacing: -.02em;
 		margin: 30px 0px 10px 0px;
 	}
@@ -604,11 +600,7 @@ a.info-section-button-dark:hover{
 		border:none;
 		width: 100%;
 		border-radius: 0px;
-<<<<<<< HEAD
-		padding: 7px;
-=======
 		padding: 0px;
->>>>>>> c163f123a85dd058f3b1255a683a23d9da6cf43d
 	}
 	.inner-modal{
 		padding: 30px 15px 20px;
