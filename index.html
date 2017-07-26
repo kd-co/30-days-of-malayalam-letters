@@ -45,12 +45,24 @@
       <h3 class="sub-header" data-lang="ml">ആഗസ്ററ് 01-31,2017</h3>
   	</div>
   </div>
-  <div id="instagram">
-  	
+  
+
+  <div class="instagram-gallery-loader">
+  	<div class="spinner">
+	  <div class="bounce1"></div>
+	  <div class="bounce2"></div>
+	  <div class="bounce3"></div>
+	</div>
   </div>
-  <div class="load-message">
-    <button class="load-more-button">Show more</button>
+  <div class="instagram-gallery-container hide">
+	  <div id="instagram">
+	  	
+	  </div>
+	  <div class="load-message">
+	    <button class="load-more-button">Show more</button>
+	  </div>
   </div>
+
   <div class="container container-960">
   	<div class="row">
   		<div class="col-md-6">
@@ -143,6 +155,15 @@
   <script src="js/jquery.leanModal.min.js"></script>
   <script type="text/javascript">
 
+   function hideGallery(){
+  	 $(".instagram-gallery-container").addClass("hide");
+  	 $(".instagram-gallery-loader").removeClass("hide");
+   }
+
+   function showGallery(){
+  	 $(".instagram-gallery-loader").addClass("hide");
+  	 $(".instagram-gallery-container").removeClass("hide");
+   }
   	var num = 2*(Math.trunc(window.innerWidth/310));
 
   	var feed_desktop = new Instafeed({
@@ -153,6 +174,7 @@
 			resolution: 'standard_resolution',
 			limit: num,
 			after: function() {
+				showGallery();
 				var el = document.getElementById('instagram');
 				if (el.classList)
 					el.classList.add('show');
@@ -169,6 +191,7 @@
 			resolution: 'low_resolution',
 			limit: 10,
 			after: function() {
+				showGallery();
 				var el = document.getElementById('instagram');
 				if (el.classList)
 					el.classList.add('show');
@@ -185,6 +208,29 @@
 		} else {
 			feed_mobile.run();
 		}	
+	});
+
+	$(".load-more-button").click(function(){
+		$("#instagram").html("");
+		hideGallery();
+		feed_desktop = new Instafeed({
+			get: 'user',
+			userId: 94764,
+			accessToken: '94764.1677ed0.c6256a27eddf41709ddf29af3469a4e5',
+			target: 'instagram',
+			resolution: 'standard_resolution',
+			limit: 10000,
+			after: function() {
+				showGallery();
+				var el = document.getElementById('instagram');
+				if (el.classList)
+					el.classList.add('show');
+				else
+					el.className += ' ' + 'show';
+			}
+		});
+		feed_desktop.run();
+		$(this).addClass("hide");
 	});
 
 	function changeLanguage(lang){
