@@ -210,7 +210,6 @@ button:hover{
 
 .right-tools{
 	display: inline-block;
-	margin-right: 10px;
 }
 .navbar-link-item{
 	display: inline-block;
@@ -425,6 +424,9 @@ a.info-section-button-dark:hover{
 	.container-960{
 		width: 100%;
 	}
+	.right-tools{
+		display: none;
+	}
 	#instagram{
 		width: 100%;
 		text-align: center;
@@ -499,6 +501,9 @@ a.info-section-button-dark:hover{
 		border:none;
 		width: 100%;
 		border-radius: 0px;
-		padding: 40px 20px 20px;
+	}
+
+	.inner-modal{
+		padding: 30px 15px 20px;
 	}
 }
