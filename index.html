@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/grid12.css">
+  <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
@@ -396,12 +397,18 @@
 	            	} else {
 	            		$(".load-more-button").fadeIn();
 	            	}
-					var el = document.getElementById('instagram');
-					if (el.classList)
-						el.classList.add('show');
-					else
-						el.className += ' ' + 'show';
-				}
+					var images = $("#instagram").find('a');
+				    $.each(images, function(index, image) {
+				      var delay = (index * 75) + 'ms';
+				      $(image).css('-webkit-animation-delay', delay);
+				      $(image).css('-moz-animation-delay', delay);
+				      $(image).css('-ms-animation-delay', delay);
+				      $(image).css('-o-animation-delay', delay);
+				      $(image).css('animation-delay', delay);
+				      $(image).addClass('animated fadeIn');
+				    });
+				},
+				template: '<a href="{{link}}" target="_blank"><img src="{{image}}" /></a>',
 		});
 	} else {
 		feed = new Instafeed({
@@ -418,12 +425,18 @@
 	            	} else {
 	            		$(".load-more-button").fadeIn();
 	            	}
-					var el = document.getElementById('instagram');
-					if (el.classList)
-						el.classList.add('show');
-					else
-						el.className += ' ' + 'show';
-				}
+					var images = $("#instagram").find('a');
+				    $.each(images, function(index, image) {
+				      var delay = (index * 75) + 'ms';
+				      $(image).css('-webkit-animation-delay', delay);
+				      $(image).css('-moz-animation-delay', delay);
+				      $(image).css('-ms-animation-delay', delay);
+				      $(image).css('-o-animation-delay', delay);
+				      $(image).css('animation-delay', delay);
+				      $(image).addClass('animated fadeIn');
+				    });
+				},
+				template: '<a href="{{link}}" target="_blank"><img src="{{image}}" /></a>',
 		});
 	}
 
