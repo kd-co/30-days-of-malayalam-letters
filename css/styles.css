@@ -460,7 +460,7 @@ a.info-section-button-dark:hover{
 	position: fixed;
 	padding: 0 15px;
     width: 100%;
-    z-index: 999;
+    z-index: 12;
     background: #fff;
 	opacity: 0;
 	top: -90px;
