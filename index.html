@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>30 Days of Malayalam Letters</title>
-  <meta name="description" content="">
+  <meta name="description" content="#30daysofMalayalamLetters invites Designers, Illustrators, Photographers and Artists to visualise Malayalam - one letter at a time. Through this initiative, we hope to trigger fresh new thoughts and enhanced sensibilities towards the Malayalam script within the creative community in Kerala.">
+  <meta name="keywords" content="Malayalam, Design, Typography, Calligraphy, Letters">
   <meta name="author" content="Kerala Designers Collaborative">
   <meta name=viewport content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -208,8 +209,8 @@
 
         </a>
         <div class="sticky-header-hash-container">
-        	<a class="header-hash">#30daysofMalayalamLetters</a>
-          <a class="header-hash top">Scroll to top</a>
+        	<a class="header-hash web-only" onclick="scrollToPosition('#outer-container')">#30daysofMalayalamLetters</a>
+          	<a class="header-hash top mob-only" onclick="scrollToPosition('#outer-container')">Scroll to top</a>
         </div>
         <div class="navbar-links-container">
           <div class="right-tools">
@@ -246,7 +247,7 @@
 	  </div>
   </div>
 
-  <div class="container container-960">
+  <div class="container container-960" id="about-section">
   	<div class="row">
   		<div class="col-md-6">
   			<div class="info-section">
@@ -281,9 +282,15 @@
   </div>
 
   <div class="sticky-footer-mob">
-    <a class="about-anchor">About</a>
-    <span class="share-now-header">Show some <i class="em em-sparkling_heart"></i></span>
-  	<div class="addthis_inline_share_toolbox follow-toolbox"></div></div>
+    <div class="row no-margin">
+    	<a class="col-xs-3 info-section-link" onclick="scrollToPosition('#about-section')">
+	    	About
+	    </a>
+	    <div class="col-xs-9 sticky-footer-share-container">
+	    	<span class="share-now-header">Spread some <i class="em em-sparkling_heart"></i></span>
+	  		<div class="addthis_inline_share_toolbox follow-toolbox"></div></div>
+	    </div>
+    </div>
   </div>
 
 
@@ -345,24 +352,30 @@
   <script type="text/javascript">
 
 
-  // Utility functions
-   function hideGallery(){
-  	 showGalleryLoader();
-  	 $(".instagram-gallery-loader").fadeIn("fast");
-   }
+    // Utility functions
+    function hideGallery(){
+  		showGalleryLoader();
+  	 	$(".instagram-gallery-loader").fadeIn("fast");
+    }
 
-   function showGallery(){
-  	 hideGalleryLoader();
-  	 $(".instagram-gallery-container").fadeIn("fast");
-   }
+    function showGallery(){
+  	 	hideGalleryLoader();
+  	 	$(".instagram-gallery-container").fadeIn("fast");
+    }
 
-   function showGalleryLoader(){
-  	 $(".instagram-gallery-loader").fadeIn("fast");
-   }
+    function showGalleryLoader(){
+  	 	$(".instagram-gallery-loader").fadeIn("fast");
+    }
 
-   function hideGalleryLoader(){
-  	 $(".instagram-gallery-loader").fadeOut("fast");
-   }
+    function hideGalleryLoader(){
+  	 	$(".instagram-gallery-loader").fadeOut("fast");
+    }
+
+	function scrollToPosition(elem){
+		$('html, body').animate({
+	        scrollTop: $(elem).offset().top
+	    }, 350);
+	}
 
 
    // Configure feed variables for desktop and mobile
@@ -482,14 +495,6 @@
 	    	$(".site-header").removeClass("site-header-hidden");
 	    }
 	    lastScrollTop = st;
-	});
-
-
-	// To scroll to the top of the page when clicked on sticky-nav hash
-	$(".header-hash").click(function(){
-		$('html, body').animate({
-	        scrollTop: $("#outer-container").offset().top
-	    }, 300);
 	});
 
 
