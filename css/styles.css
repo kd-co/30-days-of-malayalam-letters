@@ -539,12 +539,10 @@ a.info-section-button-dark:hover{
 	}
 	.share-now-header{
 		font-size: 15px;
-		float: right;
 	}
 	.sticky-footer-mob{
 		display: block;
 	}
-
  	.sticky-footer-mob .about-anchor{
  		float: left;
  		display: inline-block;
@@ -553,30 +551,25 @@ a.info-section-button-dark:hover{
  		font-weight: 500;
  		border-bottom:1px solid #999;
  	}
-
 	.header-hash{
 		display: none;
 	}
-
 	.header-hash.top{display: inline-block; font-size: .8rem;}
 	.sticky-header {
 		height: 60px;
 	}
-
 	.sticky-header-hash-container{padding-top: 15px;}
 	.sticky-header .logo-container .main-logo{
 		width:40px;
 		margin-left: -5px;
 		margin-top: -5px;
 	}
-
 	.sticky-header .navbar-links-container{
 		padding-top: 20px;
 	}
 	body{
 		overflow-x: hidden;
 	}
-
 	.logo-container .main-logo{
 		width:90px;
 	}
@@ -585,7 +578,6 @@ a.info-section-button-dark:hover{
 	}
 	.right-tools{
 		display: none;
-
 	}
 	#instagram{
 		width: 100%;
