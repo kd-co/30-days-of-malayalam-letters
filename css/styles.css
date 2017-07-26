@@ -25,15 +25,19 @@ html, body{
 	opacity: 1;
 }
 .logo-container .main-logo{
-	width:140px;
+	width:120px;
 	height: auto;
 }
 
-.main-logo .a{
+.logo-container:hover .main-logo .d{
 	fill:rgba(0,0,0,.8);
 }
-.main-logo .b{
-	fill:rgba(0,0,0,.5);
+
+ .logo-container .main-logo .a{
+	fill:rgba(0,0,0,.8);
+}
+ .logo-container .main-logo .b{
+	fill:rgba(0,0,0,0);
 }
 
 a{
