@@ -511,10 +511,21 @@ a.info-section-button-dark:hover{
 	}
 	.share-now-header{
 		font-size: 15px;
+		float: right;
 	}
 	.sticky-footer-mob{
 		display: block;
 	}
+
+ 	.sticky-footer-mob .about-anchor{
+ 		float: left;
+ 		display: inline-block;
+ 		line-height: 1.5;
+ 		font-size: 15px;
+ 		font-weight: 500;
+ 		border-bottom:1px solid #999;
+ 	}
+
 	.header-hash{
 		display: none;
 	}
