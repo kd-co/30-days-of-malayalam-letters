@@ -31,15 +31,17 @@
         </a>
         <div class="navbar-links-container">
           <!-- Go to www.addthis.com/dashboard to customize your tools -->
-		  <div class="addthis_inline_follow_toolbox follow-toolbox"></div>
-          <span class="dropdown">
+		  <span class="addthis_inline_follow_toolbox follow-toolbox"></span>
+          <!-- <span class="dropdown">
                 <a href="#" class="dropdown-toggle navbar-link-item lang-switch-btn" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">English<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a class="switch-lang" data-target="en">English</a></li>
                     <li><a class="switch-lang" data-target="ml">മലയാളം</a></li>
                 </ul>
-          </span>
+          </span> -->
+          <a class="switch-lang lang-active" data-target="en">E</a>
+          <a class="switch-lang" data-target="ml">മ</a>
         </div>
       </nav>
     </header>
@@ -88,26 +90,6 @@
   		</div>
   	</footer>
   </div>
-
-
-<div id="generic-modal-window" class="modal fade" role="dialog">
-	<div class="modal-dialog generic-modal">
-
-	    <!-- Modal content-->
-	    <div class="modal-content">
-	        <div class="modal-header modal-header-grey">
-	            <button type="button" class="close" data-dismiss="modal">&times;</button>
-	            <h4 class="modal-title">Message</h4>
-	        </div>
-	        <div class="modal-body">
-	            <span class="tick-icon generic-modal-icon"><span class="exclamation-sign"
-	                                                             style="font-size:32px;font-weight: bold;">!</span></span>
-	            <p id="modal-message">Text here.</p>
-	            <a class="btn btn-login btn-main" data-dismiss="modal" style="padding:15px;">OK</a>
-	        </div>
-	    </div>
-	</div>
-</div>
 
 
 <div id="details-modal" class="kdco-modal">
@@ -214,12 +196,15 @@
 			console.log("English");
 			$('*[data-lang="ml"]').addClass("hide");
 			$('*[data-lang="en"]').removeClass("hide");
-			$(".lang-switch-btn").html("English<span class='caret'></span>");
+			$(".switch-lang").removeClass("lang-active");
+			$('*[data-target="en"]').addClass("lang-active");
 		} else {
 			console.log("മലയാളം");
 			$('*[data-lang="en"]').addClass("hide");
 			$('*[data-lang="ml"]').removeClass("hide");
-			$(".lang-switch-btn").html("മലയാളം<span class='caret'></span>");
+			$(".switch-lang").removeClass("lang-active");
+			$('*[data-target="ml"]').addClass("lang-active");
+			
 		}
 	}
 	$(".switch-lang").click(function(){

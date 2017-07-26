@@ -156,12 +156,11 @@ button{
 	background: transparent;
 	border: 1px solid #ccc;
 	color:#999;
-	padding: 10px 30px;
+	padding: 10px 45px;
 	font-weight: 500;
-	font-size: 1.2rem;
+	font-size: 1.0rem;
 	text-align: center;
 	display: inline-block;
-	min-width: 300px;
 	border-radius: 4px;
 	transform: translateY(0px);
 }
@@ -219,17 +218,17 @@ button:hover{
 }
 
 a.info-section-button-dark{
-		margin-top: 20px;
-		display: inline-block;
-		width: 100%;
-		font-size: 1.2rem;
-		text-align: center;
-		padding: 15px 30px;
-		color:rgba(255,255,255,.8);
-		font-weight:500;
-		background: #666;
-		border-radius: 4px;
-		transform: translateY(0px);
+	margin-top: 20px;
+	display: inline-block;
+	width: 100%;
+	font-size: 1.1rem;
+	text-align: center;
+	padding: 15px 30px;
+	color:rgba(255,255,255,.8);
+	font-weight:500;
+	background: #666;
+	border-radius: 4px;
+	transform: translateY(0px);
 }
 
 a.info-section-button-dark:hover{
@@ -247,6 +246,17 @@ a.info-section-button-dark:hover{
 .lang-switch-btn{
 	vertical-align: top;
 	font-size: 16px;
+}
+.switch-lang{
+	padding: 10px;
+	height: 28px;
+	width: 28px;
+	display: inline-block;
+	padding-top: 3px;
+}
+.lang-active{
+	background: #111;
+	color: #fff;
 }
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
     background-color: #fff;
