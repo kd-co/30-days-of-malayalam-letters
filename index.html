@@ -30,13 +30,9 @@
         </a>
         <div class="navbar-links-container">
           <div class="right-tools">Share now<div class="addthis_inline_share_toolbox"></div></div>
-          <span class="dropdown">
-                <a href="#" class="dropdown-toggle navbar-link-item lang-switch-btn" data-toggle="dropdown" role="button" aria-haspopup="true"
-                   aria-expanded="false">English<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="switch-lang" data-target="en">English</a></li>
-                    <li><a class="switch-lang" data-target="ml">മലയാളം</a></li>
-                </ul>
+          <span class="lang-switch-btn-container">
+          	<a class="switch-lang lang-active" data-target="en">E</a>
+          	<a class="switch-lang" data-target="ml">മ</a>
           </span>
         </div>
       </nav>
@@ -240,12 +236,15 @@
 			console.log("English");
 			$('*[data-lang="ml"]').addClass("hide");
 			$('*[data-lang="en"]').removeClass("hide");
-			$(".lang-switch-btn").html("English<span class='caret'></span>");
+			$(".switch-lang").removeClass("lang-active");
+			$('*[data-target="en"]').addClass("lang-active");
 		} else {
 			console.log("മലയാളം");
 			$('*[data-lang="en"]').addClass("hide");
 			$('*[data-lang="ml"]').removeClass("hide");
-			$(".lang-switch-btn").html("മലയാളം<span class='caret'></span>");
+			$(".switch-lang").removeClass("lang-active");
+			$('*[data-target="ml"]').addClass("lang-active");
+			
 		}
 	}
 	$(".switch-lang").click(function(){
