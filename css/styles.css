@@ -579,7 +579,22 @@ a.linked:hover, a.linked:active{
 	background: #fff;
 	padding: 20px;
 	/*box-shadow: 0px -3px 10px rgba(0,0,0,0.1);*/
+
 }
+
+.social-links{
+	padding-top: 10px;
+}
+.social-links a{
+	font-size: 20px;
+	color: #bbb;
+	padding:3px;
+	margin: 0 5px;
+}
+
+.social-links a:hover{color:#333;}
+
+.social-links a span:before{color:inherit;}
 @media(max-width: 800px){
 	.mob-only{
 		display: block;
