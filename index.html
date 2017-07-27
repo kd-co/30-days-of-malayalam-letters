@@ -417,7 +417,7 @@
 				get: 'user',
 				userId: 5764236759,
 				clientId: 'a6d0f90ada0b4fa18102601da6d31327',
-				accessToken: '94764.1677ed0.c6256a27eddf41709ddf29af3469a4e5',
+				accessToken: '5764236759.1677ed0.694cbbcffddc47bd9a83b5e251e3ad5c',
 				target: 'instagram',
 				resolution: 'standard_resolution',
 				limit: num,
@@ -428,7 +428,7 @@
 					showGallery();
 					if (!this.hasNext()) {
 	                	$(".load-more-button").fadeOut("fast", function(){
-	                		$(".instagram-feed-end").fadeIn("fast");
+	                		// $(".instagram-feed-end").fadeIn("fast");
 	                	});
 	            	} else {
 	            		$(".load-more-button").fadeIn("fast");
@@ -449,8 +449,9 @@
 	} else {
 		feed = new Instafeed({
 				get: 'user',
-				userId: 94764,
-				accessToken: '94764.1677ed0.c6256a27eddf41709ddf29af3469a4e5',
+				userId: 5764236759,
+				clientId: 'a6d0f90ada0b4fa18102601da6d31327',
+				accessToken: '5764236759.1677ed0.694cbbcffddc47bd9a83b5e251e3ad5c',
 				target: 'instagram',
 				resolution: 'low_resolution',
 				limit: 10,
@@ -458,7 +459,7 @@
 					showGallery();
 					if (!this.hasNext()) {
 	                	$(".load-more-button").fadeOut("fast", function(){
-	                		$(".instagram-feed-end").fadeIn("fast");
+	                		// $(".instagram-feed-end").fadeIn("fast");
 	                	});
 	            	} else {
 	            		$(".load-more-button").fadeIn("fast");
