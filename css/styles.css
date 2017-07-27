@@ -270,7 +270,7 @@ button:hover{
 	border-bottom-color: #000;
 }
 a.info-section-button-dark{
-		margin-top: 20px;
+		margin: 20px 0px 30px 0px;
 		display: inline-block;
 		width: 100%;
 		font-size: 1.2rem;
@@ -383,10 +383,13 @@ a.linked:hover, a.linked:active{
 	padding:2px;
 	display: none;
 	border:12px solid #fff;
+	bottom: 50px;
 }
 .inner-modal{
 	padding: 50px 30px 30px 30px;
 	background: #FFF;
+	overflow-y: auto;
+	height: 100%;
 }
 .modal-back-btn{
 	margin-right: 10px;
