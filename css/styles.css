@@ -553,7 +553,7 @@ a.linked:hover, a.linked:active{
 	display: block;
 }
 .em-sparkling_heart{
-	margin: 0px 5px;
+	margin: 0px 0px 0px 10px;
 }
 @media(max-width: 800px){
 	.mob-only{
