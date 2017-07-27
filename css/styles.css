@@ -146,7 +146,6 @@ a{
 	position: relative;
 	padding-left: 35px;
 }
-
 .info-section-list-item::before{
 	height: 8px;
 	width: 8px;
@@ -166,6 +165,9 @@ a{
 	position: absolute;
 	top: 0px;
 	left: 0px;
+}
+.inner-modal .info-section-list-item:last-child{
+	margin-bottom: 50px;
 }
 #instagram{
 	line-height: 0;
@@ -270,16 +272,16 @@ button:hover{
 	border-bottom-color: #000;
 }
 a.info-section-button-dark{
-		margin: 20px 0px 30px 0px;
-		display: inline-block;
-		width: 100%;
-		font-size: 1.2rem;
-		text-align: center;
-		padding: 15px 30px;
-		color:rgba(255,255,255,.8);
-		font-weight:500;
-		background: #333;
-		transform: translateY(0px);
+	margin: 0px;
+	display: inline-block;
+	width: 100%;
+	font-size: 1.2rem;
+	text-align: center;
+	padding: 15px 30px;
+	color:rgba(255,255,255,.8);
+	font-weight:500;
+	background: #333;
+	transform: translateY(0px);
 }
 .lang-switch-btn-container{
 	display: inline-block;
@@ -392,7 +394,8 @@ a.linked:hover, a.linked:active{
 	padding: 50px 30px 30px 30px;
 	background: #FFF;
 	overflow-y: auto;
-	height: 100%;
+	height: calc(100% - 90px);
+	position: relative;
 }
 .modal-back-btn{
 	margin-right: 10px;
@@ -558,6 +561,25 @@ a.linked:hover, a.linked:active{
 .em-sparkling_heart{
 	margin: 0px 0px 0px 10px;
 }
+.instagram-feed-end{
+	margin: 50px 0px;
+	text-align: center;
+	font-size: 18px;
+	color: #888;
+	display: none;
+}
+.instagram-feed-end img{
+	opacity: 0.5;
+}
+.modal-cta-container{
+	position: absolute;
+	bottom: 2px;
+	left: 2px;
+	right: 2px;
+	background: #fff;
+	padding: 20px;
+	box-shadow: 0px -3px 10px rgba(0,0,0,0.1);
+}
 @media(max-width: 800px){
 	.mob-only{
 		display: block;
@@ -694,9 +716,15 @@ a.linked:hover, a.linked:active{
 	}
 	.inner-modal{
 		padding: 30px 15px 20px;
+		height: calc(100% - 80px);
 	}
 	.at-icon{
 		width: 28px !important;
 		height: 28px !important;
+	}
+	.modal-cta-container{
+		bottom: 0px;
+		left: 0px;
+		right: 0px;
 	}
 }
