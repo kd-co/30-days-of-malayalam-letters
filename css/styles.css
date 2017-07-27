@@ -354,6 +354,9 @@ a.linked:hover, a.linked:active{
     font-family: "Manjari Regular";
     display: none;
 }
+[data-lang="en"] {
+    display: none;
+}
 .disabled-btn{
 	cursor: disabled;
 	pointer-events: none;
