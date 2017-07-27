@@ -292,6 +292,17 @@ a.info-section-button-dark:hover{
 	background: #555;
 	transform: translateY(3px);
 }
+
+a.linked, a.linked:visited{
+	color:#333;
+	display: inline-block;
+	border-bottom: 1px solid #ccc;
+}
+
+a.linked:hover, a.linked:active{
+	color:#000;
+	border-bottom-color: #666; 
+}
 .info-section-link img{
 	position: relative;
 	max-height: 18px;
