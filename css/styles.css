@@ -552,6 +552,9 @@ a.linked:hover, a.linked:active{
 .web-only{
 	display: block;
 }
+.em-sparkling_heart{
+	margin: 0px 5px;
+}
 @media(max-width: 800px){
 	.mob-only{
 		display: block;
