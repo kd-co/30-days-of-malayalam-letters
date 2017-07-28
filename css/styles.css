@@ -29,9 +29,13 @@ html, body{
 	transition: all 0.2s ease-in;
 }
 .logo-container .main-logo{
-	width:125px;
-	height: auto;
+	width: 125px;
+	height: 85px;
 	transition: all 0.2s ease-in;
+}
+
+#logomark{
+	max-width:125px;
 }
 
 .logo-container:hover .main-logo #logotype{
@@ -502,6 +506,7 @@ a.linked:hover, a.linked:active{
 }
 .sticky-header .main-logo	{
 	width: 80px;
+	height: 70px;
 	opacity: .8;
 	padding-top: 18px;
 }
