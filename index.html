@@ -270,14 +270,14 @@
 	  </div>
   </div>
 
-  <div class="container container-960 animated fadeIn" id="about-section">
+  <div class="container container-960" id="about-section">
   	<div class="row">
   		<div class="col-md-6">
   			<div class="info-section">
   				<h3 class="info-section-header" data-lang="en">About the project</h3>
           <h3 class="info-section-header" data-lang="ml">ആമുഖം</h3>
-  				<p class="info-section-desc" data-lang="en"><i class="em em-wave"></i> #30daysofMalayalamLetters invites Designers, Illustrators, Photographers and Artists to visualise Malayalam - one letter at a time. Through this initiative, we hope to trigger fresh thoughts and enhanced sensibilities towards the Malayalam script within the creative community in Kerala.</p>
-          <p class="info-section-desc" data-lang="ml"><i class="em em-wave"></i> കേരളത്തിനകത്തും പുറത്തുമുള്ള എല്ലാ മലയാളി ഡിസൈനേഴ്സ്നെയും #30daysofMalayalamLetters ലേക്ക് സ്വാഗതം ചെയ്യുന്നു. മലയാള അക്ഷരങ്ങളെ ഒന്നൊന്നായി സർഗ്ഗാത്മകമായി വിഭാവന ചെയ്യുകയാണ് ഇവിടെ. നമ്മുടെ ഭാവനയിലും വീക്ഷണങ്ങളിലും മലയാള ഭാഷയെ ഒരു പുതിയ ഉണർവോടെ കാഴ്ച്ച വയ്ക്കപ്പെടാൻ ഈ ഉദ്യമത്തിലൂടെ കഴിയും എന്ന് പ്രതീക്ഷിക്കുന്നു.</p>
+  				<p class="info-section-desc" data-lang="en">#30daysofMalayalamLetters invites Designers, Illustrators, Photographers and Artists to visualise Malayalam - one letter at a time. Through this initiative, we hope to trigger fresh thoughts and enhanced sensibilities towards the Malayalam script within the creative community in Kerala.</p>
+          <p class="info-section-desc" data-lang="ml">കേരളത്തിനകത്തും പുറത്തുമുള്ള എല്ലാ മലയാളി ഡിസൈനേഴ്സ്നെയും #30daysofMalayalamLetters ലേക്ക് സ്വാഗതം ചെയ്യുന്നു. മലയാള അക്ഷരങ്ങളെ ഒന്നൊന്നായി സർഗ്ഗാത്മകമായി വിഭാവന ചെയ്യുകയാണ് ഇവിടെ. നമ്മുടെ ഭാവനയിലും വീക്ഷണങ്ങളിലും മലയാള ഭാഷയെ ഒരു പുതിയ ഉണർവോടെ കാഴ്ച്ച വയ്ക്കപ്പെടാൻ ഈ ഉദ്യമത്തിലൂടെ കഴിയും എന്ന് പ്രതീക്ഷിക്കുന്നു.</p>
   				<a class="info-section-link trigger-modal-btn" href="#details-modal" rel="leanModal">
   					<span data-lang="en">Guidelines for participation</span>
   					<span data-lang="ml">പങ്കെടുക്കുന്നത്തിനുള്ള നിർദ്ദേശങ്ങൾ</span>
@@ -434,7 +434,6 @@
 				resolution: 'standard_resolution',
 				limit: num,
 				success: function(data){
-					console.log(data);
 				},
 				after: function() {
 					showGallery();
@@ -447,7 +446,7 @@
 	            	}
 					var images = $("#instagram").find('a');
 				    $.each(images, function(index, image) {
-				      var delay = (index * 10) + 'ms';
+				      var delay = (index * 100) + 'ms';
 				      $(image).css('-webkit-animation-delay', delay);
 				      $(image).css('-moz-animation-delay', delay);
 				      $(image).css('-ms-animation-delay', delay);
@@ -504,6 +503,7 @@
 		feed.run();
 	});
 
+
 	// Load more images from Instagram feed
 	$(".load-more-button").click(function(){
 		$(this).fadeOut("fast", function(){
@@ -520,17 +520,18 @@
 
 	function changeLanguage(lang){
 		if(lang === "en"){
-			console.log("English");
 			$('*[data-lang="ml"]').fadeOut("fast", function(){
 				$('*[data-lang="en"]').fadeIn("fast");
+				$('*[data-lang="en"]').css('opacity', '1');
 			});
 			$(".switch-lang").removeClass("lang-active");
 			$('*[data-target="en"]').addClass("lang-active");
 			$('.info-section-link[data-lang="en"]').css("display", "inline-block");
 		} else {
-			console.log("മലയാളം");
 			$('*[data-lang="en"]').fadeOut("fast", function(){
 				$('*[data-lang="ml"]').fadeIn("fast");
+				$('*[data-lang="ml"]').css('opacity', '1');
+				
 			});
 			$(".switch-lang").removeClass("lang-active");
 			$('*[data-target="ml"]').addClass("lang-active");
@@ -554,10 +555,8 @@
 	    if(st > 500){
 	    	$(".site-header").addClass("site-header-hidden");
 	    	if (st > lastScrollTop){
-		       	console.log("scrolled down");
 	    	   	$(".sticky-header").removeClass("sticky-header-shown");
 		   	} else {
-		       console.log("scrolled up");
 	    		$(".sticky-header").addClass("sticky-header-shown");
 		   	}
 	    } else {
