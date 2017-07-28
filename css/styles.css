@@ -189,8 +189,6 @@ a{
 	-webkit-transform: scale(1);
 	transform: scale(1);
 	transition: all 0.2s ease-in;
-	min-height: 300px;
-	min-width: auto;
 }
 .instagram-gallery-container{
 	display: none;
@@ -670,8 +668,6 @@ a.linked:hover, a.linked:active{
 	#instagram a img{
 		width: 100%;
 		max-width: 100%;
-		min-height: 100%;
-		min-width: auto;
 	}
 	.info-section{
 		margin: 30px 0px;
