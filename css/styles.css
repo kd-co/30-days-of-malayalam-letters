@@ -637,6 +637,7 @@ a.linked:hover, a.linked:active{
 	.sticky-header-hash-container{padding-top: 15px;}
 	.sticky-header .logo-container .main-logo{
 		width:50px;
+		height: 56px;
 		margin-left: 0px;
 		margin-top: -5px;
 	}
@@ -648,6 +649,7 @@ a.linked:hover, a.linked:active{
 	}
 	.logo-container .main-logo{
 		width: 88px;
+		height: 60px;
 		margin-top: 5px;
 	}
 	.logo-container .main-logo #logotype{
