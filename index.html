@@ -540,20 +540,19 @@
 		if(lang === "en"){
 			$('*[data-lang="ml"]').fadeOut("fast", function(){
 				$('*[data-lang="en"]').fadeIn("fast");
-				$('*[data-lang="en"]').css('opacity', '1');
 			});
 			$(".switch-lang").removeClass("lang-active");
 			$('*[data-target="en"]').addClass("lang-active");
-			$('.info-section-link[data-lang="en"]').css("display", "inline-block");
+
 		} else {
+
 			$('*[data-lang="en"]').fadeOut("fast", function(){
 				$('*[data-lang="ml"]').fadeIn("fast");
-				$('*[data-lang="ml"]').css('opacity', '1');
 				
 			});
 			$(".switch-lang").removeClass("lang-active");
 			$('*[data-target="ml"]').addClass("lang-active");
-			$('.info-section-link[data-lang="ml"]').css("display", "inline-block");
+
 		}
 	}
 	$(".switch-lang").click(function(){
