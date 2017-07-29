@@ -408,14 +408,37 @@
 
 <div id="image-details-modal" class="kdco-modal image-preview-modal">
 	<a class="close-modal-icon"><span class="kdcoicon-close"></span></a>
-	<a class="image-slide-next" data-current="123"><span class="kdcoicon-arrow-left"></span></a>
+	<a class="image-slide-prev" data-current=""><span class="kdcoicon-arrow-left"></span></a>
+	<a class="image-slide-next" data-current=""><span class="kdcoicon-arrow-right"></span></a>
+	<span class="image-preview-shortcuts">
+		Keyboard shortcuts: 
+		<span class="shortcut-item">
+			<span class="shortcut-item-indicator kdcoicon-arrow-left"></span>Previous
+		</span>
+		<span class="shortcut-item">
+			<span class="shortcut-item-indicator kdcoicon-arrow-right"></span>Next
+		</span>
+		<span class="shortcut-item">
+			<span class="shortcut-item-indicator" style="font-weight: 700">ESC</span>Close
+		</span>
+	</span>
 	<div class="row">
 		<div class="col-md-7">
 			<img src="" class="image-preview">
 		</div>
 		<div class="col-md-5">
 			<p class="image-caption-desc"></p>
-			<a class="image-source-link info-section-link" href="" target="_blank">More details</a>
+			<div class="row">
+				<div class="col-md-6">
+					<a class="image-source-link info-section-link" href="" target="_blank">More details</a>
+				</div>
+				<div class="col-md-6 align-right">
+					<div class="social-links">
+						<a class="image-link-share-facebook" target="_blank"><span class="kdcoicon-brand2"></span></a>
+          				<a class="image-link-share-twitter" target="_blank"><span class="kdcoicon-brand5"></span></a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -528,28 +551,84 @@
 
 	function dynamicInitialise(){
 		$('a[rel*=leanModal]').leanModal({ top : 50});	
-		$(".image-preview-link").click(function(){
+		$(document).on('click', '.image-preview-link', function(){
 			$(".image-preview").attr("src", $(this).data("src"));
 			$(".image-caption-desc").text($(this).data("caption"));
 			$(".image-source-link").attr("href", $(this).data("link"));
 			$(".image-slide-next").attr("data-current", $(this).attr("id"));
+			$(".image-slide-prev").attr("data-current", $(this).attr("id"));
+
+			var tweet_message = 'http://twitter.com/share?text=Loved this entry on 30daysofMalayalamLetters&url=' + $(this).data("link") + '&hashtags=30daysofMalayalamLetters,Malayalam,OnamIsComing';
+			var share_message = 'http://www.facebook.com/share.php?u=' + $(this).data("link") + '&title=Loved this entry on #30daysofMalayalamLetters'
+			$(".image-link-share-facebook").attr("href", share_message);
+			$(".image-link-share-twitter").attr("href", tweet_message);
+
+
+			$("body").keyup(function(e) {
+			  if(e.keyCode === 37) { // left
+			    $(".image-slide-prev").trigger("click");
+			  }
+			  else if(e.keyCode === 39) { // right
+			    $(".image-slide-next").trigger("click");
+			  } 
+			  else if(e.keyCode === 27) { // esc
+			    $("#lean_overlay").trigger("click");
+			  }
+			});
 		});
-		$(".trigger-modal-btn").click(function(){
+		$(document).on('click', '.trigger-modal-btn', function(){
     		$("body").css("overflow-y", "hidden");
     	});
-    	$(".image-slide-next").click(function(){
+    	$(document).on('click', '.image-slide-next', function(){
     		var curr_id = $(this).attr("data-current");
     		curr_id = curr_id.toString();
     		var curr_elem = document.getElementById(curr_id);
+
     		if(($(curr_elem).nextAll(".image-preview-link:first").length)===0){
-				return false;
+				
 			} else {
 				curr_elem = $(curr_elem).nextAll(".image-preview-link:first");
-				console.log(curr_elem);
-				$(".image-preview").attr("src", $(curr_elem).data("src"));
+
+				/*/if(($(curr_elem).nextAll(".image-preview-link:first").length)===0){
+					$(".image-slide-next").addClass("image-slide-disabled");
+				}*/
+				$(".image-preview").fadeOut(100, function(){
+					$(".image-preview").attr("src", $(curr_elem).data("src"));
+					$(".image-preview").fadeIn(100);
+				});
 				$(".image-caption-desc").text($(curr_elem).data("caption"));
 				$(".image-source-link").attr("href", $(curr_elem).data("link"));
 				$(".image-slide-next").attr("data-current", $(curr_elem).attr("id"));
+				$(".image-slide-prev").attr("data-current", $(curr_elem).attr("id"));
+
+				var tweet_message = 'http://twitter.com/share?text=Loved this entry on 30daysofMalayalamLetters&url=' + $(curr_elem).data("link") + '&hashtags=30daysofMalayalamLetters,Malayalam,OnamIsComing';
+				var share_message = 'http://www.facebook.com/share.php?u=' + $(curr_elem).data("link") + '&title=Loved this entry on #30daysofMalayalamLetters'
+				$(".image-link-share-facebook").attr("href", share_message);
+				$(".image-link-share-twitter").attr("href", tweet_message);
+
+			}
+    	});
+    	$(document).on('click', '.image-slide-prev', function(){
+    		var curr_id = $(this).attr("data-current");
+    		curr_id = curr_id.toString();
+    		var curr_elem = document.getElementById(curr_id);
+    		if(($(curr_elem).prevAll(".image-preview-link:first").length)===0){
+				
+			} else {
+				curr_elem = $(curr_elem).prevAll(".image-preview-link:first");
+				$(".image-preview").fadeOut(100, function(){
+					$(".image-preview").attr("src", $(curr_elem).data("src"));
+					$(".image-preview").fadeIn(100);
+				});
+				$(".image-caption-desc").text($(curr_elem).data("caption"));
+				$(".image-source-link").attr("href", $(curr_elem).data("link"));
+				$(".image-slide-prev").attr("data-current", $(curr_elem).attr("id"));
+				$(".image-slide-next").attr("data-current", $(curr_elem).attr("id"));
+
+				var tweet_message = 'http://twitter.com/share?text=Loved this entry on 30daysofMalayalamLetters&url=' + $(curr_elem).data("link") + '&hashtags=30daysofMalayalamLetters,Malayalam,OnamIsComing';
+				var share_message = 'http://www.facebook.com/share.php?u=' + $(curr_elem).data("link") + '&title=Loved this entry on #30daysofMalayalamLetters'
+				$(".image-link-share-facebook").attr("href", share_message);
+				$(".image-link-share-twitter").attr("href", tweet_message);
 			}
     	});
 	}

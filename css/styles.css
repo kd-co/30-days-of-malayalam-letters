@@ -429,7 +429,7 @@ a.linked:hover, a.linked:active{
 	left: 100%;
 	top: 0px;
 	position: absolute;
-	left: calc(100% + 15px);
+	left: calc(100% + 25px);
 	top: -8px;
 	font-size: 24px;
 	color: #fff;
@@ -442,9 +442,32 @@ a.linked:hover, a.linked:active{
 	color: #fff;
 	font-size: 24px;
 	position: absolute;
-	top: 40%;
-	left: calc(100% + 15px);
+	top: 43%;
+	left: calc(100% + 25px);
 }
+.image-slide-prev{
+	color: #fff;
+	font-size: 24px;
+	position: absolute;
+	top: 43%;
+	right: calc(100% + 25px);
+}
+.image-slide-disabled{
+	opacity: 0;
+}
+.image-preview-modal .social-links{
+	padding-top: 9px;
+	padding-right: 20px;
+}
+.align-right{
+	text-align: right;
+}
+.image-preview-modal .social-links a {
+    font-size: 18px;
+    color: #bbb;
+    padding: 0px 3px;
+}
+
 .image-preview-container{
 	position: relative;
 }
@@ -457,6 +480,8 @@ a.linked:hover, a.linked:active{
 	font-weight: 300;
 	line-height: 1.6;
 	padding: 30px 20px 15px 0px;
+	max-height: 348px;
+	overflow-y: hidden;
 	margin: 0px;
 }
 .image-preview-modal{
@@ -474,6 +499,24 @@ a.linked:hover, a.linked:active{
 	width: 100%;
 	height: auto;
 	border-right: 1px solid #e2e2e2
+}
+.image-preview-shortcuts{
+	position: absolute;
+	left: 0px;
+	font-weight: 300;
+	right: 0px;
+	top: calc(100% + 20px);
+	color: #fff;
+	opacity: 0.7;
+	font-size: 14px;
+	text-align: center;
+}
+.shortcut-item{
+	margin: 0px 15px;
+}
+.shortcut-item-indicator{
+	margin-right: 10px;
+	font-weight: 700;
 }
 .inner-modal{
 	padding: 50px 30px 30px 30px;
