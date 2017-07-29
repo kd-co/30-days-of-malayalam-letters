@@ -546,6 +546,7 @@
 				      $(image).css('animation-delay', delay);
 				      $(image).addClass('animated fadeIn');
 				    });
+				    dynamicInitialise();
 				},
 				template: '<a href="{{link}}" target="_blank"><img src="{{image}}" /></a>',
 		});
@@ -579,8 +580,8 @@
 			  }
 			});
 		});
-		$(document).on('click', '.trigger-modal-btn', function(){
-    		$("body").css("overflow-y", "hidden");
+    	$(".trigger-modal-btn").click(function(){
+    		$("body").css("overflow-y", "hidden");    		
     	});
     	$(document).on('click', '.image-slide-next', function(){
     		var curr_id = $(this).attr("data-current");
