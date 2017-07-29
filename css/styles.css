@@ -528,12 +528,12 @@ a.linked:hover, a.linked:active{
 .image-preview-shortcuts{
 	position: absolute;
 	left: 0px;
-	font-weight: 300;
+	font-weight: 400;
 	right: 0px;
 	top: calc(100% + 20px);
 	color: #fff;
-	opacity: 0.7;
-	font-size: 14px;
+	opacity: 0.5;
+	font-size: 13px;
 	text-align: center;
 }
 .shortcut-item{
