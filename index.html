@@ -410,10 +410,12 @@
 
 
 <div id="image-details-modal" class="kdco-modal image-preview-modal">
-	<a class="close-modal-icon"><span class="kdcoicon-close"></span></a>
-	<a class="image-slide-prev" data-current=""><span class="kdcoicon-arrow-left"></span></a>
-	<a class="image-slide-next" data-current=""><span class="kdcoicon-arrow-right"></span></a>
-	<span class="image-preview-shortcuts">
+	<div class="web-only">
+		<a class="close-modal-icon"><span class="kdcoicon-close"></span></a>
+		<a class="image-slide-prev" data-current=""><span class="kdcoicon-arrow-left"></span></a>
+		<a class="image-slide-next" data-current=""><span class="kdcoicon-arrow-right"></span></a>
+	</div>
+	<!-- <span class="image-preview-shortcuts hide">
 		Keyboard shortcuts: 
 		<span class="shortcut-item">
 			<span class="shortcut-item-indicator kdcoicon-arrow-left"></span>Previous
@@ -424,24 +426,31 @@
 		<span class="shortcut-item">
 			<span class="shortcut-item-indicator" style="font-weight: 700">ESC</span>Close
 		</span>
-	</span>
+	</span> -->
 	<div class="row">
 		<div class="col-md-7">
 			<img src="" class="image-preview">
 		</div>
 		<div class="col-md-5">
 			<p class="image-caption-desc"></p>
-			<div class="row">
-				<div class="col-md-6">
+			<div class="row image-preview-tools mob-only">
+				<div class="col-xs-6">
 					<a class="image-source-link info-section-link" href="" target="_blank">View on Instagram</a>
 				</div>
-				<div class="col-md-6 align-right">
+				<div class="col-xs-6 align-right">
 					<div class="social-links">
 						<a class="image-link-share-facebook" target="_blank"><span class="kdcoicon-brand2"></span></a>
           				<a class="image-link-share-twitter" target="_blank"><span class="kdcoicon-brand5"></span></a>
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="preview-image-modal-footer mob-only">
+		<div class="row no-margin">
+			<div class="col-xs-4 no-padding"><a class="preview-modal-icon close-modal-icon"><span class="kdcoicon-close"></span></a></div>
+			<div class="col-xs-4 no-padding"><a class="preview-modal-icon image-slide-prev" data-current=""><span class="kdcoicon-arrow-left"></span></a></div>
+			<div class="col-xs-4 no-padding"><a class="preview-modal-icon image-slide-next" data-current=""><span class="kdcoicon-arrow-right"></span></a></div>
 		</div>
 	</div>
 </div>
@@ -531,7 +540,7 @@
 					showGallery();
 					if (!this.hasNext()) {
 	                	$(".load-more-button").fadeOut("fast", function(){
-	                		$(".instagram-feed-end").fadeIn("fast");
+	                		//$(".instagram-feed-end").fadeIn("fast");
 	                	});
 	            	} else {
 	            		$(".load-more-button").fadeIn("fast");
@@ -548,7 +557,7 @@
 				    });
 				    dynamicInitialise();
 				},
-				template: '<a href="{{link}}" target="_blank"><img src="{{image}}" /></a>',
+				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}" id="{{id}}"><img src="{{image}}" /></a>',
 		});
 	}
 
@@ -567,8 +576,7 @@
 			$(".image-link-share-facebook").attr("href", share_message);
 			$(".image-link-share-twitter").attr("href", tweet_message);
 
-
-			$("body").keyup(function(e) {
+			/*$("body").keyup(function(e) {
 			  if(e.keyCode === 37) { // left
 			    $(".image-slide-prev").trigger("click");
 			  }
@@ -578,20 +586,25 @@
 			  else if(e.keyCode === 27) { // esc
 			    $("#lean_overlay").trigger("click");
 			  }
-			});
+			});*/
 		});
     	$(".trigger-modal-btn").click(function(){
     		$("body").css("overflow-y", "hidden");    		
     	});
     	$(document).on('click', '.image-slide-next', function(){
     		var curr_id = $(this).attr("data-current");
-    		curr_id = curr_id.toString();
+    		
     		var curr_elem = document.getElementById(curr_id);
 
-    		if(($(curr_elem).nextAll(".image-preview-link:first").length)===0){
-				
+    		console.log(curr_elem);
+
+
+    		if(($(curr_elem).nextAll(".image-preview-link").first().length)===0){
+				$("#lean_overlay").trigger("click");
 			} else {
-				curr_elem = $(curr_elem).nextAll(".image-preview-link:first");
+				curr_elem = $(curr_elem).nextAll(".image-preview-link").first();
+				
+				console.log(curr_elem);
 
 				/*/if(($(curr_elem).nextAll(".image-preview-link:first").length)===0){
 					$(".image-slide-next").addClass("image-slide-disabled");
@@ -614,12 +627,19 @@
     	});
     	$(document).on('click', '.image-slide-prev', function(){
     		var curr_id = $(this).attr("data-current");
-    		curr_id = curr_id.toString();
+
     		var curr_elem = document.getElementById(curr_id);
-    		if(($(curr_elem).prevAll(".image-preview-link:first").length)===0){
-				
+
+    		console.log(curr_elem);
+
+    		if(($(curr_elem).prevAll(".image-preview-link").first().length)===0){
+				$("#lean_overlay").trigger("click");
 			} else {
-				curr_elem = $(curr_elem).prevAll(".image-preview-link:first");
+				curr_elem = $(curr_elem).prevAll(".image-preview-link").first();
+
+				console.log(curr_elem);
+
+
 				$(".image-preview").fadeOut(100, function(){
 					$(".image-preview").attr("src", $(curr_elem).data("src"));
 					$(".image-preview").fadeIn(100);
