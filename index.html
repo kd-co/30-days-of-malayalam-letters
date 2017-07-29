@@ -257,9 +257,12 @@
     </header>
 
   	<div class="center animated fadeIn">
-  		<h1 class="main-header"><span class="hash" role="presentation">#</span>30daysofMalayalamLetters</h1>
-  		<h3 class="sub-header" data-lang="en">Aug 01-31, 2017</h3>
-      <h3 class="sub-header" data-lang="ml">ആഗസ്റ്റ് 01-31, 2017</h3>
+  		<h1 class="main-header main-header-offset"><span class="hash" role="presentation">#</span>30daysofMalayalamLetters</h1>
+  		<div class="masthead-container">
+  			<img src="img/masthead.jpg">
+  		</div>
+  		<h3 class="sub-header sub-header-offset" data-lang="en">Aug 01-31, 2017</h3>
+      <h3 class="sub-header sub-header-offset" data-lang="ml">ആഗസ്റ്റ് 01-31, 2017</h3>
   	</div>
   </div>
   
@@ -282,8 +285,8 @@
 	    </button>
 	  </div>
 	  <div class="instagram-feed-end">
-	  	<span data-lang="en">The end</span>
-	  	<span data-lang="ml">ശുഭം</span>
+	  	<span data-lang="en"><img src="img/fin.jpg"></span>
+	  	<span data-lang="ml"><img src="img/fin-mal.jpg"></span>
 	  </div>
   </div>
 
@@ -496,7 +499,7 @@
 					showGallery();
 					if (!this.hasNext()) {
 	                	$(".load-more-button").fadeOut("fast", function(){
-	                		// $(".instagram-feed-end").fadeIn("fast");
+	                		$(".instagram-feed-end").fadeIn("fast");
 	                	});
 	            	} else {
 	            		$(".load-more-button").fadeIn("fast");
@@ -528,7 +531,7 @@
 					showGallery();
 					if (!this.hasNext()) {
 	                	$(".load-more-button").fadeOut("fast", function(){
-	                		// $(".instagram-feed-end").fadeIn("fast");
+	                		$(".instagram-feed-end").fadeIn("fast");
 	                	});
 	            	} else {
 	            		$(".load-more-button").fadeIn("fast");
