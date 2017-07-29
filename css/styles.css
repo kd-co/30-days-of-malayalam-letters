@@ -60,8 +60,10 @@ a{
 .at-style-responsive .at-share-btn{
 	padding: 5px 0;
 }
-.at-icon-wrapper{
-	/*width: 28px !important;*/
+span.at-icon-wrapper{
+	line-height: 26px;
+	height: 26px;
+	width: 26px;
 }
 .nav{
 	background: #fff;
