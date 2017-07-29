@@ -466,7 +466,7 @@ a.linked:hover, a.linked:active{
 .image-preview{
 	width: 100%;
 	height: auto;
-	border-right: 1px solid #e2e2e2
+	/*border-right: 1px solid #e2e2e2*/
 }
 .inner-modal{
 	padding: 50px 30px 30px 30px;
