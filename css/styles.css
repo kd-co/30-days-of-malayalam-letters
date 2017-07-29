@@ -219,7 +219,7 @@ span.at4-share-count-container{
 	line-height: 0;
 	width: 100%;
 	text-align: center;
-	margin: 100px auto 30px auto;
+	margin: 85px auto 30px auto;
 }
 #instagram a{
 	display: inline-block;
@@ -461,7 +461,8 @@ a.linked:hover, a.linked:active{
 	font-size: 24px;
 	position: absolute;
 	top: 43%;
-	left: calc(100% + 25px);
+	left: calc(100%);
+	padding: 20px;
 }
 .image-slide-prev{
 	color: #fff;
@@ -469,7 +470,8 @@ a.linked:hover, a.linked:active{
 	font-size: 24px;
 	position: absolute;
 	top: 43%;
-	right: calc(100% + 25px);
+	right: calc(100%);
+	padding: 20px;
 }
 
 .image-slide-next:hover,.image-slide-prev:hover{
