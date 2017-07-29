@@ -85,6 +85,9 @@ span.at4-share-count-container{
 .at-resp-share-element .at4-share-count-container {
 	padding-right: 5px !important;
 }
+.at-resp-share-element.at-mobile .at4-share-count-container, .at-resp-share-element.at-mobile .at-label {
+    display: block !important;
+}
 .nav{
 	background: #fff;
 	padding: 20px 0px;
