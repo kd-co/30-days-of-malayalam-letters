@@ -475,11 +475,11 @@ a.linked:hover, a.linked:active{
 
 }
 .image-caption-desc{
-	font-size: 1.1rem;
-	color: #888;
+	font-size: 1.35rem;
+	color: #aaa;
 	font-weight: 300;
 	line-height: 1.6;
-	padding: 30px 20px 15px 0px;
+	padding: 35px 20px 15px 0px;
 	max-height: 348px;
 	overflow-y: hidden;
 	margin: 0px;
@@ -498,7 +498,7 @@ a.linked:hover, a.linked:active{
 .image-preview{
 	width: 100%;
 	height: auto;
-	border-right: 1px solid #e2e2e2
+	/*border-right: 1px solid #e2e2e2*/
 }
 .image-preview-shortcuts{
 	position: absolute;
