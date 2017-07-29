@@ -422,14 +422,15 @@ a.linked:hover, a.linked:active{
 	display: none;
 	border:12px solid #fff;
 	bottom: 50px;
+	box-shadow: 0px 20px 50px rgba(0,0,0,0.4);
 }
 .close-modal-icon{
 	position: absolute;
 	left: 100%;
 	top: 0px;
 	position: absolute;
-	left: calc(100% + 25px);
-	top: -15px;
+	left: calc(100% + 15px);
+	top: -8px;
 	font-size: 24px;
 	color: #fff;
 }
@@ -440,13 +441,31 @@ a.linked:hover, a.linked:active{
 .image-preview-container{
 	position: relative;
 }
+.image-caption-container{
+
+}
+.image-caption-desc{
+	font-size: 1.0rem;
+	color: #666;
+	line-height: 1.6;
+	padding: 20px 15px 15px 0px;
+	margin: 0px;
+}
 .image-preview-modal{
-	width: auto;
+	width: 900px;
+	background: #fff;
+	padding: 0px;
 	bottom: auto;
+	border: none;
+}
+.image-preview-modal .info-section-link{
+	font-size: 1.0rem;
+	margin: 10px 0px 15px 0px;
 }
 .image-preview{
-	width: 612px;
-	height: 612px;
+	width: 100%;
+	height: auto;
+	border-right: 1px solid #e2e2e2
 }
 .inner-modal{
 	padding: 50px 30px 30px 30px;
@@ -595,7 +614,7 @@ a.linked:hover, a.linked:active{
 }
 .sticky-footer-mob .info-section-link{
 	margin: 0px;
-	font-size: 15px;
+	font-size: 14px;
 	border: 0px;
 	display: flex;
 	flex-direction: column;
@@ -668,7 +687,7 @@ a.linked:hover, a.linked:active{
 		padding-bottom: 60px;
 	}
 	.share-now-header{
-		font-size: 15px;
+		font-size: 13px;
 	}
 	.sticky-footer-mob{
 		display: block;

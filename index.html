@@ -338,10 +338,10 @@
 	    	<span data-lang="ml">ആമുഖം</span>
 	    </a>
 	    <div class="col-xs-9 sticky-footer-share-container">
-	    	<!-- <span class="share-now-header">
-          	  	<span data-lang="en">Spread the <i class="em em-sparkling_heart"></i>on</span>
+	    	<span class="share-now-header">
+          	  	<span data-lang="en">Spread the <i class="em em-sparkling_heart"></i></span>
           	  	<span data-lang="ml">ഇഷ്ടം<i class="em em-sparkling_heart"></i>പങ്കിടാം</span>
-          	</span> -->
+          	</span>
 	  		<div class="addthis_inline_share_toolbox follow-toolbox"></div></div>
 	    </div>
     </div>
@@ -408,8 +408,14 @@
 
 <div id="image-details-modal" class="kdco-modal image-preview-modal">
 	<a class="close-modal-icon"><span class="kdcoicon-close"></span></a>
-	<div class="image-preview-container">
-		<img src="" class="image-preview">
+	<div class="row">
+		<div class="col-md-7">
+			<img src="" class="image-preview">
+		</div>
+		<div class="col-md-5">
+			<p class="image-caption-desc"></p>
+			<a class="image-source-link info-section-link" href="" target="_blank">More details</a>
+		</div>
 	</div>
 </div>
   
@@ -481,9 +487,9 @@
 				      $(image).css('animation-delay', delay);
 				      $(image).addClass('animated fadeIn');
 				    });
-				    initializeAllModals();
+				    dynamicInitialise();
 				},
-				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link" data-src="{{image}}"><img src="{{image}}" /></a>',
+				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}"><img src="{{image}}" /></a>',
 		});
 	} else {
 		feed = new Instafeed({
@@ -519,11 +525,16 @@
 	}
 
 
-	function initializeAllModals(){
+	function dynamicInitialise(){
 		$('a[rel*=leanModal]').leanModal({ top : 50});	
 		$(".image-preview-link").click(function(){
 			$(".image-preview").attr("src", $(this).data("src"));
+			$(".image-caption-desc").text($(this).data("caption"));
+			$(".image-source-link").attr("href", $(this).data("link"));
 		});
+		$(".trigger-modal-btn").click(function(){
+    		$("body").css("overflow-y", "hidden");
+    	});
 	}
 
 	// Initialise plugins
@@ -535,7 +546,7 @@
         		changeLanguage("en");
         	}
     	});
-		initializeAllModals();	
+		dynamicInitialise();	
 		feed.run();
 	});
 
