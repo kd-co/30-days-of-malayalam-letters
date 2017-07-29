@@ -88,6 +88,9 @@ span.at4-share-count-container{
 .at-resp-share-element.at-mobile .at4-share-count-container, .at-resp-share-element.at-mobile .at-label {
     display: block !important;
 }
+.at-svc-whatsapp{
+	display: none !important;
+}
 .nav{
 	background: #fff;
 	padding: 20px 0px;
@@ -626,6 +629,9 @@ a.linked:hover, a.linked:active{
 
 .social-links a span:before{color:inherit;}
 @media(max-width: 800px){
+	.at-svc-whatsapp{
+		display: block !important;
+	}
 	.mob-only{
 		display: block;
 	}
