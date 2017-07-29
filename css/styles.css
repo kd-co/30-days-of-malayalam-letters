@@ -83,7 +83,7 @@ span.at4-share-count-container{
 	line-height: 26px !important;
 }
 .at-resp-share-element .at4-share-count-container {
-	padding-right: 5px;
+	padding-right: 5px !important;
 }
 .nav{
 	background: #fff;
