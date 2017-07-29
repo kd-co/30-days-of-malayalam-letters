@@ -82,6 +82,9 @@ span.at-icon-wrapper{
 span.at4-share-count-container{
 	line-height: 26px !important;
 }
+.at-resp-share-element .at4-share-count-container {
+	padding-right: 5px;
+}
 .nav{
 	background: #fff;
 	padding: 20px 0px;
