@@ -740,10 +740,7 @@ a.linked:hover, a.linked:active{
 		padding: 30px 15px 20px;
 		height: calc(100% - 80px);
 	}
-	.at-icon{
-		width: 28px !important;
-		height: 28px !important;
-	}
+
 	.modal-cta-container{
 		bottom: 0px;
 		left: 0px;
