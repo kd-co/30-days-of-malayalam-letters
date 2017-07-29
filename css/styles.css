@@ -62,8 +62,11 @@ a{
 }
 span.at-icon-wrapper{
 /*	line-height: 26px !important;
-	height: 26px !important;
-	width: 26px !important;*/
+	height: 26px !important;*/
+	width: 26px !important;
+}
+span.at4-share-count-container{
+	line-height: 26px !important;
 }
 .nav{
 	background: #fff;
