@@ -408,6 +408,7 @@
 
 <div id="image-details-modal" class="kdco-modal image-preview-modal">
 	<a class="close-modal-icon"><span class="kdcoicon-close"></span></a>
+	<a class="image-slide-next" data-current="123"><span class="kdcoicon-arrow-left"></span></a>
 	<div class="row">
 		<div class="col-md-7">
 			<img src="" class="image-preview">
@@ -489,7 +490,7 @@
 				    });
 				    dynamicInitialise();
 				},
-				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}"><img src="{{image}}" /></a>',
+				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}" id="{{id}}"><img src="{{image}}" /></a>',
 		});
 	} else {
 		feed = new Instafeed({
@@ -531,9 +532,25 @@
 			$(".image-preview").attr("src", $(this).data("src"));
 			$(".image-caption-desc").text($(this).data("caption"));
 			$(".image-source-link").attr("href", $(this).data("link"));
+			$(".image-slide-next").attr("data-current", $(this).attr("id"));
 		});
 		$(".trigger-modal-btn").click(function(){
     		$("body").css("overflow-y", "hidden");
+    	});
+    	$(".image-slide-next").click(function(){
+    		var curr_id = $(this).attr("data-current");
+    		curr_id = curr_id.toString();
+    		var curr_elem = document.getElementById(curr_id);
+    		if(($(curr_elem).nextAll(".image-preview-link:first").length)===0){
+				return false;
+			} else {
+				curr_elem = $(curr_elem).nextAll(".image-preview-link:first");
+				console.log(curr_elem);
+				$(".image-preview").attr("src", $(curr_elem).data("src"));
+				$(".image-caption-desc").text($(curr_elem).data("caption"));
+				$(".image-source-link").attr("href", $(curr_elem).data("link"));
+				$(".image-slide-next").attr("data-current", $(curr_elem).attr("id"));
+			}
     	});
 	}
 
@@ -546,7 +563,6 @@
         		changeLanguage("en");
         	}
     	});
-		dynamicInitialise();	
 		feed.run();
 	});
 
