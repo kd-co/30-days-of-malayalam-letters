@@ -447,12 +447,16 @@ a.linked:hover, a.linked:active{
 	top: -8px;
 	font-size: 24px;
 	color: #fff;
+	opacity: .5;
 }
+
+.close-modal-icon:hover{opacity: 1;}
 .close-modal-icon img{
 	width: auto !important;
 	height: auto !important;
 }
 .image-slide-next{
+	opacity: .5;
 	color: #fff;
 	font-size: 24px;
 	position: absolute;
@@ -462,12 +466,17 @@ a.linked:hover, a.linked:active{
 }
 .image-slide-prev{
 	color: #fff;
+	opacity: .5;
 	font-size: 24px;
 	position: absolute;
 	top: 43%;
 	right: calc(100%);
 	padding: 20px;
 }
+
+.image-slide-next:hover,.image-slide-prev:hover{
+	opacity: 1;
+} 
 .image-slide-disabled{
 	opacity: 0;
 }
@@ -519,12 +528,12 @@ a.linked:hover, a.linked:active{
 .image-preview-shortcuts{
 	position: absolute;
 	left: 0px;
-	font-weight: 300;
+	font-weight: 400;
 	right: 0px;
 	top: calc(100% + 20px);
 	color: #fff;
-	opacity: 0.7;
-	font-size: 14px;
+	opacity: 0.5;
+	font-size: 13px;
 	text-align: center;
 }
 .shortcut-item{
@@ -662,11 +671,11 @@ a.linked:hover, a.linked:active{
 .sticky-header-hash-container{
 	font-size: 1.2rem;
 	font-weight: 500;
-	color:#333;
+	color:#999;
 }
 
 .sticky-header-hash-container a:hover{
-	color:#999;
+	color:#333;
 }
 .sticky-footer-mob{
 	display: none;
