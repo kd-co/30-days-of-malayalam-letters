@@ -445,10 +445,11 @@ a.linked:hover, a.linked:active{
 
 }
 .image-caption-desc{
-	font-size: 1.0rem;
-	color: #666;
+	font-size: 1.1rem;
+	color: #888;
+	font-weight: 300;
 	line-height: 1.6;
-	padding: 20px 15px 15px 0px;
+	padding: 30px 20px 15px 0px;
 	margin: 0px;
 }
 .image-preview-modal{
