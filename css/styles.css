@@ -275,11 +275,12 @@ button:hover{
 	position: relative;
 	font-weight: 400;
 	font-size: 14px;
-	color: #999;
 }
 .right-tools{
 	display: inline-block;
 	margin-right: 10px;
+	font-size: 12px;
+	line-height: 1.8;
 }
 .navbar-link-item{
 	display: inline-block;
