@@ -476,6 +476,9 @@ a.linked:hover, a.linked:active{
 
 .image-slide-next:hover,.image-slide-prev:hover{
 	opacity: 1;
+}
+.image-preview-modal{
+
 } 
 .image-slide-disabled{
 	opacity: 0;
@@ -515,6 +518,10 @@ a.linked:hover, a.linked:active{
 	padding: 0px;
 	bottom: auto;
 	border: none;
+	top: 50% !important;
+    left: 50% !important;
+    margin: -25px 0px 0px 0px !important;
+	transform: translate(-50%, -50%);
 }
 .image-preview-modal .info-section-link{
 	font-size: 1.0rem;
@@ -785,6 +792,8 @@ a.linked:hover, a.linked:active{
 	}
 	.image-preview-modal{
 		overflow-x: hidden;
+		transform: none;
+		top: 0px !important; left: 0px !important; right: 0px !important; bottom: 0px !important;
 	}
 	.image-caption-desc{
 		padding: 20px 15px;
