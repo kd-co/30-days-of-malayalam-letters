@@ -671,11 +671,11 @@ a.linked:hover, a.linked:active{
 .sticky-header-hash-container{
 	font-size: 1.2rem;
 	font-weight: 500;
-	color:#333;
+	color:#999;
 }
 
 .sticky-header-hash-container a:hover{
-	color:#999;
+	color:#333;
 }
 .sticky-footer-mob{
 	display: none;
