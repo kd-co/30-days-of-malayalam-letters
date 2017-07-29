@@ -404,6 +404,12 @@
 		</a>
 	</div>
 </div>
+
+
+<div id="image-details-modal" class="kdco-modal image-preview-modal">
+	<a class="close-modal-icon"><img src="img/ic_close_black_24dp_1x.png"></a>
+	<img src="" class="image-preview">
+</div>
   
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"
 			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -473,8 +479,9 @@
 				      $(image).css('animation-delay', delay);
 				      $(image).addClass('animated fadeIn');
 				    });
+				    initializeAllModals();
 				},
-				template: '<a href="{{link}}" target="_blank"><img src="{{image}}" /></a>',
+				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link" data-src="{{image}}"><img src="{{image}}" /></a>',
 		});
 	} else {
 		feed = new Instafeed({
@@ -509,6 +516,14 @@
 		});
 	}
 
+
+	function initializeAllModals(){
+		$('a[rel*=leanModal]').leanModal({ top : 50});	
+		$(".image-preview-link").click(function(){
+			$(".image-preview").attr("src", $(this).data("src"));
+		});
+	}
+
 	// Initialise plugins
 	$(function() {
 		$.get("https://freegeoip.net/json/", function(data, status){
@@ -518,7 +533,7 @@
         		changeLanguage("en");
         	}
     	});
-		$('a[rel*=leanModal]').leanModal({ top : 50});		
+		initializeAllModals();	
 		feed.run();
 	});
 
@@ -564,7 +579,9 @@
 		$("#lean_overlay").trigger("click");
 	});
 
-
+	$(".close-modal-icon").click(function(){
+		$("#lean_overlay").trigger("click");
+	});
 
 	// Detect scroll and toggle sticky-header functionality
 	var lastScrollTop = 0;
