@@ -449,7 +449,7 @@
 		<div class="col-md-7">
 			<img src="" class="image-preview">
 		</div>
-		<div class="col-md-5">
+		<div class="col-md-5 image-details">
 			<p class="image-caption-desc"></p>
 			<div class="row image-preview-tools">
 				<div class="col-xs-6">
@@ -608,24 +608,24 @@
 	}
 
 
-	$(".trigger-modal-btn").click(function(){
+	$(document).on('click', '.trigger-modal-btn', function(){
     	$("body").css("overflow-y", "hidden");    
     });
 
 
 	$(document).on('click', '.image-preview-link', function(){
 		updatePreviewModalInfo($(this));
-		/*$("body").keypress(function(e) {
+		/* $("body").keypress(function(e) {
 		  if(e.keyCode === 37) { // left
-		    $("#image-slide-prev").trigger("click");
+
 		  }
 		  else if(e.keyCode === 39) { // right
-		    $("#image-slide-next").trigger("click");
+
 		  } 
 		  else if(e.keyCode === 27) { // esc
 		    $("#lean_overlay").trigger("click");
 		  }
-		});*/
+		}); */
 	});
 
 
