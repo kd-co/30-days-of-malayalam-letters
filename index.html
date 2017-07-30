@@ -449,7 +449,7 @@
 		<div class="col-md-7">
 			<img src="" class="image-preview">
 		</div>
-		<div class="col-md-5">
+		<div class="col-md-5 image-details">
 			<p class="image-caption-desc"></p>
 			<div class="row image-preview-tools">
 				<div class="col-xs-6">
@@ -608,7 +608,7 @@
 	}
 
 
-	$(".trigger-modal-btn").click(function(){
+	$(document).on('click', '.trigger-modal-btn', function(){
     	$("body").css("overflow-y", "hidden");    
     });
 

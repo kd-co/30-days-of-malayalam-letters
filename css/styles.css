@@ -508,9 +508,12 @@ a.linked:hover, a.linked:active{
 	font-weight: 300;
 	line-height: 1.6;
 	padding: 35px 20px 15px 0px;
-	max-height: 348px;
-	overflow-y: hidden;
-	margin: 0px;
+	max-height: calc(100% - 86px);
+    overflow-y: auto;
+    margin: 0px;
+}
+.image-details{
+	height: 512px;
 }
 .image-preview-modal{
 	width: 900px;
@@ -786,6 +789,9 @@ a.linked:hover, a.linked:active{
 	padding-bottom: 80px;
 }
 @media(max-width: 800px){
+	.image-details{
+		height: auto;
+	}
 	.masthead-container img {
     	max-height: none;
     	max-width: 100%;
