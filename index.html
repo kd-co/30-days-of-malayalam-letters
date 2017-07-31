@@ -297,7 +297,7 @@
 	  	
 	  </div>
 	  <div class="load-message">
-	    <button class="load-more-button">
+	    <button class="load-more-button" onclick="loadMoreImages()">
 	    	<span data-lang="en">Show more</span>
 	    	<span data-lang="ml">കൂടുതൽ ചിത്രങ്ങൾ</span>
 	    </button>
@@ -430,8 +430,8 @@
 <div id="image-details-modal" class="kdco-modal image-preview-modal">
 	<div class="web-only">
 		<a class="close-modal-icon"><span class="kdcoicon-close"></span></a>
-		<a class="image-slide-prev" data-current="" id="image-slide-prev-web" onclick="showPrevImage()"><span class="kdcoicon-arrow-left"></span></a>
-		<a class="image-slide-next" data-current="" id="image-slide-next-web" onclick="showNextImage()"><span class="kdcoicon-arrow-right"></span></a>
+		<a class="image-slide-prev" data-current="" id="image-slide-prev-web" ><span class="kdcoicon-arrow-left"></span></a>
+		<a class="image-slide-next" data-current="" id="image-slide-next-web" ><span class="kdcoicon-arrow-right"></span></a>
 	</div>
 	<span class="image-preview-shortcuts web-only">
 		Keyboard shortcuts: 
@@ -528,7 +528,7 @@
 					showGallery();
 					if (!this.hasNext()) {
 	                	$(".load-more-button").fadeOut("fast", function(){
-	                		// $(".instagram-feed-end").fadeIn("fast");
+	                		$(".instagram-feed-end").fadeIn("fast");
 	                	});
 	            	} else {
 	            		$(".load-more-button").fadeIn("fast");
@@ -542,11 +542,10 @@
 				      $(image).css('-o-animation-delay', delay);
 				      $(image).css('animation-delay', delay);
 				      $(image).addClass('animated fadeIn');
-				      $(image).attr("id", Math.floor(Math.random()*1E16));
 				    });
 					$('a[rel*=leanModal]').leanModal({ top : 50});	
 				},
-				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}"><img src="{{image}}" /></a>',
+				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}" id="{{id}}"><img src="{{image}}" /></a>',
 		});
 	} else {
 		feed = new Instafeed({
@@ -561,7 +560,7 @@
 					showGallery();
 					if (!this.hasNext()) {
 	                	$(".load-more-button").fadeOut("fast", function(){
-	                		//$(".instagram-feed-end").fadeIn("fast");
+	                		$(".instagram-feed-end").fadeIn("fast");
 	                	});
 	            	} else {
 	            		$(".load-more-button").fadeIn("fast");
@@ -575,11 +574,10 @@
 				      $(image).css('-o-animation-delay', delay);
 				      $(image).css('animation-delay', delay);
 				      $(image).addClass('animated fadeIn');
-				      $(image).attr("id", Math.floor(Math.random()*1E16));
 				    });
 					$('a[rel*=leanModal]').leanModal({ top : 50});	
 				},
-				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}"><img src="{{image}}" /></a>',
+				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}" id="{{id}}><img src="{{image}}" /></a>',
 		});
 	}
 
@@ -613,10 +611,19 @@
 		var curr_id = $(".image-slide-next").attr("data-current");
 		var curr_elem = document.getElementById(curr_id);
 		//console.log(curr_elem);
+
 		if(($(curr_elem).nextAll(".image-preview-link").first().length)===0){
-			$("#lean_overlay").trigger("click");
-    		scrollToPosition($(".image-preview-link:last"));
-			//resetPreviewModalInfo();
+    		if(feed.hasNext()){
+    			$.when(feed.next()).done(function() {
+					setTimeout(function() {
+						curr_elem = $(curr_elem).nextAll(".image-preview-link").first();
+						updatePreviewModalInfo(curr_elem);
+					}, 1000);
+				});
+    		} else {
+    			$("#lean_overlay").trigger("click");
+    			scrollToPosition($(".image-preview-link:last"));
+    		}
 		} else {
 			curr_elem = $(curr_elem).nextAll(".image-preview-link").first();
 			//console.log(curr_elem);
@@ -632,13 +639,20 @@
 		if(($(curr_elem).prevAll(".image-preview-link").first().length)===0){
 			$("#lean_overlay").trigger("click");
     		scrollToPosition($("#outer-container"));
-			//resetPreviewModalInfo();
 		} else {
 			curr_elem = $(curr_elem).prevAll(".image-preview-link").first();
 			//console.log(curr_elem);
 			updatePreviewModalInfo(curr_elem);
 		}
 	}
+
+	$(document).on('click', '.image-slide-prev', function(){
+		showPrevImage();
+	});
+
+	$(document).on('click', '.image-slide-next', function(){
+		showNextImage();
+	});
 
 
 	$(document).on('click', '.trigger-modal-btn', function(){
@@ -683,8 +697,8 @@
 
 
 	// Load more images from Instagram feed
-	$(".load-more-button").click(function(){
-		$(this).fadeOut("fast", function(){
+	function loadMoreImages(){
+		$(".load-more-button").fadeOut("fast", function(){
 			$("#instagram").append(`<div class='instagram-gallery-loader'>
 			  	<div class='spinner'>
 				  <div class='bounce1'></div>
@@ -694,7 +708,7 @@
 			  </div>`);
         	feed.next();
 		});
-	});
+	}
 
 	function changeLanguage(lang){
 		if(lang === "en"){

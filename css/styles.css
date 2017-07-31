@@ -410,6 +410,9 @@ a.linked:hover, a.linked:active{
 	cursor: disabled;
 	pointer-events: none;
 }
+.disabled{
+	pointer-events: none;
+}
 .caret{
 	margin-left: 7px;
 }
