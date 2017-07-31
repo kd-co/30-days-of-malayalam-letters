@@ -831,6 +831,7 @@ a.linked:hover, a.linked:active{
 	line-height: 1.6;
 	vertical-align: top;
 	color: #666;
+	border-bottom: 1px solid #ccc;
 }
 @media(max-width: 800px){
 	.image-details{
