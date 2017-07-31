@@ -526,7 +526,41 @@
 
    // Configure feed variables for desktop and mobile
   	var num = 3*(Math.trunc(window.innerWidth/310));
+  	var sort_criteria;
+  	var sort = 1;
   	var feed;
+
+  	function randomSortCriteria(){
+  		sort = Math.floor(Math.random() * 8) + 1;
+		switch(sort){
+			case 1:
+				sort_criteria = "none";
+				break;
+			case 2:
+				sort_criteria = "most-recent";
+				break;
+			case 3:
+				sort_criteria = "least-recent";
+				break;
+			case 4:
+				sort_criteria = "most-liked";
+				break;
+			case 5:
+				sort_criteria = "least-liked";
+				break;
+			case 6:
+				sort_criteria = "most-commented";
+				break;
+			case 7:
+				sort_criteria = "least-commented";
+				break;
+			case 8:
+				sort_criteria = "random";
+		}
+  	}
+
+  	randomSortCriteria();
+
   	if(window.innerWidth > 1024){
 	  	feed = new Instafeed({
 				get: 'user',
@@ -535,8 +569,11 @@
 				accessToken: '5764236759.1677ed0.694cbbcffddc47bd9a83b5e251e3ad5c',
 				target: 'instagram',
 				resolution: 'standard_resolution',
+				sortBy: sort_criteria,
 				limit: num,
-				sortBy: 'random',
+				before: function(){
+					
+				},
 				success: function(data){
 				},
 				after: function() {
@@ -559,6 +596,7 @@
 				      $(image).addClass('animated fadeIn');
 				    });
 					$('a[rel*=leanModal]').leanModal({ top : 50});	
+					randomSortCriteria();
 				},
 				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}" id="{{id}}"><img src="{{image}}" /></a>',
 		});
@@ -570,8 +608,8 @@
 				accessToken: '5764236759.1677ed0.694cbbcffddc47bd9a83b5e251e3ad5c',
 				target: 'instagram',
 				resolution: 'low_resolution',
+				sortBy: sort_criteria,
 				limit: 10,
-				sortBy: 'random',
 				after: function() {
 					showGallery();
 					if (!this.hasNext()) {
@@ -592,6 +630,7 @@
 				      $(image).addClass('animated fadeIn');
 				    });
 					$('a[rel*=leanModal]').leanModal({ top : 50});	
+					randomSortCriteria();
 				},
 				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}" id="{{id}}"><img src="{{image}}" /></a>',
 		});
