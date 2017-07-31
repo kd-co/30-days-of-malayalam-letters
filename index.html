@@ -560,7 +560,7 @@
 					showGallery();
 					if (!this.hasNext()) {
 	                	$(".load-more-button").fadeOut("fast", function(){
-	                		$(".instagram-feed-end").fadeIn("fast");
+	                		//$(".instagram-feed-end").fadeIn("fast");
 	                	});
 	            	} else {
 	            		$(".load-more-button").fadeIn("fast");
@@ -577,7 +577,7 @@
 				    });
 					$('a[rel*=leanModal]').leanModal({ top : 50});	
 				},
-				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}" id="{{id}}><img src="{{image}}" /></a>',
+				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}" id="{{id}}"><img src="{{image}}" /></a>',
 		});
 	}
 
