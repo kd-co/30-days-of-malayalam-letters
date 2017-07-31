@@ -823,12 +823,14 @@ a.linked:hover, a.linked:active{
 	margin: 0px 0px 25px 0px;
 }
 .nav-menu-item{
-	display: inline;
+	display: inline-block;
 	position: relative;
-	top: 0px;
+	top: 2px;
 	margin-right: 25px;
 	font-size: 13px;
 	line-height: 1.6;
+	vertical-align: top;
+	color: #555;
 }
 @media(max-width: 800px){
 	.image-details{
