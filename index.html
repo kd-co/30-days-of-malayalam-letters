@@ -658,21 +658,13 @@
 		}
 	});
 
-	$("body").keypress(function(e) {
+	$("body").keydown(function(e) {
 		if ($("#image-details-modal").css('display') === 'block') {		
 			if(e.keyCode === 37) { // left
-				e.preventDefault();
-				if($(window).width() > 1024){
-					showPrevImage("web");
-				}
-				return false;
+				showPrevImage("web");
 			}
 			else if(e.keyCode === 39) { // right
-				e.preventDefault();
-				if($(window).width() > 1024){
-					showNextImage("web");
-				}
-				return false;
+				showNextImage("web");
 			} 
 			else if(e.keyCode === 27) { // esc
 				$("#lean_overlay").trigger("click");
