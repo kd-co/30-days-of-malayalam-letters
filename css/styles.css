@@ -825,7 +825,7 @@ a.linked:hover, a.linked:active{
 .nav-menu-item{
 	display: inline-block;
 	position: relative;
-	top: 2px;
+	top: 1px;
 	margin-right: 25px;
 	font-size: 13px;
 	line-height: 1.6;
