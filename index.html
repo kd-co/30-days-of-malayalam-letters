@@ -641,6 +641,7 @@
 
     		if(($(curr_elem).nextAll(".image-preview-link").first().length)===0){
 				$("#lean_overlay").trigger("click");
+        		scrollToPosition($(".image-preview-link:last"));
 				//resetPreviewModalInfo();
 			} else {
 				curr_elem = $(curr_elem).nextAll(".image-preview-link").first();
@@ -663,6 +664,7 @@
 
     		if(($(curr_elem).prevAll(".image-preview-link").first().length)===0){
 				$("#lean_overlay").trigger("click");
+        		scrollToPosition($("#outer-container"));
 				//resetPreviewModalInfo();
 			} else {
 				curr_elem = $(curr_elem).prevAll(".image-preview-link").first();
