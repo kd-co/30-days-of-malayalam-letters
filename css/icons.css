@@ -9,6 +9,7 @@
   font-style: normal;
 }
 
+
 [class^="kdcoicon-"], [class*=" kdcoicon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'KDco' !important;
@@ -24,6 +25,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.kdcoicon-info:before {
+  content: "\e909";
+}
+.kdcoicon-close:before {
+  content: "\e900";
+}
+.kdcoicon-menu:before {
+  content: "\e907";
+}
+.kdcoicon-arrow-left:before {
+  content: "\e901";
+}
+.kdcoicon-arrow-right:before {
+  content: "\e908";
+}
 .kdcoicon-brand:before {
   content: "\e902";
   color: #1769ff;
@@ -43,16 +59,4 @@
 .kdcoicon-brand5:before {
   content: "\e906";
   color: #1da1f2;
-}
-.kdcoicon-close:before {
-  content: "\e900";
-}
-.kdcoicon-menu:before {
-  content: "\e907";
-}
-.kdcoicon-arrow-left:before {
-  content: "\e901";
-}
-.kdcoicon-arrow-right:before {
-  content: "\e908";
 }

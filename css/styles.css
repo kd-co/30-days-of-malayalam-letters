@@ -822,6 +822,14 @@ a.linked:hover, a.linked:active{
 .modal-image-loader-container .spinner{
 	margin: 0px 0px 25px 0px;
 }
+.nav-menu-item{
+	display: inline;
+	position: relative;
+	top: 0px;
+	margin-right: 25px;
+	font-size: 13px;
+	line-height: 1.6;
+}
 @media(max-width: 800px){
 	.image-details{
 		height: auto;
