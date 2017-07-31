@@ -661,10 +661,18 @@
 	$("body").keydown(function(e) {
 		if ($("#image-details-modal").css('display') === 'block') {		
 			if(e.keyCode === 37) { // left
-				showPrevImage("web");
+				e.preventDefault();
+				if($(window).width() > 1024){
+					showPrevImage("web");
+				}
+				return false;
 			}
 			else if(e.keyCode === 39) { // right
-				showNextImage("web");
+				e.preventDefault();
+				if($(window).width() > 1024){
+					showNextImage("web");
+				}
+				return false;
 			} 
 			else if(e.keyCode === 27) { // esc
 				$("#lean_overlay").trigger("click");
