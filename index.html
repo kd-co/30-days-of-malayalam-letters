@@ -430,8 +430,8 @@
 <div id="image-details-modal" class="kdco-modal image-preview-modal">
 	<div class="web-only">
 		<a class="close-modal-icon"><span class="kdcoicon-close"></span></a>
-		<a class="image-slide-prev" data-current="" id="image-slide-prev-web" ><span class="kdcoicon-arrow-left"></span></a>
-		<a class="image-slide-next" data-current="" id="image-slide-next-web" ><span class="kdcoicon-arrow-right"></span></a>
+		<a class="image-slide-prev image-slide-prev-web" data-current="" id="image-slide-prev-web" onclick="showPrevImage('web')"><span class="kdcoicon-arrow-left"></span></a>
+		<a class="image-slide-next image-slide-next-web" data-current="" id="image-slide-next-web" onclick="showNextImage('web')"><span class="kdcoicon-arrow-right"></span></a>
 	</div>
 	<span class="image-preview-shortcuts web-only">
 		Keyboard shortcuts: 
@@ -467,8 +467,8 @@
 	<div class="preview-image-modal-footer mob-only">
 		<div class="row no-margin">
 			<div class="col-xs-4 no-padding"><a class="preview-modal-icon close-modal-icon"><span class="kdcoicon-close"></span></a></div>
-			<div class="col-xs-4 no-padding"><a class="preview-modal-icon image-slide-prev" data-current="" onclick="showPrevImage()"><span class="kdcoicon-arrow-left"></span></a></div>
-			<div class="col-xs-4 no-padding"><a class="preview-modal-icon image-slide-next" data-current="" onclick="showNextImage()"><span class="kdcoicon-arrow-right"></span></a></div>
+			<div class="col-xs-4 no-padding"><a class="preview-modal-icon image-slide-prev image-slide-prev-mob" data-current="" onclick="showPrevImage('mob')"><span class="kdcoicon-arrow-left"></span></a></div>
+			<div class="col-xs-4 no-padding"><a class="preview-modal-icon image-slide-next image-slide-next-mob" data-current="" onclick="showNextImage('mob')"><span class="kdcoicon-arrow-right"></span></a></div>
 		</div>
 	</div>
 </div>
@@ -560,7 +560,7 @@
 					showGallery();
 					if (!this.hasNext()) {
 	                	$(".load-more-button").fadeOut("fast", function(){
-	                		//$(".instagram-feed-end").fadeIn("fast");
+	                		$(".instagram-feed-end").fadeIn("fast");
 	                	});
 	            	} else {
 	            		$(".load-more-button").fadeIn("fast");
@@ -583,15 +583,15 @@
 
 
 
-	function updatePreviewModalInfo(element){
+	function updatePreviewModalInfo(element, device){
 		$(".image-preview").fadeOut(100, function(){
 			$(".image-preview").attr("src", $(element).data("src"));
 			$(".image-preview").fadeIn(100);
 		});
 		$(".image-caption-desc").text($(element).data("caption"));
 		$(".image-source-link").attr("href", $(element).data("link"));
-		$(".image-slide-next").attr("data-current", $(element).attr("id"));
-		$(".image-slide-prev").attr("data-current", $(element).attr("id"));
+		$(".image-slide-next-" + device).attr("data-current", $(element).attr("id"));
+		$(".image-slide-prev-" + device).attr("data-current", $(element).attr("id"));
 
 		var tweet_message = 'http://twitter.com/share?text=Loved this entry on 30daysofMalayalamLetters&url=' + $(element).data("link") + '&hashtags=30daysofMalayalamLetters,Malayalam,OnamIsComing';
 		var share_message = 'http://www.facebook.com/share.php?u=' + $(element).data("link") + '&title=Loved this entry on #30daysofMalayalamLetters'
@@ -607,17 +607,16 @@
 		$(".image-slide-prev").attr("data-current", "");
 	}
 
-	function showNextImage(){
-		var curr_id = $(".image-slide-next").attr("data-current");
+	function showNextImage(device){
+		var curr_id = $(".image-slide-next-" + device).attr("data-current");
+		console.log(curr_id);
 		var curr_elem = document.getElementById(curr_id);
-		//console.log(curr_elem);
-
 		if(($(curr_elem).nextAll(".image-preview-link").first().length)===0){
     		if(feed.hasNext()){
     			$.when(feed.next()).done(function() {
 					setTimeout(function() {
 						curr_elem = $(curr_elem).nextAll(".image-preview-link").first();
-						updatePreviewModalInfo(curr_elem);
+						updatePreviewModalInfo(curr_elem, device);
 					}, 1000);
 				});
     		} else {
@@ -627,13 +626,13 @@
 		} else {
 			curr_elem = $(curr_elem).nextAll(".image-preview-link").first();
 			//console.log(curr_elem);
-			updatePreviewModalInfo(curr_elem);
+			updatePreviewModalInfo(curr_elem, device);
 		}
 	}
 
 
-	function showPrevImage(){
-		var curr_id = $(".image-slide-prev").attr("data-current");
+	function showPrevImage(device){
+		var curr_id = $(".image-slide-prev-" + device).attr("data-current");
 		var curr_elem = document.getElementById(curr_id);
 		//console.log(curr_elem);
 		if(($(curr_elem).prevAll(".image-preview-link").first().length)===0){
@@ -642,18 +641,9 @@
 		} else {
 			curr_elem = $(curr_elem).prevAll(".image-preview-link").first();
 			//console.log(curr_elem);
-			updatePreviewModalInfo(curr_elem);
+			updatePreviewModalInfo(curr_elem, device);
 		}
 	}
-
-	$(document).on('click', '.image-slide-prev', function(){
-		showPrevImage();
-	});
-
-	$(document).on('click', '.image-slide-next', function(){
-		showNextImage();
-	});
-
 
 	$(document).on('click', '.trigger-modal-btn', function(){
     	$("body").css("overflow-y", "hidden");    
@@ -661,19 +651,27 @@
 
 
 	$(document).on('click', '.image-preview-link', function(){
-		updatePreviewModalInfo($(this));
+		if($(window).width() > 1024){
+			updatePreviewModalInfo($(this), "web");
+		} else{
+			updatePreviewModalInfo($(this), "mob");
+		}
 	});
 
 	$("body").keypress(function(e) {
 		if ($("#image-details-modal").css('display') === 'block') {		
 			if(e.keyCode === 37) { // left
 				e.preventDefault();
-				showPrevImage();
+				if($(window).width() > 1024){
+					showPrevImage("web");
+				}
 				return false;
 			}
 			else if(e.keyCode === 39) { // right
 				e.preventDefault();
-				showNextImage();
+				if($(window).width() > 1024){
+					showNextImage("web");
+				}
 				return false;
 			} 
 			else if(e.keyCode === 27) { // esc
