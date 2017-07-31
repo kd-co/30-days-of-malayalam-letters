@@ -513,7 +513,7 @@ a.linked:hover, a.linked:active{
     margin: 0px;
 }
 .image-details{
-	height: 512px;
+	height: 511px;
 }
 .image-preview-modal{
 	width: 900px;
@@ -552,6 +552,9 @@ a.linked:hover, a.linked:active{
 .shortcut-item-indicator{
 	margin-right: 10px;
 	font-weight: 700;
+	/* padding: 2px 7px;
+	border-radius: 2px;
+	border: 1px solid #fff;*/
 }
 .inner-modal{
 	padding: 50px 30px 30px 30px;
