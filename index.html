@@ -428,6 +428,15 @@
 
 
 <div id="image-details-modal" class="kdco-modal image-preview-modal">
+	<div class="modal-image-loader-container">
+		<div class="spinner">
+		  <div class="bounce1"></div>
+		  <div class="bounce2"></div>
+		  <div class="bounce3"></div>
+		</div>
+		<span data-lang="en" class="modal-image-loader-text"><i class="em em-art" style="margin-right: 5px;"></i> Loading more awesomeness...</span>
+		<span data-lang="ml" class="modal-image-loader-text"><i class="em em-art" style="margin-right: 5px;"></i> അടുത്ത പന്തി വിളമ്പിക്കൊണ്ടിരിക്കുവാ, ഇപ്പൊ തരാം...</span>
+	</div>
 	<div class="web-only">
 		<a class="close-modal-icon"><span class="kdcoicon-close"></span></a>
 		<a class="image-slide-prev image-slide-prev-web" data-current="" id="image-slide-prev-web" onclick="showPrevImage('web')"><span class="kdcoicon-arrow-left"></span></a>
@@ -613,11 +622,14 @@
 		var curr_elem = document.getElementById(curr_id);
 		if(($(curr_elem).nextAll(".image-preview-link").first().length)===0){
     		if(feed.hasNext()){
+    			$(".modal-image-loader-container").addClass("active");
     			$.when(feed.next()).done(function() {
 					setTimeout(function() {
 						curr_elem = $(curr_elem).nextAll(".image-preview-link").first();
 						updatePreviewModalInfo(curr_elem, device);
-					}, 1000);
+    					$(".modal-image-loader-container").removeClass("active");
+    					
+					}, 1600);
 				});
     		} else {
     			$("#lean_overlay").trigger("click");
