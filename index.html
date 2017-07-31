@@ -536,6 +536,7 @@
 				target: 'instagram',
 				resolution: 'standard_resolution',
 				limit: num,
+				sortBy: 'random',
 				success: function(data){
 				},
 				after: function() {
@@ -570,6 +571,7 @@
 				target: 'instagram',
 				resolution: 'low_resolution',
 				limit: 10,
+				sortBy: 'random',
 				after: function() {
 					showGallery();
 					if (!this.hasNext()) {
