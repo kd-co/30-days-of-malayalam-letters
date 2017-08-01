@@ -290,6 +290,7 @@ button:hover{
 .load-more-button:hover{
 	transform: translateY(-5px);
 	color: #555;
+	border: 1px solid rgba(0,0,0,0.15);
 }
 
 .footer{
