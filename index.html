@@ -501,7 +501,7 @@
   <script src="js/instafeed.min.js"></script>
   <script src="js/jquery.leanModal.min.js"></script>
   <!-- <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script> -->
-  <!-- <script type="text/javascript" src="js/jgestures.min.js"></script> -->
+  <script type="text/javascript" src="js/jgestures.min.js"></script>
 
   <script type="text/javascript">
 
@@ -832,6 +832,18 @@
     		showPrevImage("mob");
     	}
     }); */
+
+    $('body').bind('swipeone', function (event, obj) {
+	   var direction=obj.description.split(":")[2]
+	   if (($("#image-details-modal").css('display') === 'block') && ($(window).width() < 1024 )) {	
+	   	   	if (direction=="left"){
+		   	    showNextImage("mob");
+		   	} else if (direction=="right"){
+		   	    showPrevImage("mob");
+		   	}
+	   }
+
+	});
 
 
 	// Initialise plugins
