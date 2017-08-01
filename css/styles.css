@@ -858,7 +858,6 @@ a.linked:hover, a.linked:active{
 	display: inline-block;
 	position: relative;
 	bottom: 0px;
-	cursor: pointer;
 }
 .float-counter-hidden{
 	opacity: 0;
