@@ -561,6 +561,8 @@
 
   	randomSortCriteria();
 
+  	var images_loaded = 0;
+
   	if(window.innerWidth > 1024){
 	  	feed = new Instafeed({
 				get: 'user',
@@ -577,6 +579,8 @@
 				success: function(data){
 				},
 				after: function() {
+				    images_loaded += num;
+					console.log("images loaded: " + images_loaded);
 					showGallery();
 					if (!this.hasNext()) {
 	                	$(".load-more-button").fadeOut("fast", function(){
@@ -585,8 +589,9 @@
 	            	} else {
 	            		$(".load-more-button").fadeIn("fast");
 	            	}
-					var images = $("#instagram").find('a');
-				    $.each(images, function(index, image) {
+					var images = $("#instagram").find('a').slice().slice(images_loaded - num, images_loaded);
+	     			$.each(images, function(index, image) {
+					  console.log(index);
 				      var delay = (index * 100) + 'ms';
 				      $(image).css('-webkit-animation-delay', delay);
 				      $(image).css('-moz-animation-delay', delay);
