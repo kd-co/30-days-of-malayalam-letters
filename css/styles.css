@@ -268,7 +268,7 @@ button:hover{
 }
 .load-more-button{
 	width: auto;
-	padding: 17px 30px;
+	padding: 15px 35px;
 	background: #fff;
 	box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
 	border-radius: 1000px;
@@ -285,7 +285,7 @@ button:hover{
 	cursor: pointer;
 	border: none;
 	transform: translateY(0px);
-	border: 1px solid rgba(0,0,0,0.1);
+	border: 1px solid rgba(0,0,0,0.12);
 	color: #444;
 }
 .load-more-button:hover{

@@ -500,7 +500,7 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/instafeed.min.js"></script>
   <script src="js/jquery.leanModal.min.js"></script>
-
+  <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
   <script type="text/javascript">
 
 
@@ -584,13 +584,13 @@
 		    crossDomain: true,
 		    dataType: "jsonp",
 		    success: function(data){
-		    	console.log(data);
+		    	// console.log(data);
 		    	images = data.data;
 		    	images.sort(function(a, b) {
 				    return parseFloat(a.likes.count) - parseFloat(b.likes.count);
 				});
 				images.reverse();
-				console.log(images);
+				// console.log(images);
 		    }
 		});
 	}*/
@@ -628,7 +628,7 @@
 				},
 				after: function() {
 				    images_loaded += num;
-					console.log("images loaded: " + images_loaded);
+					// console.log("images loaded: " + images_loaded);
 					showGallery();
 					if (!this.hasNext()) {
 	                	$(".load-more-button").fadeOut("fast", function(){
@@ -639,7 +639,7 @@
 	            	}
 					var images = $("#instagram").find('a').slice().slice(images_loaded - num, images_loaded);
 	     			$.each(images, function(index, image) {
-					  console.log(index);
+					  // console.log(index);
 				      var delay = (index * 100) + 'ms';
 				      $(image).css('-webkit-animation-delay', delay);
 				      $(image).css('-moz-animation-delay', delay);
@@ -723,7 +723,7 @@
 
 	function showNextImage(device){
 		var curr_id = $(".image-slide-next-" + device).attr("data-current");
-		console.log(curr_id);
+		// console.log(curr_id);
 		var curr_elem = document.getElementById(curr_id);
 		if(($(curr_elem).nextAll(".image-preview-link").first().length)===0){
     		if(feed.hasNext()){
@@ -742,7 +742,7 @@
     		}
 		} else {
 			curr_elem = $(curr_elem).nextAll(".image-preview-link").first();
-			//console.log(curr_elem);
+			//// console.log(curr_elem);
 			updatePreviewModalInfo(curr_elem, device);
 		}
 	}
@@ -751,13 +751,13 @@
 	function showPrevImage(device){
 		var curr_id = $(".image-slide-prev-" + device).attr("data-current");
 		var curr_elem = document.getElementById(curr_id);
-		//console.log(curr_elem);
+		//// console.log(curr_elem);
 		if(($(curr_elem).prevAll(".image-preview-link").first().length)===0){
 			$("#lean_overlay").trigger("click");
     		scrollToPosition($("#outer-container"));
 		} else {
 			curr_elem = $(curr_elem).prevAll(".image-preview-link").first();
-			//console.log(curr_elem);
+			//// console.log(curr_elem);
 			updatePreviewModalInfo(curr_elem, device);
 		}
 	}
@@ -796,6 +796,24 @@
 			}
 		}
 	});
+
+
+
+	$("body").swipe({
+        //Generic swipe handler for all directions
+        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+        	if (($("#image-details-modal").css('display') === 'block') && $(window).width() < 1024 ) {	
+        		// console.log("You swiped " + direction ); 
+        		if (direction == "right") {
+        			showPrevImage("mob");
+        		} else if(direction == "left") {
+        			showNextImage("mob");
+        		} 
+        	}
+        },
+        //Default is 75px, set to 0 for demo so any distance triggers swipe
+         threshold:0
+    });
 
 
 	// Initialise plugins
@@ -877,7 +895,7 @@
 
 
 	$(window).scroll(function() {
-	  console.log($(window).scrollTop());
+	  // console.log($(window).scrollTop());
 	  if ($(window).scrollTop() > 200) {
 			$(".float-counter").addClass("float-counter-hidden");
 	  } else if($(window).scrollTop() < 200) {
