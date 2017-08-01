@@ -68,7 +68,7 @@
 
 	<div class="float-counter-container">
 		<span class="float-counter float-counter-hidden" onclick="scrollToPosition($('.instagram-gallery-container'));">
-			<span data-lang="en"><span class="posts-count"></span> posts, <span class="typelovers-count"></span> typelovers <i class="em em-tada animated infinite tada"></i></span>
+			<span data-lang="en"><span class="posts-count"></span> posts, <span class="typelovers-count"></span> typelovers <i class="em em-tada"></i></span>
 			<span data-lang="ml"><span class="posts-count"></span> ചുവരുകൾ, <span class="typelovers-count"></span> എഴുത്തുകാർ <i class="em em-tada"></i></span>
 		</span>
 	</div>
@@ -371,8 +371,8 @@
 	    </a>
 	    <div class="col-xs-9 sticky-footer-share-container">
 	    	<span class="share-now-header">
-          	  	<span data-lang="en">Spread the <i class="em em-sparkling_heart"></i></span>
-          	  	<span data-lang="ml">ഇഷ്ടം<i class="em em-sparkling_heart"></i>പങ്കിടാം</span>
+          	  	<span data-lang="en">Share <i class="em em-sparkling_heart"></i></span>
+          	  	<span data-lang="ml">പങ്കിടാം <i class="em em-sparkling_heart"></i></span>
           	</span>
 	  		<div class="addthis_inline_share_toolbox follow-toolbox"></div></div>
 	    </div>
@@ -570,6 +570,12 @@
 
   	var images_loaded = 0;
   	var counter_shown = false;
+
+  	$(".float-counter").hover(function(){
+  		$(".em-tada").addClass("animated infinite tada");
+  	}, function(){
+  		$(".em-tada").removeClass("animated infinite tada");
+  	});
 
   	/*function getAllImages(){
 		$.ajax({
