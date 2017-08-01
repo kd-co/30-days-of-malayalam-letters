@@ -916,7 +916,7 @@ a.linked:hover, a.linked:active{
     	max-width: 100%;
 	}
 	.image-preview-modal{
-		overflow-x: hidden;
+		overflow-x: hidden !important;
 		transform: none;
 		top: 0px !important; left: 0px !important; right: 0px !important; bottom: 0px !important;
 	}
