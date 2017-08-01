@@ -853,11 +853,15 @@ a.linked:hover, a.linked:active{
 	text-align: center;
 	font-size: 1.0em;
 	opacity: 1;
-	transition: all 0.1s ease-in;
+	transition: all 0.2s ease-in;
 	margin: 0px;
 	display: inline-block;
 	position: relative;
 	bottom: 0px;
+	cursor: pointer;
+}
+.float-counter:hover{
+	bottom: 5px;
 }
 .float-counter-hidden{
 	opacity: 0;
