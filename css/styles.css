@@ -286,6 +286,7 @@ button:hover{
 	border: none;
 	transform: translateY(0px);
 	border: 1px solid rgba(0,0,0,0.1);
+	color: #444;
 }
 .load-more-button:hover{
 	transform: translateY(-5px);
@@ -885,6 +886,7 @@ a.linked:hover, a.linked:active{
 	position: relative;
 	bottom: 0px;
 	cursor: pointer;
+	color: #444;
 }
 .float-counter:hover{
 	bottom: 5px;
