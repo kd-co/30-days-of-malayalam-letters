@@ -501,6 +501,8 @@
   <script src="js/instafeed.min.js"></script>
   <script src="js/jquery.leanModal.min.js"></script>
   <!-- <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script> -->
+  <script type="text/javascript" src="js/jgestures.min.js"></script>
+
   <script type="text/javascript">
 
 
@@ -814,6 +816,22 @@
         //Default is 75px, set to 0 for demo so any distance triggers swipe
          threshold:0
     }); */
+
+
+    $('body').bind('swipeleft', function(){
+    	console.log("swiped left");
+    	if (($("#image-details-modal").css('display') === 'block') && ($(window).width() < 1024 )) {	
+    		// console.log("You swiped " + direction ); 
+    		showNextImage("mob");
+    	}
+    });
+
+    $('body').bind('swiperight', function(){
+    	if (($("#image-details-modal").css('display') === 'block') && ($(window).width() < 1024 )) {	
+    		// console.log("You swiped " + direction ); 
+    		showPrevImage("mob");
+    	}
+    });
 
 
 	// Initialise plugins
