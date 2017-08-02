@@ -724,6 +724,7 @@
 	var next_elem = [];
 
 	$(".video-play").click(function(){
+		$(".video-preview").get(0).load();
 		$(".video-play").fadeOut(250, function(){
 			if($(".video-preview").get(0).paused){
 				$(".video-preview").get(0).play();
