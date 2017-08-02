@@ -469,6 +469,12 @@
 	<div class="row">
 		<div class="col-md-7">
 			<img src="" class="image-preview">
+			<div style="position: relative;" class="video-preview-container">
+				<div class="video-control-container video-control-container-hidden">
+					<a class="video-control kdcoicon-play3 video-play" onclick="playVideo();"></a>
+				</div>
+				<video class="video-preview" src=""></video>
+			</div>
 		</div>
 		<div class="col-md-5 image-details">
 			<p class="image-caption-desc"></p>
@@ -586,16 +592,12 @@
 		    crossDomain: true,
 		    dataType: "jsonp",
 		    success: function(data){
-		    	// console.log(data);
 		    	images = data.data;
-		    	images.sort(function(a, b) {
-				    return parseFloat(a.likes.count) - parseFloat(b.likes.count);
-				});
-				images.reverse();
-				// console.log(images);
+		    	console.log(images);
 		    }
 		});
-	}*/
+	} */
+
 
   	function setCounterDetails(){
 		$.ajax({
@@ -625,9 +627,14 @@
 				before: function(){
 					setCounterDetails();
 				},
-				success: function(data){
-				
-				},
+				filter: function(image) {
+	                if (image.type == 'image') {
+	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.images.standard_resolution.url + '" data-caption="' + image.caption.text + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '"><img src="' + image.images.standard_resolution.url + '" /></a>'
+	                } else {
+	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + image.caption.text + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-youtube video-thumb-indicator"></span></a>'
+	                }
+	                return true;
+              	},
 				after: function() {
 				    images_loaded += num;
 					// console.log("images loaded: " + images_loaded);
@@ -658,8 +665,10 @@
 							counter_shown = true;
 						}
 					}, 1000);
+
 				},
-				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}" id="{{id}}"><img src="{{image}}" /></a>',
+				template: '{{model.template}}',
+				// template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}" id="{{id}}"><img src="{{image}}" /></a>',
 		});
 	} else {
 		feed = new Instafeed({
@@ -671,7 +680,17 @@
 				resolution: 'low_resolution',
 				sortBy: sort_criteria,
 				limit: 10,
+				filter: function(image) {
+	                if (image.type == 'image') {
+	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.images.standard_resolution.url + '" data-caption="' + image.caption.text + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '"><img src="' + image.images.standard_resolution.url + '" /></a>'
+	                } else {
+	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + image.caption.text + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-youtube video-thumb-indicator"></span></a>'
+	                }
+	                return true;
+              	},
 				after: function() {
+				    images_loaded += num;
+					// console.log("images loaded: " + images_loaded);
 					showGallery();
 					if (!this.hasNext()) {
 	                	$(".load-more-button").fadeOut("fast", function(){
@@ -680,9 +699,10 @@
 	            	} else {
 	            		$(".load-more-button").fadeIn("fast");
 	            	}
-					var images = $("#instagram").find('a');
-				    $.each(images, function(index, image) {
-				      var delay = (index * 10) + 'ms';
+					var images = $("#instagram").find('a').slice().slice(images_loaded - num, images_loaded);
+	     			$.each(images, function(index, image) {
+					  // console.log(index);
+				      var delay = (index * 100) + 'ms';
 				      $(image).css('-webkit-animation-delay', delay);
 				      $(image).css('-moz-animation-delay', delay);
 				      $(image).css('-ms-animation-delay', delay);
@@ -692,18 +712,50 @@
 				    });
 					$('a[rel*=leanModal]').leanModal({ top : 50});	
 					randomSortCriteria();
+
 				},
-				template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}" id="{{id}}"><img src="{{image}}" /></a>',
+				template: '{{model.template}}',
+				// template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}" id="{{id}}"><img src="{{image}}" /></a>',
 		});
 	}
 
+	var next_elem = [];
 
+
+	function playVideo(){
+		$(".video-play").fadeOut(250, function(){
+			$(".video-preview").get(0).play();
+		});
+	}
+
+	$(".video-preview").on('ended',function(){
+		console.log('Video has ended!');
+		$(".video-play").fadeIn(250);
+	});
 
 	function updatePreviewModalInfo(element, device){
-		$(".image-preview").fadeOut(100, function(){
-			$(".image-preview").attr("src", $(element).data("src"));
-			$(".image-preview").fadeIn(100);
-		});
+		if($(element).data("type") === "video"){
+			console.log("Opened video modal");
+			$(".image-preview").hide();
+			$(".video-preview").css("display", "block");
+			$(".video-preview").attr("poster", $(element).data("poster"));
+			$(".video-preview").attr("src", $(element).data("src"));
+			$(".video-preview").fadeIn(100, function(){
+				$(".video-control-container").removeClass('video-control-container-hidden');
+			});
+
+		} else {
+			$(".video-control-container").addClass('video-control-container-hidden');
+			$(".video-preview").hide();
+			$(".image-preview").fadeOut(100, function(){
+				$(".image-preview").attr("src", $(element).data("src"));
+				$(".image-preview").fadeIn(100);
+			});
+		}
+		/*setTimeout(function(){
+			$(element).data("src", $(element).data("src").replace("/s640x640/sh0.08/","/"));
+			$(".image-preview").attr("src", $(element).data("src").replace("/s640x640/sh0.08/","/"));
+		}, 500);*/
 		$(".image-caption-desc").text($(element).data("caption"));
 		$(".image-source-link").attr("href", $(element).data("link"));
 		$(".image-slide-next-" + device).attr("data-current", $(element).attr("id"));
@@ -713,6 +765,19 @@
 		var share_message = 'http://www.facebook.com/share.php?u=' + $(element).data("link") + '&title=Loved this entry on #30daysofMalayalamLetters'
 		$(".image-link-share-facebook").attr("href", share_message);
 		$(".image-link-share-twitter").attr("href", tweet_message);
+
+
+		// Fetch high res image for the next 3 async
+		/*console.log($(element).data("src"));
+		for (var i = 0; i < 3; i++) {
+			next_elem[i] = $(element).nextAll(".image-preview-link").eq(i);
+			// console.log($(next_elem[i]).data("src").replace("/s640x640/sh0.08/","/"));
+			next_elem[i].find('img').attr('src', $(next_elem[i]).data("src").replace("/s640x640/sh0.08/","/"));
+			$(next_elem[i]).data("src", $(next_elem[i]).data("src").replace("/s640x640/sh0.08/","/"));
+			console.log(next_elem[i].find('img').attr('src'));
+		}
+
+		*/
 	}
 
 	function resetPreviewModalInfo(){
@@ -722,6 +787,7 @@
 		$(".image-slide-next").attr("data-current", "");
 		$(".image-slide-prev").attr("data-current", "");
 	}
+
 
 	function showNextImage(device){
 		var curr_id = $(".image-slide-next-" + device).attr("data-current");
@@ -744,6 +810,7 @@
     		}
 		} else {
 			curr_elem = $(curr_elem).nextAll(".image-preview-link").first();
+
 			//// console.log(curr_elem);
 			updatePreviewModalInfo(curr_elem, device);
 		}

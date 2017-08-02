@@ -60,3 +60,15 @@
   content: "\e906";
   color: #1da1f2;
 }
+.kdcoicon-play3:before {
+  content: "\ea1c";
+}
+.kdcoicon-pause2:before {
+  content: "\ea1d";
+}
+.kdcoicon-loop2:before {
+  content: "\ea2e";
+}
+.kdcoicon-youtube:before {
+  content: "\ea9d";
+}
