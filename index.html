@@ -471,9 +471,11 @@
 			<img src="" class="image-preview">
 			<div style="position: relative;" class="video-preview-container">
 				<div class="video-control-container video-control-container-hidden">
-					<a class="video-control kdcoicon-youtube video-play"></a>
+					<a class="video-control kdcoicon-youtube video-play" id="video-play"></a>
 				</div>
-				<video class="video-preview" src=""></video>
+				<video class="video-preview" id="video-preview" src="">
+					<source src="" type="video/mp4">
+				</video>
 			</div>
 		</div>
 		<div class="col-md-5 image-details">
@@ -721,25 +723,41 @@
 
 	var next_elem = [];
 
-	$(".video-play").click(function(){
+	/*$(".video-play").click(function(){
 		$(".video-play").fadeOut(250, function(){
 			$(".video-preview").get(0).play();
 		});
-	});
+	});*/
+
+
+var videoElement = document.getElementById("video-preview");
+var videoPlay = document.getElementById("video-play");
+	// this should be ok
+videoPlay.addEventListener("click", function () {
+		$(".video-play").fadeOut(250);
+    
+
+    videoElement.load();
+    videoElement.play();
+
+});
 
 	$(".video-preview").on('ended',function(){
 		console.log('Video has ended!');
 		$(".video-play").fadeIn(250);
 	});
 
+
 	function updatePreviewModalInfo(element, device){
 		if($(element).data("type") === "video"){
 			console.log("Opened video modal");
 			$(".image-preview").hide();
-			$(".video-preview").css("display", "block");
-			$(".video-preview").attr("poster", $(element).data("poster"));
-			$(".video-preview").attr("src", $(element).data("src"));
-			$(".video-preview").fadeIn(100, function(){
+			$("#video-preview").css("display", "block");
+			$("#video-preview").attr("poster", $(element).data("poster"));
+			$("#video-preview > source").attr("src", $(element).data("src"));
+			$("#video-preview").attr("src", $(element).data("src"));
+			video_url = $(element).data("src");
+			$("#video-preview").fadeIn(100, function(){
 				$(".video-control-container").removeClass('video-control-container-hidden');
 			});
 
@@ -899,7 +917,7 @@
     	}
     }); */
 
-    $('body').bind('swipeone', function (event, obj) {
+    /*$('body').bind('swipeone', function (event, obj) {
 	   var direction=obj.description.split(":")[2]
 	   if (($("#image-details-modal").css('display') === 'block') && ($(window).width() < 1024 )) {	
 	   	   	if (direction=="left"){
@@ -913,7 +931,7 @@
 		   	}
 	   }
 
-	});
+	}); */
 
 
 	// Initialise plugins
