@@ -722,6 +722,7 @@
 	}
 
 	var next_elem = [];
+	var prev_elem = [];
 
 	$(".video-play").click(function(){
 		$(".video-preview").get(0).load();
@@ -758,11 +759,15 @@
 				$(".image-preview").attr("src", $(element).data("src"));
 				$(".image-preview").fadeIn(100);
 			});
+			if ($(window).width() > 1024) {
+				setTimeout(function(){
+					console.log("here");
+					$(element).data("src", $(element).data("src").replace("/s640x640/","/"));
+					$(element).find('img').attr('src', $(element).data("src").replace("/s640x640/","/"));
+					$(".image-preview").attr("src", $(element).data("src").replace("/s640x640/","/"));
+				}, 500);
+			}
 		}
-		/*setTimeout(function(){
-			$(element).data("src", $(element).data("src").replace("/s640x640/sh0.08/","/"));
-			$(".image-preview").attr("src", $(element).data("src").replace("/s640x640/sh0.08/","/"));
-		}, 500);*/
 		$(".image-caption-desc").text($(element).data("caption"));
 		$(".image-source-link").attr("href", $(element).data("link"));
 		$(".image-slide-next-" + device).attr("data-current", $(element).attr("id"));
@@ -773,18 +778,31 @@
 		$(".image-link-share-facebook").attr("href", share_message);
 		$(".image-link-share-twitter").attr("href", tweet_message);
 
+		if ($(window).width() > 1024) {
+			// Fetch high res image for the next 2 asynchronously
+			for (var i = 0; i < 2; i++) {
+				next_elem[i] = $(element).nextAll(".image-preview-link").eq(i);
+				console.log($(next_elem[i]).data("src").replace("/s640x640/sh0.08/","/"));
+				if (next_elem[i]) {
+					if(next_elem[i].data("type") === 'image' ){
+						next_elem[i].find('img').attr('src', $(next_elem[i]).data("src").replace("/s640x640/","/"));
+						$(next_elem[i]).data("src", $(next_elem[i]).data("src").replace("/s640x640/","/"));
+					}
+				}
+			}
 
-		// Fetch high res image for the next 3 async
-		/*console.log($(element).data("src"));
-		for (var i = 0; i < 3; i++) {
-			next_elem[i] = $(element).nextAll(".image-preview-link").eq(i);
-			// console.log($(next_elem[i]).data("src").replace("/s640x640/sh0.08/","/"));
-			next_elem[i].find('img').attr('src', $(next_elem[i]).data("src").replace("/s640x640/sh0.08/","/"));
-			$(next_elem[i]).data("src", $(next_elem[i]).data("src").replace("/s640x640/sh0.08/","/"));
-			console.log(next_elem[i].find('img').attr('src'));
+			// Fetch high res image for the previous 2 asynchronously
+			for (var i = 0; i < 2; i++) {
+				prev_elem[i] = $(element).prevAll(".image-preview-link").eq(i);
+				console.log($(prev_elem[i]).data("src").replace("/s640x640/sh0.08/","/"));
+				if (prev_elem[i]) {
+					if(prev_elem[i].data("type") === 'image' ){
+						prev_elem[i].find('img').attr('src', $(prev_elem[i]).data("src").replace("/s640x640/","/"));
+						$(prev_elem[i]).data("src", $(prev_elem[i]).data("src").replace("/s640x640/","/"));
+					}
+				}
+			}
 		}
-
-		*/
 	}
 
 	function resetPreviewModalInfo(){
@@ -873,39 +891,6 @@
 		}
 	});
 
-
-
-	/* $("body").swipe({
-        //Generic swipe handler for all directions
-        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-        	if (($("#image-details-modal").css('display') === 'block') && $(window).width() < 1024 ) {	
-        		// console.log("You swiped " + direction ); 
-        		if (direction == "right") {
-        			showPrevImage("mob");
-        		} else if(direction == "left") {
-        			showNextImage("mob");
-        		} 
-        	}
-        },
-        //Default is 75px, set to 0 for demo so any distance triggers swipe
-         threshold:0
-    }); */
-
-
-    /*$('body').bind('swipeleft', function(){
-    	console.log("swiped left");
-    	if (($("#image-details-modal").css('display') === 'block') && ($(window).width() < 1024 )) {	
-    		// console.log("You swiped " + direction ); 
-    		showNextImage("mob");
-    	}
-    });
-
-    $('body').bind('swiperight', function(){
-    	if (($("#image-details-modal").css('display') === 'block') && ($(window).width() < 1024 )) {	
-    		// console.log("You swiped " + direction ); 
-    		showPrevImage("mob");
-    	}
-    }); */
 
     $('body').bind('swipeone', function (event, obj) {
 	   var direction=obj.description.split(":")[2]
