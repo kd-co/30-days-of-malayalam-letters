@@ -958,6 +958,11 @@ a.linked:hover, a.linked:active{
 }
 
 @media(max-width: 800px){
+	.video-thumb-indicator{
+		top: 8px;
+		right: 12px;
+		font-size: 28px;
+	}
 	.float-counter-container{
 		display: none;
 	}
