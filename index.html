@@ -723,24 +723,13 @@
 
 	var next_elem = [];
 
-	/*$(".video-play").click(function(){
+	$(".video-play").click(function(){
 		$(".video-play").fadeOut(250, function(){
-			$(".video-preview").get(0).play();
+			if($(".video-preview").get(0).paused){
+				$(".video-preview").get(0).play();
+			}
 		});
-	});*/
-
-
-var videoElement = document.getElementById("video-preview");
-var videoPlay = document.getElementById("video-play");
-	// this should be ok
-videoPlay.addEventListener("click", function () {
-		$(".video-play").fadeOut(250);
-    
-
-    videoElement.load();
-    videoElement.play();
-
-});
+	});
 
 	$(".video-preview").on('ended',function(){
 		console.log('Video has ended!');
