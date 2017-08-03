@@ -630,10 +630,11 @@
 					setCounterDetails();
 				},
 				filter: function(image) {
+					var caption = image.caption.text.replace(/["']/g, "&quot;");
 	                if (image.type == 'image') {
-	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.images.standard_resolution.url + '" data-caption="' + image.caption.text + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '"><img src="' + image.images.standard_resolution.url + '" /></a>'
+	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.images.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '"><img src="' + image.images.standard_resolution.url + '" /></a>'
 	                } else {
-	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + image.caption.text + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-youtube video-thumb-indicator"></span></a>'
+	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-youtube video-thumb-indicator"></span></a>'
 	                }
 	                return true;
               	},
@@ -683,10 +684,11 @@
 				sortBy: sort_criteria,
 				limit: 10,
 				filter: function(image) {
+					var caption = image.caption.text.replace(/["']/g, "&quot;");					
 	                if (image.type == 'image') {
-	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.images.standard_resolution.url + '" data-caption="' + image.caption.text + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '"><img src="' + image.images.standard_resolution.url + '" /></a>'
+	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.images.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '"><img src="' + image.images.standard_resolution.url + '" /></a>'
 	                } else {
-	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + image.caption.text + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-youtube video-thumb-indicator"></span></a>'
+	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-youtube video-thumb-indicator"></span></a>'
 	                }
 	                return true;
               	},
