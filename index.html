@@ -471,7 +471,7 @@
 			<img src="" class="image-preview">
 			<div style="position: relative;" class="video-preview-container">
 				<div class="video-control-container video-control-container-hidden">
-					<a class="video-control kdcoicon-youtube video-play" id="video-play"></a>
+					<a class="video-control kdcoicon-play_circle_filled video-play" id="video-play"></a>
 				</div>
 				<video class="video-preview" id="video-preview" src="">
 					<source src="" type="video/mp4">
@@ -634,7 +634,7 @@
 	                if (image.type == 'image') {
 	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.images.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '"><img src="' + image.images.standard_resolution.url + '" /></a>'
 	                } else {
-	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-youtube video-thumb-indicator"></span></a>'
+	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-play_circle_filled video-thumb-indicator"></span></a>'
 	                }
 	                return true;
               	},
@@ -688,7 +688,7 @@
 	                if (image.type == 'image') {
 	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.images.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '"><img src="' + image.images.standard_resolution.url + '" /></a>'
 	                } else {
-	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-youtube video-thumb-indicator"></span></a>'
+	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class=" video-thumb-indicator"></span></a>'
 	                }
 	                return true;
               	},

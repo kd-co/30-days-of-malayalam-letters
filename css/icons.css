@@ -25,6 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.kdcoicon-play_circle_filled:before {
+  content: "\e90a";
+}
 .kdcoicon-info:before {
   content: "\e909";
 }
@@ -68,7 +71,4 @@
 }
 .kdcoicon-loop2:before {
   content: "\ea2e";
-}
-.kdcoicon-youtube:before {
-  content: "\ea9d";
 }
