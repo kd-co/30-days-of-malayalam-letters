@@ -502,15 +502,15 @@
 	</div>
 </div>
   
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  <script src="http://code.jquery.com/jquery-2.2.4.min.js"
+			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 			  crossorigin="anonymous"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/instafeed.min.js"></script>
   <script src="js/jquery.leanModal.min.js"></script>
   <!-- <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script> -->
-  <script type="text/javascript" src="js/jgestures.min.js"></script>
-
+  <!-- <script type="text/javascript" src="js/jgestures.min.js"></script> -->
+  <script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
   <script type="text/javascript">
 
 
@@ -925,6 +925,19 @@
 	   }
 
 	}); */
+
+
+	$(".image-preview-modal").on("swipeleft",function(){
+		if (($(window).width() < 1024 )) {
+			showNextImage("mob");			
+		}
+	});
+
+	$(".image-preview-modal").on("swiperight",function(){
+		if (($(window).width() < 1024 )) {
+			showPrevImage("mob");
+		}
+	});
 
 
 	// Initialise plugins
