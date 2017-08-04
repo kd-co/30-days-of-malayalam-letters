@@ -752,6 +752,7 @@
 			video_url = $(element).data("src");
 			$("#video-preview").fadeIn(100, function(){
 				$(".video-control-container").removeClass('video-control-container-hidden');
+				$(".video-play").fadeIn(250);
 			});
 
 		} else {
@@ -817,6 +818,8 @@
 
 
 	function showNextImage(device){
+		$(".video-preview").get(0).pause();
+
 		var curr_id = $(".image-slide-next-" + device).attr("data-current");
 		// console.log(curr_id);
 		var curr_elem = document.getElementById(curr_id);
@@ -845,6 +848,8 @@
 
 
 	function showPrevImage(device){
+		$(".video-preview").get(0).pause();
+
 		var curr_id = $(".image-slide-prev-" + device).attr("data-current");
 		var curr_elem = document.getElementById(curr_id);
 		//// console.log(curr_elem);
@@ -967,6 +972,7 @@
 
 	$(".close-modal-icon").click(function(){
 		$("#lean_overlay").trigger("click");
+		$(".video-preview").get(0).pause();
     	resetPreviewModalInfo();		
 	});
 
