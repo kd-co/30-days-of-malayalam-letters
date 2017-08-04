@@ -901,23 +901,30 @@
 	});
 
 
-    $('body').bind('swipeone', function (event, obj) {
+    /*$('body').bind('swipeone', function (event, obj) {
 	   var direction=obj.description.split(":")[2]
 	   if (($("#image-details-modal").css('display') === 'block') && ($(window).width() < 1024 )) {	
 	   	   	if (direction=="left"){
 		   	    showNextImage("mob");
+		   	    console.log("Left");
 		   	} else if (direction=="right"){
 		   	    showPrevImage("mob");
+		   	    console.log("Right");
+
 		   	} else if (direction=="up"){
+		   	    console.log("Up");
+
 		   		event.stopImmediatePropagation();
     			event.preventDefault();
 		   	} else if (direction=="down"){
+		   	    console.log("Down");
+
 		   		event.stopImmediatePropagation();
     			event.preventDefault();
 		   	}
 	   }
 
-	}); 
+	}); */
 
 
 	// Initialise plugins
