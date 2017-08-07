@@ -1052,8 +1052,10 @@
 	  // console.log($(window).scrollTop());
 	  if ($(window).scrollTop() > 200) {
 			$(".float-counter").addClass("float-counter-hidden");
+			$(".float-counter-container").addClass("float-counter-container-hidden");
 	  } else if($(window).scrollTop() < 200) {
 			$(".float-counter").removeClass("float-counter-hidden");
+			$(".float-counter-container").removeClass("float-counter-container-hidden");
 	  }
 	});
 

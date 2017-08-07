@@ -894,6 +894,10 @@ a.linked:hover, a.linked:active{
 .float-counter-hidden{
 	opacity: 0;
 	bottom: -40px;
+	z-index: 10;
+}
+.float-counter-container-hidden{
+	z-index: -10;
 }
 .float-counter .em{
 	margin-left: 5px;
