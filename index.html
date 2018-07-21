@@ -229,11 +229,11 @@
           	  	<span data-lang="en">Guidelines</span>
           	  	<span data-lang="ml">നിർദ്ദേശങ്ങൾ</span>
           	  </a>
-          	  <span class="share-now-header">
+          	  <!-- <span class="share-now-header">
           	  	<span data-lang="en"><i class="em em-sparkling_heart"></i>Share</span>
           	  	<span data-lang="ml"><i class="em em-sparkling_heart"></i>പങ്കിടാം</span>
           	  </span>
-          	  <div class="addthis_inline_share_toolbox follow-toolbox" data-url="http://keraladesigners.co/30-days-of-malayalam-letters/" data-title="30 Days of Malayalam Letters" data-description="Celebrate Malayalam alphabets all through this August. Use the hashtag #30daysofMalayalamLetters in your Facebook & Instagram public posts to get featured." data-media="http://keraladesigners.co/30-days-of-malayalam-letters/img/og-meta-image.jpg"></div>
+          	  <div class="addthis_inline_share_toolbox follow-toolbox" data-url="http://keraladesigners.co/30-days-of-malayalam-letters/" data-title="30 Days of Malayalam Letters" data-description="Celebrate Malayalam alphabets all through this August. Use the hashtag #30daysofMalayalamLetters in your Facebook & Instagram public posts to get featured." data-media="http://keraladesigners.co/30-days-of-malayalam-letters/img/og-meta-image.jpg"></div> -->
           </div>
 	          <span class="lang-switch-btn-container">
 	          	<a class="switch-lang lang-active" data-target="en">E</a><a class="switch-lang" data-target="ml">മ</a>
@@ -272,7 +272,7 @@
           	</a>
         </div>
         <div class="navbar-links-container">
-          <div class="right-tools">
+          <!-- <div class="right-tools">
           	  <span class="share-now-header">
           	  	<span data-lang="en"><i class="em em-sparkling_heart"></i>Share</span>
           	  	<span data-lang="ml"><i class="em em-sparkling_heart"></i>പങ്കിടാം</span>
@@ -280,7 +280,7 @@
           	  <div class="addthis_inline_share_toolbox follow-toolbox"></div></div>
 	          <span class="lang-switch-btn-container">
 	          	<a class="switch-lang lang-active" data-target="en">E</a><a class="switch-lang" data-target="ml">മ</a>
-	          </span>
+	          </span> -->
         </div>
       </nav>
     </header>
@@ -796,9 +796,9 @@
 			if ($(window).width() > 1024) {
 				setTimeout(function(){
 					console.log("here");
-					$(element).data("src", $(element).data("src").replace("/s640x640/","/"));
-					$(element).find('img').attr('src', $(element).data("src").replace("/s640x640/","/"));
-					$(".image-preview").attr("src", $(element).data("src").replace("/s640x640/","/"));
+					//$(element).data("src", $(element).data("src").replace("/s640x640/","/"));
+					//$(element).find('img').attr('src', $(element).data("src").replace("/s640x640/","/"));
+					//$(".image-preview").attr("src", $(element).data("src").replace("/s640x640/","/"));
 				}, 500);
 			}
 		}
@@ -812,31 +812,31 @@
 		$(".image-link-share-facebook").attr("href", share_message);
 		$(".image-link-share-twitter").attr("href", tweet_message);
 
-		if ($(window).width() > 1024) {
-			// Fetch high res image for the next 2 asynchronously
-			for (var i = 0; i < 2; i++) {
-				next_elem[i] = $(element).nextAll(".image-preview-link").eq(i);
-				console.log($(next_elem[i]).data("src").replace("/s640x640/sh0.08/","/"));
-				if (next_elem[i]) {
-					if(next_elem[i].data("type") === 'image' ){
-						next_elem[i].find('img').attr('src', $(next_elem[i]).data("src").replace("/s640x640/","/"));
-						$(next_elem[i]).data("src", $(next_elem[i]).data("src").replace("/s640x640/","/"));
-					}
-				}
-			}
+		// if ($(window).width() > 1024) {
+		// 	// Fetch high res image for the next 2 asynchronously
+		// 	for (var i = 0; i < 2; i++) {
+		// 		next_elem[i] = $(element).nextAll(".image-preview-link").eq(i);
+		// 		console.log($(next_elem[i]).data("src").replace("/s640x640/sh0.08/","/"));
+		// 		if (next_elem[i]) {
+		// 			if(next_elem[i].data("type") === 'image' ){
+		// 				next_elem[i].find('img').attr('src', $(next_elem[i]).data("src").replace("/s640x640/","/"));
+		// 				$(next_elem[i]).data("src", $(next_elem[i]).data("src").replace("/s640x640/","/"));
+		// 			}
+		// 		}
+		// 	}
 
-			// Fetch high res image for the previous 2 asynchronously
-			for (var i = 0; i < 2; i++) {
-				prev_elem[i] = $(element).prevAll(".image-preview-link").eq(i);
-				console.log($(prev_elem[i]).data("src").replace("/s640x640/sh0.08/","/"));
-				if (prev_elem[i]) {
-					if(prev_elem[i].data("type") === 'image' ){
-						prev_elem[i].find('img').attr('src', $(prev_elem[i]).data("src").replace("/s640x640/","/"));
-						$(prev_elem[i]).data("src", $(prev_elem[i]).data("src").replace("/s640x640/","/"));
-					}
-				}
-			}
-		}
+		// 	// Fetch high res image for the previous 2 asynchronously
+		// 	for (var i = 0; i < 2; i++) {
+		// 		prev_elem[i] = $(element).prevAll(".image-preview-link").eq(i);
+		// 		// console.log($(prev_elem[i]).data("src").replace("/s640x640/sh0.08/","/"));
+		// 		if (prev_elem[i]) {
+		// 			if(prev_elem[i].data("type") === 'image' ){
+		// 				prev_elem[i].find('img').attr('src', $(prev_elem[i]).data("src").replace("/s640x640/","/"));
+		// 				$(prev_elem[i]).data("src", $(prev_elem[i]).data("src").replace("/s640x640/","/"));
+		// 			}
+		// 		}
+		// 	}
+		// }
 	}
 
 	function resetPreviewModalInfo(){
@@ -970,9 +970,12 @@
 
 
 	// Initialise plugins
+	// 58d3dcce094260a9752a36654ad4a9e5
+
 	$(function() {
-		$.get("https://freegeoip.net/json/", function(data, status){
-        	if (data.region_name === "Kerala") {
+		var url = "https://json.geoiplookup.io/";
+		$.get(url, function(data, status){
+        	if (data.region === "Kerala") {
         		changeLanguage("ml");
         	} else {
         		changeLanguage("en");
@@ -1062,9 +1065,9 @@
 
   </script>
 
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59778875d6173eac"></script> 
+<!-- <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59778875d6173eac"></script>  -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 var addthis_share = addthis_share || {}
 addthis_share = {
 	passthrough : {
@@ -1074,7 +1077,7 @@ addthis_share = {
 		}
 	}
 }
-</script>
+</script> -->
 
 </body>
 </html>
