@@ -98,7 +98,7 @@ span.at4-share-count-container{
 .nav{
 	background: #fff;
 	padding: 20px 15px;
-	border: 1px solid #e2e2e2;
+	/*border-bottom: 1px solid #e2e2e2;*/
 	max-height: 100px;
 }
 .masthead-container{
