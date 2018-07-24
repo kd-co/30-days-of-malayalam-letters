@@ -1173,16 +1173,11 @@
 	var lastScrollTop = 0;
 	$(window).scroll(function(event){
 		var st = $(this).scrollTop();
-	    if(st > 500){
-	    	$(".site-header").addClass("site-header-hidden");
-	    	if (st > lastScrollTop){
-	    	   	$(".sticky-header").removeClass("sticky-header-shown");
-		   	} else {
-	    		$(".sticky-header").addClass("sticky-header-shown");
-		   	}
+		console.log(st);
+	    if(st > 552){
+	    	$(".horizontal-calendar-container").addClass("calendar-fixed-top");
 	    } else {
-	    	$(".sticky-header").removeClass("sticky-header-shown");
-	    	$(".site-header").removeClass("site-header-hidden");
+	    	$(".horizontal-calendar-container").removeClass("calendar-fixed-top");
 	    }
 	    lastScrollTop = st;
 	});
