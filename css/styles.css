@@ -985,7 +985,7 @@ a.linked:hover, a.linked:active{
 	outline: none !important;
 	cursor: pointer;
 	padding: 15px 0px;
-	transition: all 0.15s ease-in;
+	transition: all 0.1s ease-in;
 }
 .calendar-slider-item-selected{
 	background: rgba(0,0,0,0.1);
