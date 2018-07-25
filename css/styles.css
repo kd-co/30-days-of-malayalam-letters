@@ -989,7 +989,7 @@ a.linked:hover, a.linked:active{
 	transition: all 0.1s ease-in;
 }
 .calendar-slider-item-selected{
-	background: rgba(0,0,0,0.1);
+	background: rgba(0,0,0,1);
 }
 
 .calendar-slider-item:first-child{
@@ -1011,6 +1011,12 @@ a.linked:hover, a.linked:active{
 	paint-order: relative;
 	top: -1px;
 	color: #333;
+}
+.calendar-slider-item-selected .calendar-slider-header{
+	color: #fff;
+}
+.calendar-slider-item-selected .calendar-slider-sub-header{
+	color: rgba(255,255,255,0.7);
 }
 .calendar-slider-nav{
 	position: absolute;
