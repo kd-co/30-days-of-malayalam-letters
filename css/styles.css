@@ -731,17 +731,6 @@ a.linked:hover, a.linked:active{
 .sticky-header-hash-container a:hover{
 	color:#333;
 }
-.sticky-footer-mob{
-	display: none;
-	position: fixed;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-	box-shadow: 0px -5px 20px rgba(0,0,0,0.1);
-	background: #fff;
-	text-align: center;
-	height: 60px;
-}
 .sticky-footer-mob .info-section-link{
 	margin: 0px;
 	font-size: 14px;
@@ -752,6 +741,9 @@ a.linked:hover, a.linked:active{
 	justify-content: center;
 	border-right: 1px solid #e2e2e2;
 	height:60px;
+}
+.sticky-footer-mob{
+	display: none;
 }
 .no-margin{
 	margin: 0px;
@@ -1099,6 +1091,9 @@ a.linked:hover, a.linked:active{
 
 
 @media(max-width: 800px){
+	.site-header{
+		height: 140px;
+	}
 	.video-thumb-indicator{
 		top: 8px;
 		right: 12px;
@@ -1149,12 +1144,23 @@ a.linked:hover, a.linked:active{
 	}
 	body{
 		padding-bottom: 60px;
+		overflow-x: hidden;
 	}
 	.share-now-header{
 		font-size: 13px;
 	}
 	.sticky-footer-mob{
 		display: block;
+		position: fixed;
+		bottom: 0px;
+		left: 0px;
+		right: 0px;
+		box-shadow: 0px -5px 20px rgba(0,0,0,0.1);
+		background: #fff;
+		text-align: center;
+		height: 60px;
+		z-index: 999;
+		width: 100vw;
 	}
  	.sticky-footer-mob .about-anchor{
  		float: left;
@@ -1164,11 +1170,12 @@ a.linked:hover, a.linked:active{
  		font-weight: 500;
  		border-bottom:1px solid #999;
  	}
-	.header-hash{
-		display: none;
-	}
-	.header-hash.top{display: inline-block; font-size: .8rem;}
-	.sticky-header {
+ 	.header-hash{
+ 		margin: 70px 0px;
+ 		font-size: 1.4rem;
+ 		display: block;
+ 	}
+ 	.sticky-header {
 		height: 60px;
 	}
 	.sticky-header-hash-container{padding-top: 15px;}
@@ -1180,6 +1187,12 @@ a.linked:hover, a.linked:active{
 	}
 	.sticky-header .navbar-links-container{
 		padding-top: 20px;
+	}
+	.intro-hero-item {
+		margin-bottom: 20px;
+	}
+	.main-info-section{
+		padding: 0px;
 	}
 	body{
 		overflow-x: hidden;
@@ -1284,5 +1297,15 @@ a.linked:hover, a.linked:active{
 		bottom: 0px;
 		left: 0px;
 		right: 0px;
+	}
+	.calendar-slider-item {
+		padding: 10px 0px;
+	}
+	.calendar-slider-header {
+    	font-size: 24px;
+	}
+	.calendar-slider-sub-header {
+    	font-size: 10px;
+    	columns: #666;
 	}
 }
