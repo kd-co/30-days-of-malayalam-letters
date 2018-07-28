@@ -991,6 +991,12 @@ a.linked:hover, a.linked:active{
 .calendar-slider-item-selected{
 	background: rgba(0,0,0,1);
 }
+.calendar-slider-item-disabled{
+	pointer-events: none;
+}
+.calendar-slider-item-disabled .calendar-slider-header, .calendar-slider-item-disabled .calendar-slider-sub-header{
+	opacity: 0.4;
+}
 
 .calendar-slider-item:first-child{
 	border-left: 1px solid #e2e2e2;
