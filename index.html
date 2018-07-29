@@ -271,13 +271,13 @@
 
   </div>
 
-  <div class="container" id="about-section">
+  <div class="container hide animated fadeIn" id="about-section">
   	<div class="row">
   		<div class="col-md-10 col-md-offset-1">
   			<div class="intro-hero-container">
   				<div class="row">
   					<div class="col-md-8">
-  						<div class="intro-hero-item intro-hero-item-1" style="background:url('img/og-meta-image.jpg')">
+  						<div class="intro-hero-item intro-hero-item-1">
   							<div class="intro-hero-item-info">
   								<div class="row">
   									<div class="col-xs-6">
@@ -748,7 +748,7 @@
   	var num = 6*(Math.trunc(window.innerWidth/310));
   	var sort_criteria;
   	var sort = 1;
-  	var feed;
+  	var feed, featured_image;
 
   	function randomSortCriteria(){
   		sort = Math.floor(Math.random() * 8) + 1;
@@ -819,7 +819,32 @@
 		});
 	}
 
+
+
+
   	if(window.innerWidth > 1024){
+
+		console.log("Trying to get image");
+
+  		featured_image = new Instafeed({
+	        get: 'user',
+			userId: 5764236759,
+			clientId: 'a6d0f90ada0b4fa18102601da6d31327',
+			accessToken: '5764236759.1677ed0.694cbbcffddc47bd9a83b5e251e3ad5c',
+			target: 'instagram',
+			resolution: 'standard_resolution',
+			sortBy: sort_criteria,
+			limit: num,
+			before: function(){
+			},
+			filter: function(image) {
+				console.log(image, "Featured image");
+			    $(".intro-hero-item-1").css('background-image', 'url(' + image.images.standard_resolution.url + ')');
+				$("#about-section").removeClass("hide");
+			}
+
+	    });
+
 	  	feed = new Instafeed({
 				get: 'user',
 				userId: 5764236759,
@@ -848,7 +873,7 @@
               	},
 				after: function() {
 				    images_loaded += num;
-					// console.log("images loaded: " + images_loaded);
+					console.log("images loaded: " + images_loaded);
 					showGallery();
 					if (!this.hasNext()) {
 	                	$(".load-more-button").fadeOut("fast", function(){
@@ -1180,6 +1205,7 @@
         changeLanguage("ml");
 
 		feed.run();
+		featured_image.run();
 	});
 
 
