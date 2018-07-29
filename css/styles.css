@@ -1023,6 +1023,7 @@ a.linked:hover, a.linked:active{
 }
 .calendar-slider-item-selected .calendar-slider-sub-header{
 	color: rgba(255,255,255,0.7);
+	font-weight: bold;
 }
 .calendar-slider-nav{
 	position: absolute;
@@ -1063,10 +1064,10 @@ a.linked:hover, a.linked:active{
 	position: relative;
 }
 .intro-hero-item-1{
-	height: 350px;
+	height: 450px;
 }
 .intro-hero-item-2, .intro-hero-item-3{
-	height: 160px;
+	height: 210px;
 	margin-bottom: 30px;
 }
 .intro-hero-item-3{
