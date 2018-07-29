@@ -75,8 +75,8 @@
 	    	<span data-lang="en">Guidelines</span>
 			<span data-lang="ml">നിർദ്ദേശങ്ങൾ</span>
 	    </a>
-	    <a class="col-xs-6 info-section-link" href="https://www.facebook.com/groups/264660753884778/" target="_blank" onclick="ga('send', 'event', 'link', 'click', 'Facebook group link');">
-          	<span data-lang="en">About KDCo</span>
+	    <a class="col-xs-6 info-section-link">
+          	<span data-lang="en">View entries</span>
   			<span data-lang="ml">കെ.ഡി.കോ-യെ കുറിച്ച്</span>
         </a>
     </div>
@@ -84,12 +84,16 @@
 
   <div class="container-full-width" id="outer-container">
 
-	<!-- <div class="float-counter-container">
-		<span class="float-counter float-counter-hidden" onclick="scrollToPosition('#instagram')">
-			<span data-lang="en"><span class="posts-count"></span> posts, <span class="typelovers-count"></span> typelovers <i class="em em-tada"></i></span>
-			<span data-lang="ml"><span class="posts-count"></span> ചുവരുകൾ, <span class="typelovers-count"></span> എഴുത്തുകാർ <i class="em em-tada"></i></span>
+	<div class="float-counter-container">
+		<span class="float-counter">
+			<a class="float-counter-btn float-counter-btn-1 center" href="#details-modal" rel="leanModal" onclick="ga('send', 'event', 'link', 'click', 'Guidelines modal link');">
+				Guidelines
+			</a>
+			<a class="float-counter-btn center" id="view-entries-float-btn" onclick="scrollToPosition('.entries-container')">
+				View entries
+			</a>
 		</span>
-	</div> -->
+	</div>
 
     <header class="site-header animated fadeIn">
       <nav class="nav">
@@ -244,6 +248,10 @@
 	        </a>
 	        <div class="sticky-header-hash-container">
 	        	<a class="header-hash" onclick="scrollToPosition('#outer-container')">#30daysofMalayalamLetters</a>
+	        	<select class="year-browser" onchange="if (this.value) window.location.href=this.value">
+	        		<option value="https://kdco.info/30-days-of-malayalam-letters/" selected="true">2018</option>
+	        		<option value="https://kdco.info/30-days-of-malayalam-letters/2017">2017</option>
+	        	</select>
 	        </div>
 	        <div class="navbar-links-container">
 	          <div class="right-tools">
@@ -265,7 +273,7 @@
 
   <div class="container" id="about-section">
   	<div class="row">
-  		<div class="col-md-12">
+  		<div class="col-md-10 col-md-offset-1">
   			<div class="intro-hero-container">
   				<div class="row">
   					<div class="col-md-8">
@@ -331,7 +339,7 @@
   				<p class="info-section-desc main-info-section center">
 					<i class="em em-wave" style="margin-right: 7px;"></i>കേരളത്തിനകത്തും പുറത്തുമുള്ള എല്ലാ മലയാളി ഡിസൈനേഴ്സിനെയും #30daysofMalayalamLetters ലേക്ക് സ്വാഗതം ചെയ്യുന്നു. മലയാള അക്ഷരങ്ങളെ ഒന്നൊന്നായി സർഗ്ഗാത്മകമായി വിഭാവനം ചെയ്യുകയാണ് ഇവിടെ.
 		  		</p>
-		  		<div class="main-info-section web-only">
+		  		<!-- <div class="main-info-section web-only">
           			<div class="row">
           				<div class="col-md-6 col-md-offset-3">
           					<div class="col-md-6 center">
@@ -348,7 +356,7 @@
 	          				</div>
           				</div>
           			</div>
-          		</div>
+          		</div> -->
 
   			</div>
   		</div>
@@ -361,123 +369,123 @@
   		
   		<div class="calendar-slider-container">
   			<div class="calendar-slider-item" data-selected="false" data-day="1">
-  				<p class="calendar-slider-header">ഘ</p>
+  				<p class="calendar-slider-header">അ</p>
   				<p class="calendar-slider-sub-header">Day 1</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="2">
-  				<p class="calendar-slider-header">ന</p>
+  				<p class="calendar-slider-header">ക</p>
   				<p class="calendar-slider-sub-header">Day 2</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="3">
-  				<p class="calendar-slider-header">അ</p>
+  				<p class="calendar-slider-header">ച</p>
   				<p class="calendar-slider-sub-header">Day 3</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="4">
-  				<p class="calendar-slider-header">എ</p>
+  				<p class="calendar-slider-header">ട</p>
   				<p class="calendar-slider-sub-header">Day 4</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="5">
-  				<p class="calendar-slider-header">ട്ട</p>
+  				<p class="calendar-slider-header">ത</p>
   				<p class="calendar-slider-sub-header">Day 5</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="6">
-  				<p class="calendar-slider-header">ശൂ</p>
+  				<p class="calendar-slider-header">പ</p>
   				<p class="calendar-slider-sub-header">Day 6</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="7">
-  				<p class="calendar-slider-header">ബ</p>
+  				<p class="calendar-slider-header">യ</p>
   				<p class="calendar-slider-sub-header">Day 7</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="8">
-  				<p class="calendar-slider-header">കൂ</p>
+  				<p class="calendar-slider-header">ര</p>
   				<p class="calendar-slider-sub-header">Day 8</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="9">
-  				<p class="calendar-slider-header">ഷ</p>
+  				<p class="calendar-slider-header">ല</p>
   				<p class="calendar-slider-sub-header">Day 9</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="10">
-  				<p class="calendar-slider-header">ഈ</p>
+  				<p class="calendar-slider-header">വ</p>
   				<p class="calendar-slider-sub-header">Day 10</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="11">
-  				<p class="calendar-slider-header">റ്റ</p>
+  				<p class="calendar-slider-header">ശ</p>
   				<p class="calendar-slider-sub-header">Day 11</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="12">
-  				<p class="calendar-slider-header">ണ</p>
+  				<p class="calendar-slider-header">ഷ</p>
   				<p class="calendar-slider-sub-header">Day 12</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="13">
-  				<p class="calendar-slider-header">ഞ്ഞ</p>
+  				<p class="calendar-slider-header">സ</p>
   				<p class="calendar-slider-sub-header">Day 13</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="14">
-  				<p class="calendar-slider-header">ഴ</p>
+  				<p class="calendar-slider-header">ഹ</p>
   				<p class="calendar-slider-sub-header">Day 14</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="15">
-  				<p class="calendar-slider-header">യ</p>
+  				<p class="calendar-slider-header">ള</p>
   				<p class="calendar-slider-sub-header">Day 15</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="16">
-  				<p class="calendar-slider-header">ഋ</p>
+  				<p class="calendar-slider-header">ഴ</p>
   				<p class="calendar-slider-sub-header">Day 16</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="17">
-  				<p class="calendar-slider-header">ഛ</p>
+  				<p class="calendar-slider-header">ഇ</p>
   				<p class="calendar-slider-sub-header">Day 17</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="18">
-  				<p class="calendar-slider-header">പ്പ</p>
+  				<p class="calendar-slider-header">ഡ</p>
   				<p class="calendar-slider-sub-header">Day 18</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="19">
-  				<p class="calendar-slider-header">ത്സ</p>
+  				<p class="calendar-slider-header">ജ</p>
   				<p class="calendar-slider-sub-header">Day 19</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="20">
-  				<p class="calendar-slider-header">മ</p>
+  				<p class="calendar-slider-header">ങ</p>
   				<p class="calendar-slider-sub-header">Day 20</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="21">
-  				<p class="calendar-slider-header">ക്ഷ</p>
+  				<p class="calendar-slider-header">ഞ</p>
   				<p class="calendar-slider-sub-header">Day 21</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="22">
-  				<p class="calendar-slider-header">ഭ</p>
+  				<p class="calendar-slider-header">ണ</p>
   				<p class="calendar-slider-sub-header">Day 22</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="23">
-  				<p class="calendar-slider-header">സ</p>
+  				<p class="calendar-slider-header">ന</p>
   				<p class="calendar-slider-sub-header">Day 23</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="24">
-  				<p class="calendar-slider-header">ജ</p>
+  				<p class="calendar-slider-header">മ</p>
   				<p class="calendar-slider-sub-header">Day 24</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="25">
-  				<p class="calendar-slider-header">ഖ</p>
+  				<p class="calendar-slider-header">ഉ</p>
   				<p class="calendar-slider-sub-header">Day 25</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="26">
-  				<p class="calendar-slider-header">ഉ</p>
+  				<p class="calendar-slider-header">ഋ</p>
   				<p class="calendar-slider-sub-header">Day 26</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="27">
-  				<p class="calendar-slider-header">ര</p>
+  				<p class="calendar-slider-header">എ</p>
   				<p class="calendar-slider-sub-header">Day 27</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="28">
-  				<p class="calendar-slider-header">ള</p>
+  				<p class="calendar-slider-header">ഒ</p>
   				<p class="calendar-slider-sub-header">Day 28</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="29">
-  				<p class="calendar-slider-header">തൂ</p>
+  				<p class="calendar-slider-header">ഗ</p>
   				<p class="calendar-slider-sub-header">Day 29</p>
   			</div>
   			<div class="calendar-slider-item" data-selected="false" data-day="30">
-  				<p class="calendar-slider-header">ഢ</p>
+  				<p class="calendar-slider-header">ബ</p>
   				<p class="calendar-slider-sub-header">Day 30</p>
   			</div>
   		</div>
@@ -485,7 +493,7 @@
   </div>
   
 
-  <div class="container">
+  <div class="container entries-container">
   	  <div class="instagram-gallery-loader">
 	  	<div class="spinner">
 		  <div class="bounce1"></div>
@@ -663,7 +671,6 @@
   <script type="text/javascript">
 
 
-  	
 
   $(function(){
 
@@ -795,11 +802,11 @@
   	var images_loaded = 0;
   	var counter_shown = false;
 
-  	$(".float-counter").hover(function(){
-  		$(".em-tada").addClass("animated infinite tada");
-  	}, function(){
-  		$(".em-tada").removeClass("animated infinite tada");
-  	});
+  	// $(".float-counter").hover(function(){
+  	// 	$(".em-tada").addClass("animated infinite tada");
+  	// }, function(){
+  	// 	$(".em-tada").removeClass("animated infinite tada");
+  	// });
 
   	/*function getAllImages(){
 		$.ajax({
@@ -1253,26 +1260,32 @@
 		    	$(".horizontal-calendar-container").removeClass("calendar-fixed-top");
 		    }
 		} else {
-			if(st > 845){
+			if(st > 930){
 		    	$(".horizontal-calendar-container").addClass("calendar-fixed-top");
+		    	$(".entries-container").addClass("pt80");
 		    } else {
 		    	$(".horizontal-calendar-container").removeClass("calendar-fixed-top");
+		    	$(".entries-container").removeClass("pt80");
 		    }
 		}
+		if (st > 600) {
+	 		$(".float-counter").addClass("float-counter-single-btn");
+	   	} else {
+	 		$(".float-counter").removeClass("float-counter-single-btn");
+	   	}
 	    lastScrollTop = st;
 	});
 
 
-	$(window).scroll(function() {
-	  // console.log($(window).scrollTop());
-	  if ($(window).scrollTop() > 200) {
-			$(".float-counter").addClass("float-counter-hidden");
-			$(".float-counter-container").addClass("float-counter-container-hidden");
-	  } else if($(window).scrollTop() < 200) {
-			$(".float-counter").removeClass("float-counter-hidden");
-			$(".float-counter-container").removeClass("float-counter-container-hidden");
-	  }
-	});
+	// $(window).scroll(function() {
+	//   if ($(window).scrollTop() > 200) {
+	// 		$(".float-counter").addClass("float-counter-hidden");
+	// 		$(".float-counter-container").addClass("float-counter-container-hidden");
+	//   } else if($(window).scrollTop() < 200) {
+	// 		$(".float-counter").removeClass("float-counter-hidden");
+	// 		$(".float-counter-container").removeClass("float-counter-container-hidden");
+	//   }
+	// });
 
 
   </script>
