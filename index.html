@@ -332,36 +332,17 @@
   </div>
 
 
-  <div class="info-strip-black">
+<!--   <div class="info-strip-black">
   	<div class="container">
   		<div class="row">
   			<div class="col-md-10 col-md-offset-1">
   				<p class="info-section-desc main-info-section center">
 					<i class="em em-wave" style="margin-right: 7px;"></i>കേരളത്തിനകത്തും പുറത്തുമുള്ള എല്ലാ മലയാളി ഡിസൈനേഴ്സിനെയും #30daysofMalayalamLetters ലേക്ക് സ്വാഗതം ചെയ്യുന്നു. മലയാള അക്ഷരങ്ങളെ ഒന്നൊന്നായി സർഗ്ഗാത്മകമായി വിഭാവനം ചെയ്യുകയാണ് ഇവിടെ.
 		  		</p>
-		  		<!-- <div class="main-info-section web-only">
-          			<div class="row">
-          				<div class="col-md-6 col-md-offset-3">
-          					<div class="col-md-6 center">
-	          					<a class="info-section-link trigger-modal-btn" href="#details-modal" rel="leanModal" onclick="ga('send', 'event', 'link', 'click', 'Guidelines modal link');">
-				  					<span data-lang="en">Guidelines</span>
-				  					<span data-lang="ml">നിർദ്ദേശങ്ങൾ</span>
-				  				</a>
-	          				</div>
-	          				<div class="col-md-6 center">
-	          					<a href="https://www.facebook.com/groups/264660753884778/" target="_blank" class="info-section-link" onclick="ga('send', 'event', 'link', 'click', 'Facebook group link');">
-						          	<span data-lang="en">About KDCo</span>
-						  			<span data-lang="ml">കെ.ഡി.കോ-യെ കുറിച്ച്</span>
-						        </a>
-	          				</div>
-          				</div>
-          			</div>
-          		</div> -->
-
   			</div>
   		</div>
   	</div>
-  </div>
+  </div> -->
 
 
   <div class="horizontal-calendar-container">
@@ -679,8 +660,9 @@
 
 	console.log("Day: ", day, ", date: ", date);
 
-	$('*[data-day="' + day + '"]').addClass("calendar-slider-item-selected");
-	$('*[data-day="' + day + '"]').data("selected", true);
+	// Logic to turn the current day selected on the calendar
+	//$('*[data-day="' + day + '"]').addClass("calendar-slider-item-selected");
+	//$('*[data-day="' + day + '"]').data("selected", true);
 
 	for (i=day+1; i<=30; i++) {
 		$('*[data-day="' + i + '"]').addClass("calendar-slider-item-disabled");
@@ -1260,7 +1242,7 @@
 		    	$(".horizontal-calendar-container").removeClass("calendar-fixed-top");
 		    }
 		} else {
-			if(st > 930){
+			if(st > 800){
 		    	$(".horizontal-calendar-container").addClass("calendar-fixed-top");
 		    	$(".entries-container").addClass("pt80");
 		    } else {
