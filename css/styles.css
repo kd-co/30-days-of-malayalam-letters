@@ -1060,7 +1060,7 @@ a.linked:hover, a.linked:active{
 	background: #fff;
 }
 .calendar-slider-item-selected{
-	background: rgba(0,0,0,1);
+	background: #1476F8;
 }
 .calendar-slider-item-disabled{
 	pointer-events: none;
@@ -1077,7 +1077,7 @@ a.linked:hover, a.linked:active{
 	font-size: 40px;
 	font-family: 'Rachana';
 	font-weight: 700;
-	color: #555;
+	color: #1476F8;
 	margin: 0px;
 	line-height: 1;
 }
@@ -1087,7 +1087,7 @@ a.linked:hover, a.linked:active{
 	margin: 0px;
 	paint-order: relative;
 	top: -1px;
-	color: #555;
+	color: #1476F8;
 }
 .calendar-slider-item-selected .calendar-slider-header{
 	color: #fff;
