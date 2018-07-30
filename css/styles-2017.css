@@ -1005,7 +1005,7 @@ a.linked:hover, a.linked:active{
 	background: #000;
 }
 .calendar-slider-item{
-	border-right: 1px solid rgba(255,255,255,0.15);
+	border-right: 1px solid rgba(255,255,255,0.06);
 	width: 76px;
 	text-align: center;
 	outline: none !important;
@@ -1025,7 +1025,7 @@ a.linked:hover, a.linked:active{
 }
 
 .calendar-slider-item:first-child{
-	border-right: 1px solid rgba(255,255,255,0.15);
+	border-right: 1px solid rgba(255,255,255,0.06);
 }
 
 .calendar-slider-header{

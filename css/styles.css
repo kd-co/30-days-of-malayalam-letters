@@ -1050,7 +1050,7 @@ a.linked:hover, a.linked:active{
 	opacity: 1;
 }
 .calendar-slider-item{
-	border-right: 1px solid rgba(0, 0, 0, 0.1);
+	border-right: 1px solid rgba(0,0,0,0.06);
 	width: 76px;
 	text-align: center;
 	outline: none !important;
@@ -1070,7 +1070,7 @@ a.linked:hover, a.linked:active{
 }
 
 .calendar-slider-item:first-child{
-	border-right: 1px solid rgba(0, 0, 0, 0.1);
+	border-right: 1px solid rgba(0,0,0,0.06);
 }
 
 .calendar-slider-header{
@@ -1087,7 +1087,7 @@ a.linked:hover, a.linked:active{
 	margin: 0px;
 	paint-order: relative;
 	top: -1px;
-	color: #1476F8;
+	color: #999;
 }
 .calendar-slider-item-selected .calendar-slider-header{
 	color: #fff;
