@@ -75,9 +75,9 @@
 	    	<span data-lang="en">Guidelines</span>
 			<span data-lang="ml">നിർദ്ദേശങ്ങൾ</span>
 	    </a>
-	    <a class="col-xs-6 info-section-link" href="#calendar-modal" rel="leanModal">
-          	<span data-lang="en">Calendar</span>
-  			<span data-lang="ml">കലണ്ടർ</span>
+	    <a class="col-xs-6 info-section-link" href="#details-modal" rel="leanModal">
+          	<span data-lang="en">About</span>
+  			<span data-lang="ml">കൂടുതൽ അറിയാൻ</span>
         </a>
     </div>
   </div>
@@ -329,7 +329,7 @@
 									    	<span class="day-count"></span>
 											<span class="intro-calendar-letter-item"></span>
 									    </div>
-									    <div class="day" data-intro-day="6">
+									    <div class="day day-selected" data-intro-day="6">
 									    	<span class="day-count"></span>
 											<span class="intro-calendar-letter-item"></span>
 									    </div>
@@ -1508,7 +1508,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 
 	$(function() {
 
-        changeLanguage("ml");
+        changeLanguage("en");
 
 		feed.run();
 		featured_image.run();
