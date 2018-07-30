@@ -1122,8 +1122,8 @@ a.linked:hover, a.linked:active{
 	position: relative;
 }
 .intro-hero-item-1{
-	height: 550px;
-	width: 600px;
+	height: 500px;
+	width: 500px;
 	border: 5px solid rgba(255, 255, 255, 1);
 	background: #fff;
 }
