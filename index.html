@@ -1010,14 +1010,86 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 	calendarItemClick($(this));  	
   });
 
+
+
+  function generateFilteredFeed(day){
+  	  	filtered_feed = new Instafeed({
+			get: 'tagged',
+			tagName: 'indiantypography',
+			userId: 5764236759,
+			clientId: 'a6d0f90ada0b4fa18102601da6d31327',
+			accessToken: '5764236759.a6d0f90.4e015d5d35734d3f849edfea0473abe1',
+			target: 'instagram',
+			resolution: 'standard_resolution',
+			sortBy: sort_criteria,
+			limit: 20,
+			before: function(){
+				//setCounterDetails();
+			},
+			filter: function(image) {
+				var caption = image.caption.text.replace(/["']/g, "&quot;");
+				if (caption.split("#repost ")[1]) {
+					var user_name = caption.split("#repost ")[1].split(" ")[0].split("\u2022")[0].split("@")[1];
+					user_name = user_name.slice(0,-2);
+				}
+				//console.log(user_name);
+                if (image.type == 'image') {
+                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-username="' + user_name + '" data-src="' + image.images.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '"><img src="' + image.images.standard_resolution.url + '"/></a>'
+                } else {
+                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-play_circle_filled video-thumb-indicator"></span></a>'
+                }
+                return true;
+          	},
+			after: function() {
+			    images_loaded += num;
+				console.log("images loaded: " + images_loaded);
+				showGallery();
+				if (!this.hasNext()) {
+                	$(".load-more-button").fadeOut("fast", function(){
+                		$(".instagram-feed-end").fadeIn("fast");
+                	});
+            	} else {
+            		$(".load-more-button").fadeIn("fast");
+            	}
+				var images = $("#instagram").find('a').slice().slice(images_loaded - num, images_loaded);
+     			$.each(images, function(index, image) {
+				  // console.log(index);
+			      var delay = (index * 100) + 'ms';
+			      $(image).css('-webkit-animation-delay', delay);
+			      $(image).css('-moz-animation-delay', delay);
+			      $(image).css('-ms-animation-delay', delay);
+			      $(image).css('-o-animation-delay', delay);
+			      $(image).css('animation-delay', delay);
+			      $(image).addClass('animated fadeIn');
+			    });
+				$('a[rel*=leanModal]').leanModal({ top : 50});	
+				randomSortCriteria();
+				setTimeout(function(){
+					if(counter_shown === false){
+						$(".float-counter").removeClass("float-counter-hidden");
+						counter_shown = true;
+					}
+				}, 1000);
+
+			},
+			template: '{{model.template}}',
+	});
+  }
+
+
   function calendarItemClick(elem){
+
+  	generateFilteredFeed($(elem).data('day'));
+
+  	filtered_feed.run();
+
   	console.log(elem, $(elem).data("selected"));
   	$(elem).addClass("calendar-slider-item-selected");
   	if($(elem).data("selected")==false){
   		$(elem).data("selected", true);
   	} else {
   		$(elem).data("selected", false);
-  // 		for (i=1; i<=30; i++) {
+        // for (i=1; i<=30; i++) {
 		// 	$('*[data-day="' + i + '"]').addClass("calendar-slider-item-disabled");
 		// }
   	}
@@ -1084,6 +1156,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 			case 8:
 				sort_criteria = "random";
 		}
+		return sort_criteria;
   	}
 
   	randomSortCriteria();
@@ -1091,56 +1164,17 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
   	var images_loaded = 0;
   	var counter_shown = false;
 
-  	// $(".float-counter").hover(function(){
-  	// 	$(".em-tada").addClass("animated infinite tada");
-  	// }, function(){
-  	// 	$(".em-tada").removeClass("animated infinite tada");
-  	// });
-
-  	/*function getAllImages(){
-		$.ajax({
-		    url: "https://api.instagram.com/v1/users/5764236759/media/recent/?access_token=5764236759.1677ed0.694cbbcffddc47bd9a83b5e251e3ad5c&count=250",
-		    type: "GET",
-		    crossDomain: true,
-		    dataType: "jsonp",
-		    success: function(data){
-		    	images = data.data;
-		    	console.log(images);
-		    }
-		});
-	} */
-
-
-  	function setCounterDetails(){
-		$.ajax({
-			url: "https://api.instagram.com/v1/users/self/?access_token=5764236759.1677ed0.694cbbcffddc47bd9a83b5e251e3ad5c",
-		    type: "GET",
-		    crossDomain: true,
-		    dataType: "jsonp",
-		    success: function(data){
-				typelovers = data.data.counts.follows;
-				posts = data.data.counts.media;
-				$(".posts-count").text(posts);
-				$(".typelovers-count").text(typelovers);
-		    }
-		});
-	}
-
-
-
 
   	if(window.innerWidth > 1024){
-
-		console.log("Trying to get image");
 
   		featured_image = new Instafeed({
 	        get: 'user',
 			userId: 5764236759,
 			clientId: 'a6d0f90ada0b4fa18102601da6d31327',
-			accessToken: '5764236759.1677ed0.694cbbcffddc47bd9a83b5e251e3ad5c',
+			accessToken: '5764236759.a6d0f90.4e015d5d35734d3f849edfea0473abe1',
 			target: 'instagram',
 			resolution: 'standard_resolution',
-			sortBy: 'random',
+			sortBy: randomSortCriteria(),
 			limit: 1,
 			before: function(){
 			},
@@ -1149,20 +1183,19 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 			    $(".intro-hero-item-1").css('background-image', 'url(' + image.images.standard_resolution.url + ')');
 				$("#about-section").removeClass("hide");
 			}
-
 	    });
 
 	  	feed = new Instafeed({
 				get: 'user',
 				userId: 5764236759,
 				clientId: 'a6d0f90ada0b4fa18102601da6d31327',
-				accessToken: '5764236759.1677ed0.694cbbcffddc47bd9a83b5e251e3ad5c',
+				accessToken: '5764236759.a6d0f90.4e015d5d35734d3f849edfea0473abe1',
 				target: 'instagram',
 				resolution: 'standard_resolution',
 				sortBy: sort_criteria,
 				limit: num,
 				before: function(){
-					setCounterDetails();
+					//setCounterDetails();
 				},
 				filter: function(image) {
 					var caption = image.caption.text.replace(/["']/g, "&quot;");
@@ -1211,7 +1244,6 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 
 				},
 				template: '{{model.template}}',
-				// template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}" id="{{id}}"><img src="{{image}}" /></a>',
 		});
 	} else {
 		feed = new Instafeed({
@@ -1259,7 +1291,6 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 
 				},
 				template: '{{model.template}}',
-				// template: '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="{{image}}" data-caption="{{caption}}" data-link="{{link}}" id="{{id}}"><img src="{{image}}" /></a>',
 		});
 	}
 
@@ -1280,29 +1311,6 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 		$(".video-play").fadeIn(250);
 	});
 
-
-	/*function getUserDP(element){
-		if ($(element).data("username")==="undefined"){
-
-		} else {
-			var name = $(element).data("username");
-			url = "https://api.instagram.com/v1/users/search?q=anoop&access_token=5764236759.1677ed0.694cbbcffddc47bd9a83b5e251e3ad5c",
-			console.log(url);
-			$.ajax({
-			    url: "https://api.instagram.com/v1/users/search?q=anoop&access_token=5764236759.1677ed0.694cbbcffddc47bd9a83b5e251e3ad5c",
-			    type: "GET",
-			    crossDomain: true,
-			    dataType: "jsonp",
-			    success: function(data){
-			    	console.log(data);
-			    	user_dp = data.data.profile_picture;
-			    	user_first_name = data.data.first_name;
-			    	user_last_name = data.data.last_name;
-			    	console.log(user_dp + "\n" + user_first_name + "\n" + user_last_name);
-			    }
-			});
-		}
-	}*/
 
 	function updatePreviewModalInfo(element, device){
 
@@ -1346,32 +1354,6 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 		var share_message = 'http://www.facebook.com/share.php?u=' + $(element).data("link") + '&title=Loved this entry on #30daysofMalayalamLetters'
 		$(".image-link-share-facebook").attr("href", share_message);
 		$(".image-link-share-twitter").attr("href", tweet_message);
-
-		// if ($(window).width() > 1024) {
-		// 	// Fetch high res image for the next 2 asynchronously
-		// 	for (var i = 0; i < 2; i++) {
-		// 		next_elem[i] = $(element).nextAll(".image-preview-link").eq(i);
-		// 		console.log($(next_elem[i]).data("src").replace("/s640x640/sh0.08/","/"));
-		// 		if (next_elem[i]) {
-		// 			if(next_elem[i].data("type") === 'image' ){
-		// 				next_elem[i].find('img').attr('src', $(next_elem[i]).data("src").replace("/s640x640/","/"));
-		// 				$(next_elem[i]).data("src", $(next_elem[i]).data("src").replace("/s640x640/","/"));
-		// 			}
-		// 		}
-		// 	}
-
-		// 	// Fetch high res image for the previous 2 asynchronously
-		// 	for (var i = 0; i < 2; i++) {
-		// 		prev_elem[i] = $(element).prevAll(".image-preview-link").eq(i);
-		// 		// console.log($(prev_elem[i]).data("src").replace("/s640x640/sh0.08/","/"));
-		// 		if (prev_elem[i]) {
-		// 			if(prev_elem[i].data("type") === 'image' ){
-		// 				prev_elem[i].find('img').attr('src', $(prev_elem[i]).data("src").replace("/s640x640/","/"));
-		// 				$(prev_elem[i]).data("src", $(prev_elem[i]).data("src").replace("/s640x640/","/"));
-		// 			}
-		// 		}
-		// 	}
-		// }
 	}
 
 	function resetPreviewModalInfo(){
@@ -1465,31 +1447,6 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 	});
 
 
-    /*$('body').bind('swipeone', function (event, obj) {
-	   var direction=obj.description.split(":")[2]
-	   if (($("#image-details-modal").css('display') === 'block') && ($(window).width() < 1024 )) {	
-	   	   	if (direction=="left"){
-		   	    showNextImage("mob");
-		   	    console.log("Left");
-		   	} else if (direction=="right"){
-		   	    showPrevImage("mob");
-		   	    console.log("Right");
-
-		   	} else if (direction=="up"){
-		   	    console.log("Up");
-
-		   		event.stopImmediatePropagation();
-    			event.preventDefault();
-		   	} else if (direction=="down"){
-		   	    console.log("Down");
-
-		   		event.stopImmediatePropagation();
-    			event.preventDefault();
-		   	}
-	   }
-
-	}); */
-
 
 	$(".image-preview-modal").on("swipeleft",function(){
 		if (($(window).width() < 1024 )) {
@@ -1529,6 +1486,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
         	feed.next();
 		});
 	}
+
 
 	function changeLanguage(lang){
 		if(lang === "en"){
@@ -1577,10 +1535,8 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 		} else {
 			if(st > 800){
 		    	$(".horizontal-calendar-container").addClass("horizontal-calendar-container-show");
-		    	$(".entries-container").addClass("pt80");
 		    } else {
 		    	$(".horizontal-calendar-container").removeClass("horizontal-calendar-container-show");
-		    	$(".entries-container").removeClass("pt80");
 		    }
 		}
 		if (st > 600) {
@@ -1592,32 +1548,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 	});
 
 
-	// $(window).scroll(function() {
-	//   if ($(window).scrollTop() > 200) {
-	// 		$(".float-counter").addClass("float-counter-hidden");
-	// 		$(".float-counter-container").addClass("float-counter-container-hidden");
-	//   } else if($(window).scrollTop() < 200) {
-	// 		$(".float-counter").removeClass("float-counter-hidden");
-	// 		$(".float-counter-container").removeClass("float-counter-container-hidden");
-	//   }
-	// });
-
-
   </script>
-
-<!-- <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59778875d6173eac"></script>  -->
-
-<!-- <script type="text/javascript">
-var addthis_share = addthis_share || {}
-addthis_share = {
-	passthrough : {
-		twitter: {
-			text: "Celebrate this #Onam with #30daysofMalayalamLetters #typography #malayalam",
-			via: "KDcotweets"
-		}
-	}
-}
-</script> -->
 
 </body>
 </html>
