@@ -1033,8 +1033,7 @@ a.linked:hover, a.linked:active{
 
 
 .horizontal-calendar-container{
-	border-top: 1px solid rgba(0, 0, 0, 0.1);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	border-bottom: 5px solid #2781f0;
 	background: #fff;
 	position: fixed;
 	top: -80px;
