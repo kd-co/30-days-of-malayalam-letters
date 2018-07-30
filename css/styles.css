@@ -1033,7 +1033,7 @@ a.linked:hover, a.linked:active{
 
 
 .horizontal-calendar-container{
-	border-bottom: 5px solid #2781f0;
+	border-bottom: 3px solid #2781f0;
 	background: #fff;
 	position: fixed;
 	top: -80px;
@@ -1113,7 +1113,7 @@ a.linked:hover, a.linked:active{
 }
 
 .intro-hero-container{
-	margin: 20px 0px;
+	margin: 30px 0px;
 }
 .intro-hero-item{
 	background-size: cover !important;
