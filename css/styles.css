@@ -56,6 +56,7 @@ html, body{
 .intro-section{
 	background: #1476F8;
 	padding-bottom: 40px;
+	height: 100vh;
 }
 
 .logo-container{
@@ -1113,7 +1114,7 @@ a.linked:hover, a.linked:active{
 }
 
 .intro-hero-container{
-	margin: 50px 0px;
+	margin: 40px 0px;
 }
 .intro-hero-item{
 	background-size: cover !important;
@@ -1123,6 +1124,7 @@ a.linked:hover, a.linked:active{
 }
 .intro-hero-item-1{
 	height: 600px;
+	width: 640px;
 	border: 5px solid rgba(255, 255, 255, 1);
 	background: #fff;
 }
@@ -1237,9 +1239,7 @@ a.linked:hover, a.linked:active{
 }
 
 .week:first-of-type .day:first-of-type {
-  /*margin-left: 42.85714%;*/
-	flex-grow: 3.35;
-	box-shadow: none;
+  margin-left: 42.85714%;
 }
 
 .week:last-of-type .day:last-of-type {
@@ -1264,6 +1264,33 @@ a.linked:hover, a.linked:active{
     -1px -1px #fff, 
     inset -1px -1px 0 0 #fff;
 }
+.calendar-header-mask{
+    position: absolute;
+    display: block;
+    background: #1476F8;
+    left: 0px;
+    top: 0px;
+    width: 42.85714%;
+    height: 62px;
+    box-shadow: none !important;
+    padding: 7px 0px !important;
+    margin: 0px !important;
+    z-index: 9;
+    border-right: 5px solid #fff;
+    border-bottom: 5px solid #fff;
+}
+.calendar-footer-mask{
+	position: absolute;
+    display: block;
+    background: #1476F8;
+    right: 0px;
+    bottom: -10px;
+    width: 29%;
+    height: 62px;
+    z-index: 9;
+    border-left: 5px solid #fff;
+    border-top: 5px solid #fff;
+}
 .day-selected{
 	color: #1476F8;
 	background-color: #fff !important; 
@@ -1274,6 +1301,7 @@ a.linked:hover, a.linked:active{
 
 .intro-calendar{
 	margin-bottom: 20px;
+	border: 5px solid #fff;
 }
 .intro-calendar-letter-item{
 	display: block;
@@ -1600,12 +1628,16 @@ a.linked:hover, a.linked:active{
 	.month {
     	width: calc( 100vw - 30px );
 	}
-	.week:first-of-type .day:first-of-type {
-    	flex-grow: 3.5;	
+	.calendar-header-mask{
+
+	}
+	.calendar-footer-mask {
+		width: 29.5%;
 	}
 	.intro-hero-container {
     	margin: 20px 0px;
 	}
 	.intro-section {
     	padding-bottom: 10px;
+    	height: auto;
 	}
