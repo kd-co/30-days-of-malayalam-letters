@@ -1055,7 +1055,7 @@ a.linked:hover, a.linked:active{
 	text-align: center;
 	outline: none !important;
 	cursor: pointer;
-	padding: 12px 0px;
+	padding: 9px 0px;
 	transition: all 0.1s ease-in;
 	background: #fff;
 }
@@ -1074,7 +1074,7 @@ a.linked:hover, a.linked:active{
 }
 
 .calendar-slider-header{
-	font-size: 40px;
+	font-size: 32px;
 	font-family: 'Rachana';
 	font-weight: 700;
 	color: #1476F8;
@@ -1082,11 +1082,11 @@ a.linked:hover, a.linked:active{
 	line-height: 1;
 }
 .calendar-slider-sub-header{
-	font-size: 12px;
+	font-size: 10px;
 	text-transform: uppercase;
 	margin: 0px;
 	paint-order: relative;
-	top: -1px;
+	top: -3px;
 	color: #999;
 }
 .calendar-slider-item-selected .calendar-slider-header{
@@ -1100,7 +1100,7 @@ a.linked:hover, a.linked:active{
 	position: absolute;
 	color: #666;
 	font-size: 21px;
-	top: 27px;
+	top: 18px;
 }
 .calendar-slider-nav.slick-disabled{
 	pointer-events: none;
@@ -1114,7 +1114,7 @@ a.linked:hover, a.linked:active{
 }
 
 .intro-hero-container{
-	margin: 40px 0px;
+	margin: 50px 0px;
 }
 .intro-hero-item{
 	background-size: cover !important;
@@ -1123,7 +1123,7 @@ a.linked:hover, a.linked:active{
 	position: relative;
 }
 .intro-hero-item-1{
-	height: 600px;
+	height: 550px;
 	width: 600px;
 	border: 5px solid rgba(255, 255, 255, 1);
 	background: #fff;
