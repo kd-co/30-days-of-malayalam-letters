@@ -263,6 +263,14 @@ span.at4-share-count-container{
 	transform: scale(1);
 	transition: all 0.2s ease-in;
 }
+.instagram-container-lg a{
+	height: 340px !important;
+	width: 340px !important;
+}
+.instagram-container-lg img{
+	height: 340px !important;
+	width: 340px !important;
+}
 .instagram-gallery-container{
 	display: none;
 }
