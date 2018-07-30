@@ -314,9 +314,9 @@
   							</div>
   							<div class="col-md-12 col-xs-6">
   								<div class="intro-hero-item intro-hero-item-3">
-		  							<!-- <a class="intro-calendar-hover" href="#calendar-modal" rel="leanModal">
+		  							<a class="intro-calendar-hover" href="#calendar-modal" rel="leanModal">
 		  								View detailed calendar
-		  							</a> -->
+		  							</a>
 		  							<div class="intro-calendar month web-only">
 									  <div class="week">
 									    <div class="day" data-intro-day="1">
@@ -330,11 +330,11 @@
 									    <div class="day" data-intro-day="3">
 									    	<span class="day-count"></span>
 											<span class="intro-calendar-letter-item"></span>
-									    3</div>
+									    </div>
 									    <div class="day" data-intro-day="4">
 									    	<span class="day-count"></span>
 											<span class="intro-calendar-letter-item"></span>
-									    4</div>
+									    </div>
 									  </div>
 									  <div class="week">
 									    <div class="day" data-intro-day="5">
@@ -654,9 +654,12 @@
 
 
 
-<div id="calendar-modal" class="kdco-modal">
+<div id="calendar-modal" class="kdco-modal" style="bottom: auto;">
   <div class="inner-modal">
   	<h4 class="info-section-header" style="margin-top: 0px;"><a class="modal-back-btn"><span class="kdcoicon-arrow-left"></span></a>Calendar</h4>
+  	<p class="info-section-paragraph">
+		ഓരോ ദിവസവും നിശ്ചയിച്ചിരിക്കുന്ന അക്ഷരങ്ങൾ കണ്ടു പിടിക്കാൻ ഈ കലണ്ടർ ഉപയോഗിക്കാം.
+	</p>
     <div class="intro-calendar month web-only">
       <div class="week">
         <div class="day" data-intro-day="1">
@@ -670,11 +673,11 @@
         <div class="day" data-intro-day="3">
           <span class="day-count"></span>
         <span class="intro-calendar-letter-item"></span>
-        3</div>
+        </div>
         <div class="day" data-intro-day="4">
           <span class="day-count"></span>
         <span class="intro-calendar-letter-item"></span>
-        4</div>
+        </div>
       </div>
       <div class="week">
         <div class="day" data-intro-day="5">
@@ -951,12 +954,12 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 	console.log("Day: ", day, ", date: ", date);
 
 	// Logic to turn the current day selected on the calendar
-	//$('*[data-day="' + day + '"]').addClass("calendar-slider-item-selected");
-	//$('*[data-day="' + day + '"]').data("selected", true);
+	$('*[data-day="' + day + '"]').addClass("calendar-slider-item-selected");
+	$('*[data-day="' + day + '"]').data("selected", true);
 
 	for (i=1; i<=30; i++) {
 		$('*[data-intro-day="' + i + '"]').find(".day-count").text(i);
-		$('*[data-intro-day="' + i + '"]').find(".intro-calendar-letter-item").text(letters_data[i]);
+		$('*[data-intro-day="' + i + '"]').find(".intro-calendar-letter-item").text(letters_data[i-1]);
 	}
 
 	for (i=day+1; i<=30; i++) {
@@ -967,7 +970,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 		$('.calendar-slider-container').slick({
 	  	infinite: false,
 			slidesToShow: 6,
-			initialSlide: day,
+			initialSlide: 0,
 			slidesToScroll: 3,
 			prevArrow: `<a class="calendar-slider-nav slider-nav-left">
 						<span class="kdcoicon-arrow-left"></span>
@@ -980,7 +983,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 		$('.calendar-slider-container').slick({
 	  	infinite: false,
 			slidesToShow: 12,
-			initialSlide: day,
+			initialSlide: 0,
 			slidesToScroll: 3,
 			prevArrow: `<a class="calendar-slider-nav slider-nav-left">
 						<span class="kdcoicon-arrow-left"></span>
@@ -1002,7 +1005,6 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
   	$(elem).addClass("calendar-slider-item-selected");
   	if($(elem).data("selected")==false){
   		$(elem).data("selected", true);
-	  	$(elem).find(".calendar-slider-sub-header").text("Aug " + $(elem).data("day"));
   	} else {
   		$(elem).data("selected", false);
   // 		for (i=1; i<=30; i++) {
