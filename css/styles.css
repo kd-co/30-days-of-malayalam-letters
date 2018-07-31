@@ -53,6 +53,27 @@ html, body{
 	-webkit-font-smoothing: antialiased;
 }
 
+.montserrat-black{
+	font-family: 'Montserrat';
+	font-weight: 900;
+}
+.rachana-bold{
+	font-family: 'Rachana';
+	font-weight: 800;
+}
+.rachana-regular{
+	font-family: 'Rachana';
+	font-weight: 400;
+}
+.info-section-header .rachana-bold{
+	font-size: 150%;
+    line-height: 0.1;
+}
+
+.uppercase{
+	text-transform: uppercase;
+}
+
 .intro-section{
 	background: #1476F8;
 	padding-bottom: 40px;
@@ -232,10 +253,10 @@ span.at4-share-count-container{
 	position: relative;
 }
 
-[data-lang="ml"] .info-section-paragraph {
+[data-lang="ml"] .info-section-paragraph, .info-section-paragraph[data-lang="ml"], .info-section-paragraph.data-lang-ml {
 	font-family: 'Rachana';
 	font-weight: 400;
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	line-height: 1.5;
 }
 
@@ -1266,6 +1287,7 @@ a.linked:hover, a.linked:active{
   flex-shrink: 1;
   flex-basis: 0;
   position: relative;
+  display: block;
 }
 
 .week:first-of-type .day:first-of-type {
@@ -1323,6 +1345,43 @@ a.linked:hover, a.linked:active{
     border-left: 5px solid #fff;
     border-top: 5px solid #fff;
 }
+.letter-header-container{
+  	display: flex;
+  	flex-direction: row;
+  	align-items: stretch;
+  	width: 100%;
+  	height: auto;
+}
+.letter-header-container > .left {
+	margin-right: 30px;
+}
+.letter-header-container > .right {
+  flex: 1; 
+}
+.calendar-letter-main{
+	font-size: 9rem;
+	line-height: 5rem;
+	margin: 0px;
+	text-align: left;
+    font-family: 'Rachana';
+    font-weight: 800;
+}
+.calendar-letter-sub{
+	height: 68px;
+    width: auto;
+    border: 1px solid #ddd;
+    margin: 0px 10px 10px 0px;
+    font-size: 2rem;
+    font-family: 'Rachana';
+    font-weight: 800;
+    display: inline-block;
+    padding: 17px;
+    text-align: center;
+}
+.letter-header-container{
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
 .day-selected{
 	color: #1476F8;
 	background-color: #fff !important; 
@@ -1346,8 +1405,12 @@ a.linked:hover, a.linked:active{
 	font-size: 24px;
 	font-family: 'Rachana';
 	font-weight: 400;
-    padding-top: 18px;
+    padding-top: 15px;
   	color: rgba(255,255,255,1);
+  	transition: all 0.1s ease-in;
+}
+.intro-calendar-letter-item:hover{
+	background: rgba(255,255,255,0.3);
 }
 .intro-calendar-hover{
 	opacity: 0;
@@ -1422,10 +1485,20 @@ a.linked:hover, a.linked:active{
 	font-family: 'Montserrat';
 	font-weight: 400;
 }
+.easter-egg-ru{
+	font-size: 18px;
+}
 
 
 
 @media(max-width: 800px){
+	.calendar-letter-sub {
+    	height: 56px;
+	    padding: 14px 20px;
+	}
+	.calendar-letter-main {
+		font-size: 7rem !important;
+	}
 	.horizontal-calendar-container {
 		padding: 15px 0px;
 	    z-index: 999;
@@ -1537,7 +1610,7 @@ a.linked:hover, a.linked:active{
  	}
  	.header-hash{
  		margin: 70px 0px;
- 		font-size: 1.4rem;
+ 		font-size: 1.3rem;
  		display: block;
  	}
  	.sticky-header {
