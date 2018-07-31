@@ -1505,8 +1505,13 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 				console.log(image, "Featured image");
 			    $(".intro-hero-item-1").css('background-image', 'url(' + image.images.standard_resolution.url + ')');
 				$("#about-section").removeClass("hide");
-				$(".featured-image-details").text('@' + image.user.username);
-				$(".featured-image-details").attr("href", 'https://www.instagram.com/' + image.user.username);
+				if (image.caption.text.split("#repost ")[1]) {
+					var user_name = image.caption.text.split("#repost ")[1].split(" ")[0].split("\u2022")[0].split("@")[1];
+					user_name = user_name.slice(0,-2);
+					console.log(user_name);
+					$(".featured-image-details").text('@' + user_name);
+					$(".featured-image-details").attr("href", image.link);
+				}
 			}
 	    });
 	}
