@@ -680,7 +680,7 @@
 	  		</div>
 	  		<div class="right">
 	  			<p class="info-section-paragraph data-lang-ml">
-					ഈ അക്ഷരത്തിന്റെ സ്വരശബ്ദങ്ങളും, ചില്ലുകളും ചേർന്ന രൂപഭേദങ്ങളും, മറ്റു വ്യഞ്ജനങ്ങളോട് ചേരുന്ന കൂട്ടക്ഷര രൂപങ്ങളും, അവയുടെ തന്നെ പഴയതും പുതിയതുമായ എഴുത്തു രീതികളും തിരഞ്ഞെടുക്കാവുന്നതാണ്. താഴെ ചില ഉദാഹരണങ്ങൾ കാണാം.
+					ഈ അക്ഷരത്തിന്റെ സ്വരശബ്ദങ്ങളും, ചില്ലുകളും ചേർന്ന രൂപഭേദങ്ങളും, മറ്റു വ്യഞ്ജനങ്ങളോട് ചേരുന്ന കൂട്ടക്ഷര രൂപങ്ങളും, അവയുടെ തന്നെ പഴയതും പുതിയതുമായ എഴുത്തു രീതികളും തിരഞ്ഞെടുക്കാവുന്നതാണ്. ഉദാഹരണങ്ങൾ താഴെ.
 				</p>
 	  		</div>
 	  	</div>
@@ -1342,7 +1342,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
   	$("#instagram").empty();
 	filtered_feed = new Instafeed({
 		get: 'tagged',
-		tagName: 'Day' + getDoubleDigitNumner(day),
+		tagName: 'day' + getDoubleDigitNumber(day),
 		userId: 5764236759,
 		clientId: 'a6d0f90ada0b4fa18102601da6d31327',
 		accessToken: '5764236759.a6d0f90.4e015d5d35734d3f849edfea0473abe1',
@@ -1401,7 +1401,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 
   function calendarItemClick(elem){
 
-  	//generateFilteredFeed($(elem).data('day'));
+  	generateFilteredFeed($(elem).data('day'));
 
   	console.log(elem, $(elem).data("selected"));
   	$(elem).addClass("calendar-slider-item-selected");
@@ -1748,7 +1748,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 		}
 	});
 
-	function getDoubleDigitNumner(num){
+	function getDoubleDigitNumber(num){
 		return (("0" + num).slice(-2));
 	}
 
@@ -1756,7 +1756,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 		var letter_sub_template = ``;
 		var day = $(item).data("intro-day");
 		console.log(day);
-		$(".calendar-detail-header").text("Day " + getDoubleDigitNumner(day));
+		$(".calendar-detail-header").text("Day " + getDoubleDigitNumber(day));
 		$(".calendar-letter-main").text(letters_data[day].letter);
 		if(letters_data[day].letter==='ഋ'){
 			$(".easter-egg-ru").removeClass("hide");
