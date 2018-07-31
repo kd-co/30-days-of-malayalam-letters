@@ -3,7 +3,7 @@
 
 /* Manjari */
 @font-face {
-	font-family: 'Manjari';
+	font-family: 'Rachana';
 	font-style: normal;
 	font-weight: 400;
 	src: url(https://smc.org.in/downloads/fonts/manjari/Manjari-Regular.woff2?v=1.0) format('woff2'), url(https://smc.org.in/downloads/fonts/manjari/Manjari-Regular.woff?v=1.0) format('woff'), url(https://smc.org.in/downloads/fonts/manjari/Manjari-Regular.ttf?v=1.0) format('truetype');
@@ -12,7 +12,7 @@
 
 /* Manjari Bold*/
 @font-face {
-	font-family: 'Manjari';
+	font-family: 'Rachana';
 	font-style: normal;
 	font-weight: 700;
 	src: url(https://smc.org.in/downloads/fonts/manjari/Manjari-Bold.woff2?v=1.0) format('woff2'), url(https://smc.org.in/downloads/fonts/manjari/Manjari-Bold.woff?v=1.0) format('woff'), url(https://smc.org.in/downloads/fonts/manjari/Manjari-Bold.ttf?v=1.0) format('truetype');
@@ -21,7 +21,7 @@
 
 /* Manjari Thin*/
 @font-face {
-	font-family: 'Manjari';
+	font-family: 'Rachana';
 	font-style: normal;
 	font-weight: 100;
 	src: url(https://smc.org.in/downloads/fonts/manjari/Manjari-Thin.woff2?v=1.0) format('woff2'), url(https://smc.org.in/downloads/fonts/manjari/Manjari-Thin.woff?v=1.0) format('woff'), url(https://smc.org.in/downloads/fonts/manjari/Manjari-Thin.ttf?v=1.0) format('truetype');
@@ -1166,7 +1166,7 @@ a.linked:hover, a.linked:active{
 }
 .intro-hero-item-info-header{
 	font-size: 28px;
-	font-family: 'Manjari';
+	font-family: 'Rachana';
 	font-weight: 700;
 	color: #222;
 	line-height: 1;
@@ -1176,7 +1176,7 @@ a.linked:hover, a.linked:active{
 }
 .intro-hero-item-info-desc{
 	font-size: 16px;
-	font-family: 'Manjari';
+	font-family: 'Rachana';
 	font-weight: 400;
 	color: #777;
 	line-height: 1;
@@ -1222,7 +1222,7 @@ a.linked:hover, a.linked:active{
 }
 .intro-hero-item-letter-day{
     font-size: 140px;
-    font-family: 'Manjari';
+    font-family: 'Rachana';
     font-weight: 700;
     color: #333;
     padding-top: 30px;
@@ -1375,6 +1375,10 @@ a.linked:hover, a.linked:active{
 	display: inline-block;
 	margin: 10px 0px 0px 0px;
 	box-shadow: inset 0 -1px 0 0 #fff, inset 0 -3px 0 0 #fff;
+}
+.main-link [data-lang='ml']{
+	font-family: 'Rachana';
+	font-weight: 800;
 }
 .day .main-link{
 	margin: 0px;
