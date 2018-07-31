@@ -291,7 +291,7 @@
   									</div>
   								</div>
   							</div> -->
-  							<p class="featured-image-details"></p>
+  							<a class="featured-image-details animated fadeIn" target="_blank" href=""></a>
   						</div>
   					</div>
   					<div class="col-md-5 col-centered">
@@ -1216,6 +1216,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 			    $(".intro-hero-item-1").css('background-image', 'url(' + image.images.standard_resolution.url + ')');
 				$("#about-section").removeClass("hide");
 				$(".featured-image-details").text('@' + image.user.username);
+				$(".featured-image-details").attr("href", 'https://www.instagram.com/' + image.user.username);
 			}
 	    });
 

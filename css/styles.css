@@ -1149,10 +1149,12 @@ a.linked:hover, a.linked:active{
 	background: #fff;
 }
 .featured-image-details{
+	display: block;
+	margin: 0px;
 	position: absolute;
-    bottom: -40px;
+    bottom: -30px;
     color: #fff;
-    left: -5px;
+    left: -7px;
     font-size: 13px;
 }
 .intro-hero-item-2, .intro-hero-item-3{
