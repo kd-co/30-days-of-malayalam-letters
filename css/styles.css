@@ -187,7 +187,7 @@ span.at4-share-count-container{
 }
 
 .sub-header[data-lang="ml"]{
-	font-family:"Manjari";	
+	font-family:"Rachana";	
 }
 
 .logo-container img{
@@ -198,14 +198,16 @@ span.at4-share-count-container{
 	margin: 50px 0px;
 }
 .info-section-header{
-	font-size: 2rem;
+	font-size: 1.6rem;
 	color: #333;
 	margin: 20px 0px 20px 0px;
 	font-weight: 300;
 }
 
-.info-section-header[data-lang="ml"] {
-    font-family: "Manjari";
+[data-lang="ml"] .info-section-header {
+	font-family: 'Rachana';
+	font-weight: 400;
+	font-size: 2rem;
 }
 
 .info-section-desc{
@@ -224,11 +226,19 @@ span.at4-share-count-container{
 .info-section-paragraph{
 	font-size: 16px;
 	color: #666;
-	line-height: 1.6;
+	line-height: 1.7;
 	margin: 0px 0px 15px 0px;
 	font-weight: 400;
 	position: relative;
 }
+
+[data-lang="ml"] .info-section-paragraph {
+	font-family: 'Rachana';
+	font-weight: 400;
+	font-size: 1.2rem;
+	line-height: 1.5;
+}
+
 .info-section-list-item{
 	font-size: 16px;
 	color: #666;
@@ -237,6 +247,12 @@ span.at4-share-count-container{
 	font-weight: 400;
 	position: relative;
 	padding-left: 35px;
+}
+[data-lang="ml"] .info-section-list-item{
+	font-family: 'Rachana';
+	font-weight: 400;
+	font-size: 1.2rem;
+	line-height: 1.5;	
 }
 .info-section-list-item::before{
 	height: 8px;
@@ -832,7 +848,12 @@ a.linked:hover, a.linked:active{
 	background: #fff;
 	padding: 20px;
 	/*box-shadow: 0px -3px 10px rgba(0,0,0,0.1);*/
+}
 
+.modal-cta-container [data-lang="ml"]{
+	font-family: 'Rachana';
+	font-weight: 800;
+	font-size: 1.2rem;
 }
 
 .social-links{
@@ -1182,8 +1203,9 @@ a.linked:hover, a.linked:active{
 	background: transparent;
 	border: none;
 	outline: none;
-	color: rgba(255, 255, 255, 0.6);
-
+	color: rgba(255, 255, 255, 0.8);
+	font-family: 'Montserrat';
+	font-weight: 400;
 	-webkit-appearance: none;
     background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='16' height='16' viewBox='0 0 24 24'><path fill='#eee' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
     background-position-y: 50%;
