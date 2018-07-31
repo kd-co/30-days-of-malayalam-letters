@@ -309,7 +309,7 @@
 							    	</div>
 		  							<div class="intro-calendar month">
 									  <div class="week">
-									    <a class="day" href="#calendar-modal" rel="leanModal" data-intro-day="1">
+									    <a class="day day-selected" href="#calendar-modal" rel="leanModal" data-intro-day="1">
 									    	<span class="day-count"></span>
 											<span class="intro-calendar-letter-item"></span>
 									    </a>
@@ -1213,6 +1213,9 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 	var date = new Date();
 	var day = date.getDate();
 
+	//generateFilteredFeed(1);
+	generateNormalFeed();
+
 	console.log("Day: ", day, ", date: ", date);
 
 	// Logic to turn the current day selected on the calendar
@@ -1264,21 +1267,22 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 
 
 
-  function generateFilteredFeed(day){
-  	  	filtered_feed = new Instafeed({
-			get: 'tagged',
-			tagName: 'Day' + day,
+
+    function generateNormalFeed(){
+  	  	normal_feed = new Instafeed({
+			get: 'user',
 			userId: 5764236759,
 			clientId: 'a6d0f90ada0b4fa18102601da6d31327',
-			accessToken: '5764236759.1677ed0.694cbbcffddc47bd9a83b5e251e3ad5c',
+			accessToken: '5764236759.a6d0f90.4e015d5d35734d3f849edfea0473abe1',
 			target: 'instagram',
 			resolution: 'standard_resolution',
 			sortBy: sort_criteria,
-			limit: 20,
+			limit: num,
 			before: function(){
 				//setCounterDetails();
 			},
 			filter: function(image) {
+				console.log(image);
 				var caption = image.caption.text.replace(/["']/g, "&quot;");
 				if (caption.split("#repost ")[1]) {
 					var user_name = caption.split("#repost ")[1].split(" ")[0].split("\u2022")[0].split("@")[1];
@@ -1325,15 +1329,79 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 
 			},
 			template: '{{model.template}}',
+		});
+
+  		normal_feed.run();
+  }
+
+
+
+
+  function generateFilteredFeed(day){
+  	hideGallery();
+  	$("#instagram").empty();
+	filtered_feed = new Instafeed({
+		get: 'tagged',
+		tagName: 'Day' + getDoubleDigitNumner(day),
+		userId: 5764236759,
+		clientId: 'a6d0f90ada0b4fa18102601da6d31327',
+		accessToken: '5764236759.a6d0f90.4e015d5d35734d3f849edfea0473abe1',
+		target: 'instagram',
+		resolution: 'standard_resolution',
+		sortBy: sort_criteria,
+		limit: 20,
+		before: function(){
+			//setCounterDetails();
+		},
+		filter: function(image) {
+			console.log(image);
+			var caption = image.caption.text.replace(/["']/g, "&quot;");
+			if (caption.split("#repost ")[1]) {
+				var user_name = caption.split("#repost ")[1].split(" ")[0].split("\u2022")[0].split("@")[1];
+				user_name = user_name.slice(0,-2);
+			}
+			//console.log(user_name);
+            if (image.type == 'image') {
+            	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-username="' + user_name + '" data-src="' + image.images.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '"><img src="' + image.images.standard_resolution.url + '"/></a>'
+            } else {
+            	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-play_circle_filled video-thumb-indicator"></span></a>'
+            }
+            return true;
+      	},
+		after: function() {
+		    images_loaded += num;
+			showGallery();
+			if (!this.hasNext()) {
+            	$(".load-more-button").fadeOut("fast", function(){
+            		$(".instagram-feed-end").fadeIn("fast");
+            	});
+        	} else {
+        		$(".load-more-button").fadeIn("fast");
+        	}
+			var images = $("#instagram").find('a').slice().slice(images_loaded - num, images_loaded);
+ 			$.each(images, function(index, image) {
+			  // console.log(index);
+		      var delay = (index * 100) + 'ms';
+		      $(image).css('-webkit-animation-delay', delay);
+		      $(image).css('-moz-animation-delay', delay);
+		      $(image).css('-ms-animation-delay', delay);
+		      $(image).css('-o-animation-delay', delay);
+		      $(image).css('animation-delay', delay);
+		      $(image).addClass('animated fadeIn');
+		    });
+			$('a[rel*=leanModal]').leanModal({ top : 50});	
+			randomSortCriteria();
+		},
+		template: '{{model.template}}',
 	});
+
+	filtered_feed.run();
   }
 
 
   function calendarItemClick(elem){
 
-  	generateFilteredFeed($(elem).data('day'));
-
-  	//filtered_feed.run();
+  	//generateFilteredFeed($(elem).data('day'));
 
   	console.log(elem, $(elem).data("selected"));
   	$(elem).addClass("calendar-slider-item-selected");
@@ -1362,6 +1430,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
     }
 
     function showGalleryLoader(){
+    	$(".instagram-gallery-container").fadeOut("fast");
   	 	$(".instagram-gallery-loader").fadeIn("fast");
     }
 
@@ -1422,7 +1491,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 	        get: 'user',
 			userId: 5764236759,
 			clientId: 'a6d0f90ada0b4fa18102601da6d31327',
-			accessToken: '5764236759.1677ed0.694cbbcffddc47bd9a83b5e251e3ad5c',
+			accessToken: '5764236759.a6d0f90.4e015d5d35734d3f849edfea0473abe1',
 			target: 'instagram',
 			resolution: 'standard_resolution',
 			sortBy: 'most-recent',
@@ -1437,117 +1506,117 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 				$(".featured-image-details").attr("href", 'https://www.instagram.com/' + image.user.username);
 			}
 	    });
-
-	  	feed = new Instafeed({
-				get: 'user',
-				userId: 5764236759,
-				clientId: 'a6d0f90ada0b4fa18102601da6d31327',
-				accessToken: '5764236759.1677ed0.694cbbcffddc47bd9a83b5e251e3ad5c',
-				target: 'instagram',
-				resolution: 'standard_resolution',
-				sortBy: sort_criteria,
-				limit: num,
-				before: function(){
-					//setCounterDetails();
-				},
-				filter: function(image) {
-					console.log(image);
-					var caption = image.caption.text.replace(/["']/g, "&quot;");
-					if (caption.split("#repost ")[1]) {
-						var user_name = caption.split("#repost ")[1].split(" ")[0].split("\u2022")[0].split("@")[1];
-						user_name = user_name.slice(0,-2);
-					}
-					//console.log(user_name);
-	                if (image.type == 'image') {
-	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-username="' + user_name + '" data-src="' + image.images.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '"><img src="' + image.images.standard_resolution.url + '"/></a>'
-	                } else {
-	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-play_circle_filled video-thumb-indicator"></span></a>'
-	                }
-	                return true;
-              	},
-				after: function() {
-				    images_loaded += num;
-					console.log("images loaded: " + images_loaded);
-					showGallery();
-					if (!this.hasNext()) {
-	                	$(".load-more-button").fadeOut("fast", function(){
-	                		$(".instagram-feed-end").fadeIn("fast");
-	                	});
-	            	} else {
-	            		$(".load-more-button").fadeIn("fast");
-	            	}
-					var images = $("#instagram").find('a').slice().slice(images_loaded - num, images_loaded);
-	     			$.each(images, function(index, image) {
-					  // console.log(index);
-				      var delay = (index * 100) + 'ms';
-				      $(image).css('-webkit-animation-delay', delay);
-				      $(image).css('-moz-animation-delay', delay);
-				      $(image).css('-ms-animation-delay', delay);
-				      $(image).css('-o-animation-delay', delay);
-				      $(image).css('animation-delay', delay);
-				      $(image).addClass('animated fadeIn');
-				    });
-					$('a[rel*=leanModal]').leanModal({ top : 50});	
-					randomSortCriteria();
-					setTimeout(function(){
-						if(counter_shown === false){
-							$(".float-counter").removeClass("float-counter-hidden");
-							counter_shown = true;
-						}
-					}, 1000);
-
-				},
-				template: '{{model.template}}',
-		});
-	} else {
-		feed = new Instafeed({
-				get: 'user',
-				userId: 5764236759,
-				clientId: 'a6d0f90ada0b4fa18102601da6d31327',
-				accessToken: '5764236759.1677ed0.694cbbcffddc47bd9a83b5e251e3ad5c',
-				target: 'instagram',
-				resolution: 'low_resolution',
-				sortBy: sort_criteria,
-				limit: 20,
-				filter: function(image) {
-					console.log(image);
-					var caption = image.caption.text.replace(/["']/g, "&quot;");					
-	                if (image.type == 'image') {
-	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.images.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '"><img src="' + image.images.standard_resolution.url + '" /></a>'
-	                } else {
-	                	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-play_circle_filled video-thumb-indicator"></span></a>'
-	                }
-	                return true;
-              	},
-				after: function() {
-				    images_loaded += num;
-					// console.log("images loaded: " + images_loaded);
-					showGallery();
-					if (!this.hasNext()) {
-	                	$(".load-more-button").fadeOut("fast", function(){
-	                		$(".instagram-feed-end").fadeIn("fast");
-	                	});
-	            	} else {
-	            		$(".load-more-button").fadeIn("fast");
-	            	}
-					var images = $("#instagram").find('a').slice().slice(images_loaded - num, images_loaded);
-	     			$.each(images, function(index, image) {
-					  // console.log(index);
-				      var delay = (index * 100) + 'ms';
-				      $(image).css('-webkit-animation-delay', delay);
-				      $(image).css('-moz-animation-delay', delay);
-				      $(image).css('-ms-animation-delay', delay);
-				      $(image).css('-o-animation-delay', delay);
-				      $(image).css('animation-delay', delay);
-				      $(image).addClass('animated fadeIn');
-				    });
-					$('a[rel*=leanModal]').leanModal({ top : 50});	
-					randomSortCriteria();
-
-				},
-				template: '{{model.template}}',
-		});
 	}
+	//   	feed = new Instafeed({
+				// get: 'user',
+				// userId: 5764236759,
+				// clientId: 'a6d0f90ada0b4fa18102601da6d31327',
+				// accessToken: '5764236759.a6d0f90.4e015d5d35734d3f849edfea0473abe1',
+				// target: 'instagram',
+				// resolution: 'standard_resolution',
+				// sortBy: sort_criteria,
+				// limit: num,
+				// before: function(){
+				// 	//setCounterDetails();
+				// },
+				// filter: function(image) {
+				// 	console.log(image);
+				// 	var caption = image.caption.text.replace(/["']/g, "&quot;");
+				// 	if (caption.split("#repost ")[1]) {
+				// 		var user_name = caption.split("#repost ")[1].split(" ")[0].split("\u2022")[0].split("@")[1];
+				// 		user_name = user_name.slice(0,-2);
+				// 	}
+				// 	//console.log(user_name);
+	   //              if (image.type == 'image') {
+	   //              	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-username="' + user_name + '" data-src="' + image.images.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '"><img src="' + image.images.standard_resolution.url + '"/></a>'
+	   //              } else {
+	   //              	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-play_circle_filled video-thumb-indicator"></span></a>'
+	   //              }
+	   //              return true;
+    //           	},
+				// after: function() {
+				//     images_loaded += num;
+				// 	console.log("images loaded: " + images_loaded);
+				// 	showGallery();
+				// 	if (!this.hasNext()) {
+	   //              	$(".load-more-button").fadeOut("fast", function(){
+	   //              		$(".instagram-feed-end").fadeIn("fast");
+	   //              	});
+	   //          	} else {
+	   //          		$(".load-more-button").fadeIn("fast");
+	   //          	}
+				// 	var images = $("#instagram").find('a').slice().slice(images_loaded - num, images_loaded);
+	   //   			$.each(images, function(index, image) {
+				// 	  // console.log(index);
+				//       var delay = (index * 100) + 'ms';
+				//       $(image).css('-webkit-animation-delay', delay);
+				//       $(image).css('-moz-animation-delay', delay);
+				//       $(image).css('-ms-animation-delay', delay);
+				//       $(image).css('-o-animation-delay', delay);
+				//       $(image).css('animation-delay', delay);
+				//       $(image).addClass('animated fadeIn');
+				//     });
+				// 	$('a[rel*=leanModal]').leanModal({ top : 50});	
+				// 	randomSortCriteria();
+				// 	setTimeout(function(){
+				// 		if(counter_shown === false){
+				// 			$(".float-counter").removeClass("float-counter-hidden");
+				// 			counter_shown = true;
+				// 		}
+				// 	}, 1000);
+
+				// },
+				// template: '{{model.template}}',
+	// 	});
+	// } else {
+	// 	feed = new Instafeed({
+	// 			get: 'user',
+	// 			userId: 5764236759,
+	// 			clientId: 'a6d0f90ada0b4fa18102601da6d31327',
+	// 			accessToken: '5764236759.a6d0f90.4e015d5d35734d3f849edfea0473abe1',
+	// 			target: 'instagram',
+	// 			resolution: 'low_resolution',
+	// 			sortBy: sort_criteria,
+	// 			limit: 20,
+	// 			filter: function(image) {
+	// 				console.log(image);
+	// 				var caption = image.caption.text.replace(/["']/g, "&quot;");					
+	//                 if (image.type == 'image') {
+	//                 	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.images.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '"><img src="' + image.images.standard_resolution.url + '" /></a>'
+	//                 } else {
+	//                 	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-play_circle_filled video-thumb-indicator"></span></a>'
+	//                 }
+	//                 return true;
+ //              	},
+	// 			after: function() {
+	// 			    images_loaded += num;
+	// 				// console.log("images loaded: " + images_loaded);
+	// 				showGallery();
+	// 				if (!this.hasNext()) {
+	//                 	$(".load-more-button").fadeOut("fast", function(){
+	//                 		$(".instagram-feed-end").fadeIn("fast");
+	//                 	});
+	//             	} else {
+	//             		$(".load-more-button").fadeIn("fast");
+	//             	}
+	// 				var images = $("#instagram").find('a').slice().slice(images_loaded - num, images_loaded);
+	//      			$.each(images, function(index, image) {
+	// 				  // console.log(index);
+	// 			      var delay = (index * 100) + 'ms';
+	// 			      $(image).css('-webkit-animation-delay', delay);
+	// 			      $(image).css('-moz-animation-delay', delay);
+	// 			      $(image).css('-ms-animation-delay', delay);
+	// 			      $(image).css('-o-animation-delay', delay);
+	// 			      $(image).css('animation-delay', delay);
+	// 			      $(image).addClass('animated fadeIn');
+	// 			    });
+	// 				$('a[rel*=leanModal]').leanModal({ top : 50});	
+	// 				randomSortCriteria();
+
+	// 			},
+	// 			template: '{{model.template}}',
+	// 	});
+	// }
 
 	var next_elem = [];
 	var prev_elem = [];
@@ -1751,7 +1820,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 
         changeLanguage("en");
 
-		feed.run();
+		//feed.run();
 		featured_image.run();
 	});
 
