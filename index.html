@@ -1222,7 +1222,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 	console.log("Day: ", day, ", date: ", date);
 
 	// Logic to turn the current day selected on the calendar
-	$('*[data-day="' + day + '"]').addClass("calendar-slider-item-selected");
+	//$('*[data-day="' + day + '"]').addClass("calendar-slider-item-selected");
 	$('*[data-day="' + day + '"]').data("selected", true);
 
 	for (i=1; i<=30; i++) {
@@ -1412,9 +1412,9 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
   		$(elem).data("selected", true);
   	} else {
   		$(elem).data("selected", false);
-        // for (i=1; i<=30; i++) {
-		// 	$('*[data-day="' + i + '"]').addClass("calendar-slider-item-disabled");
-		// }
+        for (i=1; i<=30; i++) {
+			$('*[data-day="' + i + '"]').addClass("calendar-slider-item-disabled");
+		}
   	}
   }
 
