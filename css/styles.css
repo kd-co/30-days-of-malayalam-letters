@@ -1166,16 +1166,16 @@ a.linked:hover, a.linked:active{
 .intro-hero-item-1{
 	height: 525px;
 	width: 525px;
-	border: 5px solid rgba(255, 255, 255, 1);
+	/*border: 5px solid rgba(255, 255, 255, 1);*/
 	background: #fff;
 }
 .featured-image-details{
 	display: block;
 	margin: 0px;
 	position: absolute;
-    bottom: -30px;
+    bottom: -25px;
     color: #fff;
-    left: -7px;
+    left: 0px;
     font-size: 13px;
 }
 .intro-hero-item-2, .intro-hero-item-3{
