@@ -82,9 +82,13 @@ html, body{
 
 .logo-container{
 	opacity: 1;
-	top: 5px;
+	top: 8px;
 	left: 0px;
 	position: relative;
+}
+.logo-container svg{
+	height: 48px;
+	width: 56px;
 }
 
 .logo-container:hover{
