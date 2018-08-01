@@ -1474,6 +1474,7 @@ a.linked:hover, a.linked:active{
 	position: absolute;
 	left: 0px;
 	top: 0px;
+	opacity: 0.6;
 	max-width: 44px;
 }
 .instagram-follow-container-header{

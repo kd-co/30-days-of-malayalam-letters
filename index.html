@@ -1275,14 +1275,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 
   	console.log(elem, $(elem).data("selected"));
   	$(elem).addClass("calendar-slider-item-selected");
-  	if($(elem).data("selected")==false){
-  		$(elem).data("selected", true);
-  	} else {
-  		$(elem).data("selected", false);
-        for (i=1; i<=30; i++) {
-			$('*[data-day="' + i + '"]').addClass("calendar-slider-item-disabled");
-		}
-  	}
+
   }
 
 
