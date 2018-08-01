@@ -1371,7 +1371,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 				user_name = user_name.slice(0,-2);
 			}
 			//console.log(user_name);
-            if (image.type == 'image') {
+            if (image.type == 'image' || image.type == 'carousel') {
             	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-username="' + user_name + '" data-src="' + image.images.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '"><img src="' + image.images.standard_resolution.url + '"/></a>'
             } else {
             	image.template = '<a href="#image-details-modal" rel="leanModal" class="image-preview-link trigger-modal-btn" data-src="' + image.videos.standard_resolution.url + '" data-caption="' + caption + '" data-link="' + image.link + '" id="' + image.id + '" data-type="' + image.type + '" data-poster="' + image.images.standard_resolution.url + '"><img src="' + image.images.standard_resolution.url + '" /><span class="kdcoicon-play_circle_filled video-thumb-indicator"></span></a>'
