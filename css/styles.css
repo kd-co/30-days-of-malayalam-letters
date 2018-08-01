@@ -1131,10 +1131,10 @@ a.linked:hover, a.linked:active{
 	color: #999;
 }
 .calendar-slider-item-selected .calendar-slider-header{
-	color: #fff;
+	color: #1476F8;
 }
 .calendar-slider-item-selected .calendar-slider-sub-header{
-	color: rgba(255,255,255,0.7);
+	color: #999;
 	font-weight: bold;
 }
 .calendar-slider-nav{
