@@ -280,7 +280,7 @@
   			<div class="intro-hero-container">
   				<div class="row center">
   					<div class="col-md-6 web-only col-centered">
-  						<div class="intro-hero-item intro-hero-item-1 animated fadeIn">
+  						<a class="intro-hero-item intro-hero-item-1 animated fadeIn" href="" target="_blank">
   							<!-- <div class="intro-hero-item-info">
   								<div class="row">
   									<div class="col-xs-6">
@@ -291,8 +291,8 @@
   									</div>
   								</div>
   							</div> -->
-  							<a class="featured-image-details animated fadeIn" target="_blank" href=""></a>
-  						</div>
+  							<!-- <a class="featured-image-details animated fadeIn" target="_blank" href=""></a> -->
+  						</a>
   					</div>
   					<div class="col-md-5 col-centered">
   						<div class="row">
@@ -1516,8 +1516,8 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 					var user_name = image.caption.text.toLowerCase().split("#repost ")[1].split(" ")[0].split("\u2022")[0].split("@")[1];
 					//user_name = user_name.slice(0,-2);
 					console.log(user_name);
-					$(".featured-image-details").text('@' + user_name);
-					$(".featured-image-details").attr("href", image.link);
+					//$(".featured-image-details").text('@' + user_name);
+					$(".intro-hero-item-1").attr("href", image.link);
 				}
 			}
 	    });
