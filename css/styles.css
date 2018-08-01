@@ -82,8 +82,8 @@ html, body{
 
 .logo-container{
 	opacity: 1;
-	top: -8px;
-	left: -4px;
+	top: 5px;
+	left: 0px;
 	position: relative;
 }
 
@@ -1637,10 +1637,12 @@ a.linked:hover, a.linked:active{
 	body{
 		overflow-x: hidden;
 	}
-	.logo-container .main-logo{
-		width: 88px;
-		height: 60px;
-		margin-top: 5px;
+	.logo-container{
+		top: 0px;
+	}
+	.logo-container svg{
+		height: 40px;
+		width: 48px;
 	}
 	.logo-container .main-logo #logotype{
 		opacity: .7;
