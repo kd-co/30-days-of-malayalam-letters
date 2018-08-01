@@ -1514,7 +1514,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 				$("#about-section").removeClass("hide");
 				if (image.caption.text.toLowerCase().split("#repost ")[1]) {
 					var user_name = image.caption.text.toLowerCase().split("#repost ")[1].split(" ")[0].split("\u2022")[0].split("@")[1];
-					user_name = user_name.slice(0,-2);
+					//user_name = user_name.slice(0,-2);
 					console.log(user_name);
 					$(".featured-image-details").text('@' + user_name);
 					$(".featured-image-details").attr("href", image.link);
