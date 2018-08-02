@@ -1152,10 +1152,12 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 			filter: function(image) {
 				console.log(image);
 				if(image.created_time > 1533058200){
-					var caption = image.caption.text.replace(/["']/g, "&quot;");
-					if (caption.split("#repost ")[1]) {
-						var user_name = caption.split("#repost ")[1].split(" ")[0].split("\u2022")[0].split("@")[1];
-						user_name = user_name.slice(0,-2);
+					if(image.caption){
+						var caption = image.caption.text.replace(/["']/g, "&quot;");
+						if (caption.split("#repost ")[1]) {
+							var user_name = caption.split("#repost ")[1].split(" ")[0].split("\u2022")[0].split("@")[1];
+							user_name = user_name.slice(0,-2);
+						}
 					}
 					//console.log(user_name);
 	                if (image.type == 'image' || image.type == 'carousel') {
@@ -1365,12 +1367,14 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 				console.log(image, "Featured image");
 			    $(".intro-hero-item-1").css('background-image', 'url(' + image.images.standard_resolution.url + ')');
 				$("#about-section").removeClass("hide");
-				if (image.caption.text.toLowerCase().split("#repost ")[1]) {
-					var user_name = image.caption.text.toLowerCase().split("#repost ")[1].split(" ")[0].split("\u2022")[0].split("@")[1];
-					//user_name = user_name.slice(0,-2);
-					console.log(user_name);
-					//$(".featured-image-details").text('@' + user_name);
-					$(".intro-hero-item-1").attr("href", image.link);
+				if(image.caption){
+					if (image.caption.text.toLowerCase().split("#repost ")[1]) {
+						var user_name = image.caption.text.toLowerCase().split("#repost ")[1].split(" ")[0].split("\u2022")[0].split("@")[1];
+						//user_name = user_name.slice(0,-2);
+						console.log(user_name);
+						//$(".featured-image-details").text('@' + user_name);
+						$(".intro-hero-item-1").attr("href", image.link);
+					}
 				}
 			}
 	    });
