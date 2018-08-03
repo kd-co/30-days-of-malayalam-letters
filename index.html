@@ -180,7 +180,7 @@
 									    	<span class="day-count"></span>
 											<span class="intro-calendar-letter-item"></span>
 									    </a>
-									    <a class="day day-selected" href="#calendar-modal" rel="leanModal" data-intro-day="3">
+									    <a class="day" href="#calendar-modal" rel="leanModal" data-intro-day="3">
 									    	<span class="day-count"></span>
 											<span class="intro-calendar-letter-item"></span>
 									    </a>
@@ -1087,7 +1087,7 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 	console.log("Day: ", day, ", date: ", date);
 
 	// Logic to turn the current day selected on the calendar
-	//$('*[data-day="' + day + '"]').addClass("calendar-slider-item-selected");
+	$('*[data-intro-day="' + day + '"]').addClass("day-selected");
 	$('*[data-day="' + day + '"]').data("selected", true);
 
 	for (i=1; i<=30; i++) {
