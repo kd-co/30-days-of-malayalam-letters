@@ -1153,16 +1153,10 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 				console.log(image);
 				if(image.created_time > 1533058200){
 					if(image.caption){
-						var caption = image.caption.text.replace(/["']/g, "&quot;");
-						if (caption.split("#repost ")[1]) {
-							var user_name = caption.split("#repost ")[1].split(" ")[0].split("\u2022")[0].split("@")[1];
-							if(user_name){
-								user_name = user_name.slice(0,-2);
-							}
-						}
-						if (caption.split("#day")[1]) {
-							var daycode = getDoubleDigitNumber(caption.split("#day")[1].substring(0,2));
-							if(daycode==getDoubleDigitNumber(day)){
+
+						if (image.caption.text.toLowerCase().split("#day")[1]) {
+							var daycode = image.caption.text.toLowerCase().split("#day")[1].substring(0,2);
+							if(Number(getDoubleDigitNumber(daycode))===Number(getDoubleDigitNumber(day))){
 								console.log("Matches day!");
 							} else {
 								console.log("Incorrect day code");
@@ -1171,6 +1165,15 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 						} else {
 							return false;
 						}
+
+						var caption = image.caption.text.replace(/["']/g, "&quot;");
+						if (caption.split("#repost ")[1]) {
+							var user_name = caption.split("#repost ")[1].split(" ")[0].split("\u2022")[0].split("@")[1];
+							if(user_name){
+								user_name = user_name.slice(0,-2);
+							}
+						}
+						
 					}
 					//console.log(user_name);
 	                if (image.type == 'image' || image.type == 'carousel') {
