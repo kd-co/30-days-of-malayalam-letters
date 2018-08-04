@@ -1160,6 +1160,17 @@ KDCo ലോഗോ വാട്ടർമാർക് ആയി ചേർക്ക
 								user_name = user_name.slice(0,-2);
 							}
 						}
+						if (caption.split("#day")[1]) {
+							var daycode = getDoubleDigitNumber(caption.split("#day")[1].substring(0,2));
+							if(daycode==getDoubleDigitNumber(day)){
+								console.log("Matches day!");
+							} else {
+								console.log("Incorrect day code");
+								return false;
+							}
+						} else {
+							return false;
+						}
 					}
 					//console.log(user_name);
 	                if (image.type == 'image' || image.type == 'carousel') {
